@@ -595,7 +595,7 @@ MonoBehaviour:
   enemy2: {fileID: 763469895}
   enemy3: {fileID: 1837094297}
   enemy4: {fileID: 998612482}
-  percentEncounterChance: 50
+  percentEncounterChance: 100
   toMoveList: []
   hasMovedList: []
 --- !u!4 &863845851
