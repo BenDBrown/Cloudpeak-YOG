@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPartyManager : MonoBehaviour
 {
-
+    
     private void Start()
     {
         
