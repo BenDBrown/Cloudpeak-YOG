@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PlayerPartyManager : MonoBehaviour
 {
+    public Combatant Icarus;
+    public Combatant Magnus;
+    public Combatant Kena;
+    public Combatant Lysithea;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    
 }

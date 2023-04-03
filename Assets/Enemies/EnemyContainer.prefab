@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5053754514901237264}
   - component: {fileID: 5053754514901237265}
-  - component: {fileID: 5053754514901237266}
+  - component: {fileID: 6168544875306307468}
+  - component: {fileID: 1637165863707812913}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5053754514901237266
+--- !u!114 &6168544875306307468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,9 +95,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 5053754514901237267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4955379831e064840b7a5fb9a400a5f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackName: Spider Bite
+  dmgMod: 1
+  dmgInput: 0
+  dmgOutput: 0
+  canHitSlot1: 1
+  canHitSlot2: 1
+  canHitSlot3: 1
+  canHitSlot4: 1
+--- !u!114 &1637165863707812913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5053754514901237267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2ef5d6d50dbd446a39711eef5f7fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitalityBase: 10
+  physicalAttackBase: 10
+  magicalAttackBase: 10
+  physicalDefenseBase: 10
+  magicalDefenseBase: 10
+  speedBase: 50
+  vitalityGrowth: 1
+  physicalAttackGrowth: 1
+  magicalAttackGrowth: 1
+  physicalDefenseGrowth: 1
+  magicalDefenseGrowth: 1
+  speedGrowth: 1
+  level: 10
+  vitality: 0
+  physicalAttack: 0
+  magicalAttack: 0
+  physicalDefense: 0
+  magicalDefense: 0
+  speed: 0
+  hp: 0
+  combatantName: Spider
+  isAlly: 0
+  attack1: {fileID: 6168544875306307468}
+  attack2: {fileID: 6168544875306307468}
+  attack3: {fileID: 6168544875306307468}
+  attack4: {fileID: 6168544875306307468}
 --- !u!1 &5053754515648326177
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +154,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5053754515648326182}
   - component: {fileID: 5053754515648326183}
-  - component: {fileID: 5053754515648326176}
+  - component: {fileID: 8984267263239929137}
+  - component: {fileID: 1609741023095121788}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -182,7 +230,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5053754515648326176
+--- !u!114 &8984267263239929137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,9 +239,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 5053754515648326177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43aa79598b0182247afa23a2271dc225, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackName: Ra-ta-ta
+  dmgMod: 1
+  dmgInput: 0
+  dmgOutput: 0
+  canHitSlot1: 1
+  canHitSlot2: 1
+  canHitSlot3: 1
+  canHitSlot4: 1
+--- !u!114 &1609741023095121788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5053754515648326177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2ef5d6d50dbd446a39711eef5f7fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitalityBase: 10
+  physicalAttackBase: 10
+  magicalAttackBase: 10
+  physicalDefenseBase: 10
+  magicalDefenseBase: 10
+  speedBase: 10
+  vitalityGrowth: 1
+  physicalAttackGrowth: 1
+  magicalAttackGrowth: 1
+  physicalDefenseGrowth: 1
+  magicalDefenseGrowth: 1
+  speedGrowth: 1
+  level: 10
+  vitality: 0
+  physicalAttack: 0
+  magicalAttack: 0
+  physicalDefense: 0
+  magicalDefense: 0
+  speed: 0
+  hp: 0
+  combatantName: Rat
+  isAlly: 0
+  attack1: {fileID: 8984267263239929137}
+  attack2: {fileID: 8984267263239929137}
+  attack3: {fileID: 8984267263239929137}
+  attack4: {fileID: 8984267263239929137}
 --- !u!1 &5053754516189804630
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5053754516189804628}
-  - component: {fileID: 5053754516189804629}
+  - component: {fileID: 1880489822}
   m_Layer: 0
   m_Name: EnemyContainer
   m_TagString: Untagged
@@ -228,7 +322,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5053754516189804629
+--- !u!114 &1880489822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,9 +331,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5053754516189804630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80bd2f865298de549876f702cf6d97c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f0f6a2d37fa69446a82fc072321b15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SizeOfSpawnPool: 2
-  spider: {fileID: 5053754514901237266}
-  rat: {fileID: 5053754515648326176}
+  enemy1: {fileID: 1637165863707812913}
+  enemy2: {fileID: 1609741023095121788}
