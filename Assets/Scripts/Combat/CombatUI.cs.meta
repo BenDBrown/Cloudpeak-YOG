@@ -3,7 +3,27 @@ guid: 46ee24da5ac03884fbfbf21b52bf9f6f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - combatManager: {instanceID: 0}
+  - AttackPanel: {instanceID: 0}
+  - EnemyHealthDisplay: {instanceID: 0}
+  - DialogBox: {instanceID: 0}
+  - PC1Name: {instanceID: 0}
+  - PC2Name: {instanceID: 0}
+  - PC3Name: {instanceID: 0}
+  - PC4Name: {instanceID: 0}
+  - PC1Health: {instanceID: 0}
+  - PC2Health: {instanceID: 0}
+  - PC3Health: {instanceID: 0}
+  - PC4Health: {instanceID: 0}
+  - enemy1Name: {instanceID: 0}
+  - enemy2Name: {instanceID: 0}
+  - enemy3Name: {instanceID: 0}
+  - enemy4Name: {instanceID: 0}
+  - enemy1Health: {instanceID: 0}
+  - enemy2Health: {instanceID: 0}
+  - enemy3Health: {instanceID: 0}
+  - enemy4Health: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

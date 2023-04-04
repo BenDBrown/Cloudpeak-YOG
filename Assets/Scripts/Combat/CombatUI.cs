@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CombatUI : MonoBehaviour
 {
@@ -12,28 +13,28 @@ public class CombatUI : MonoBehaviour
     public GameObject DialogBox;
 
     //// name spaces for player characters
-    //public Text PC1Name;
-    //public Text PC2Name;
-    //public Text PC3Name;
-    //public Text PC4Name;
+    public TextMeshProUGUI PC1Name;
+    public TextMeshProUGUI PC2Name;
+    public TextMeshProUGUI PC3Name;
+    public TextMeshProUGUI PC4Name;
 
     //// health for player characters
-    //public Text PC1Health;
-    //public Text PC2Health;
-    //public Text PC3Health;
-    //public Text PC4Health;
+    public TextMeshProUGUI PC1Health;
+    public TextMeshProUGUI PC2Health;
+    public TextMeshProUGUI PC3Health;
+    public TextMeshProUGUI PC4Health;
 
     //// name spaces for enemies
-    //public Text enemy1Name;
-    //public Text enemy2Name;
-    //public Text enemy3Name;
-    //public Text enemy4Name;
+    public TextMeshProUGUI enemy1Name;
+    public TextMeshProUGUI enemy2Name;
+    public TextMeshProUGUI enemy3Name;
+    public TextMeshProUGUI enemy4Name;
 
     //// health for enemy characters
-    //public Text enemy1Health;
-    //public Text enemy2Health;
-    //public Text enemy3Health;
-    //public Text enemy4Health;
+    public TextMeshProUGUI enemy1Health;
+    public TextMeshProUGUI enemy2Health;
+    public TextMeshProUGUI enemy3Health;
+    public TextMeshProUGUI enemy4Health;
 
 
     // Start is called before the first frame update
