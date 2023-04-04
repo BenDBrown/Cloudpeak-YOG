@@ -664,6 +664,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -162.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 863845850}
+    - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerAttack4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CombatManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Button4()
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5863789605236010621, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_Name
       value: Attack4Button
@@ -742,27 +774,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: afdb41e1d6b3a6c4c969dd3b161a9093, type: 3}
+      objectReference: {fileID: 863845850}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_name
+      value: PlayerAttack1
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: CombatManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: PlayerAttack1
+      value: Button1()
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -894,15 +926,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606054496862, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606054496862, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606054496862, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606075462135, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1128,6 +1160,38 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 863845850}
+    - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerAttack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CombatManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Button2()
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5863789606501724778, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_Name
       value: Attack2Button
@@ -1264,6 +1328,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5863789606794154287, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_text
+      value: 'Skill 1
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 5863789606859307729, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1303,6 +1373,38 @@ PrefabInstance:
     - target: {fileID: 5863789606933362962, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -162.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 863845850}
+    - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerAttack3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CombatManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Button3()
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606933362965, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_Name
