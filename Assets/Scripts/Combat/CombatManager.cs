@@ -76,6 +76,7 @@ public class CombatManager : MonoBehaviour
 
     void GiveTurn()
     {
+        combatUI.UpdateUI();
         float highestSpeed = 0;
         foreach(Combatant c in toMoveList)
         {

@@ -47,6 +47,29 @@ public class CombatUI : MonoBehaviour
         }
     }
 
+    public void UpdateUI()
+    {
+        PC1Name.text = combatManager.playerParty.Icarus.combatantName;
+        PC2Name.text = combatManager.playerParty.Magnus.combatantName;
+        PC3Name.text = combatManager.playerParty.Kena.combatantName;
+        PC4Name.text = combatManager.playerParty.Lysithea.combatantName;
+
+        enemy1Name.text = combatManager.enemy1.GetEnemy().combatantName;
+        enemy2Name.text = combatManager.enemy2.GetEnemy().combatantName;
+        enemy3Name.text = combatManager.enemy3.GetEnemy().combatantName;
+        enemy4Name.text = combatManager.enemy4.GetEnemy().combatantName;
+
+        PC1Health.text = combatManager.playerParty.Icarus.hp.ToString();
+        PC2Health.text = combatManager.playerParty.Magnus.hp.ToString();
+        PC3Health.text = combatManager.playerParty.Kena.hp.ToString();
+        PC4Health.text = combatManager.playerParty.Lysithea.hp.ToString();
+
+        enemy1Health.text = combatManager.enemy1.GetEnemy().hp.ToString();
+        enemy2Health.text = combatManager.enemy2.GetEnemy().hp.ToString();
+        enemy3Health.text = combatManager.enemy3.GetEnemy().hp.ToString();
+        enemy4Health.text = combatManager.enemy4.GetEnemy().hp.ToString();
+    }
+
     public void UpdateAttackPanel(Combatant combatant)
     {
         if(combatant.isAlly)

@@ -2205,22 +2205,22 @@ MonoBehaviour:
   AttackPanel: {fileID: 2063074476}
   EnemyHealthDisplay: {fileID: 1560993414}
   DialogBox: {fileID: 1984888404}
-  PC1Name: {fileID: 0}
-  PC2Name: {fileID: 0}
-  PC3Name: {fileID: 0}
-  PC4Name: {fileID: 0}
-  PC1Health: {fileID: 0}
-  PC2Health: {fileID: 0}
-  PC3Health: {fileID: 0}
-  PC4Health: {fileID: 0}
-  enemy1Name: {fileID: 0}
-  enemy2Name: {fileID: 0}
-  enemy3Name: {fileID: 0}
-  enemy4Name: {fileID: 0}
-  enemy1Health: {fileID: 0}
-  enemy2Health: {fileID: 0}
-  enemy3Health: {fileID: 0}
-  enemy4Health: {fileID: 0}
+  PC1Name: {fileID: 926462250}
+  PC2Name: {fileID: 1737772518}
+  PC3Name: {fileID: 65841413}
+  PC4Name: {fileID: 1600949780}
+  PC1Health: {fileID: 1600199049}
+  PC2Health: {fileID: 64427920}
+  PC3Health: {fileID: 846398774}
+  PC4Health: {fileID: 958152815}
+  enemy1Name: {fileID: 506999864}
+  enemy2Name: {fileID: 333075193}
+  enemy3Name: {fileID: 2125952510}
+  enemy4Name: {fileID: 1974027733}
+  enemy1Health: {fileID: 1132554274}
+  enemy2Health: {fileID: 171775880}
+  enemy3Health: {fileID: 424898672}
+  enemy4Health: {fileID: 1366416321}
 --- !u!114 &1366416321 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789606174366266, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
