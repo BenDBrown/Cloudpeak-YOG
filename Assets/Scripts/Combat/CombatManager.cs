@@ -76,7 +76,6 @@ public class CombatManager : MonoBehaviour
 
     void GiveTurn()
     {
-        combatUI.UpdateUI();
         float highestSpeed = 0;
         foreach(Combatant c in toMoveList)
         {
@@ -87,6 +86,7 @@ public class CombatManager : MonoBehaviour
                 turnCombatant = c;
             }
         }
+        combatUI.UpdateUI();
         Debug.Log(turnCombatant.combatantName + " is attacking");
         if(turnCombatant.isAlly)
         {
@@ -184,6 +184,11 @@ public class CombatManager : MonoBehaviour
     public int GetFloor()
     {
         return 10;
+    }
+
+    public Combatant GetTurnCombatant()
+    {
+        return turnCombatant;
     }
 
 }

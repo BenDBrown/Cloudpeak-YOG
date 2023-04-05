@@ -36,8 +36,22 @@ public class CombatUI : MonoBehaviour
     public TextMeshProUGUI enemy3Health;
     public TextMeshProUGUI enemy4Health;
 
+    // the text on the attack buttons
+    public TextMeshProUGUI characterSkill1;
+    public TextMeshProUGUI characterSkill2;
+    public TextMeshProUGUI characterSkill3;
+    public TextMeshProUGUI characterSkill4;
 
-    // Start is called before the first frame update
+    // the cursors that appear when targeting an enemy'
+    public GameObject allyCursor1;
+    public GameObject allyCursor2;
+    public GameObject allyCursor3;
+    public GameObject allyCursor4;
+    public GameObject enemyCursor1;
+    public GameObject enemyCursor2;
+    public GameObject enemyCursor3;
+    public GameObject enemyCursor4;
+
     void Start()
     {
         if (combatManager.AreWeFighting())
@@ -68,6 +82,14 @@ public class CombatUI : MonoBehaviour
         enemy2Health.text = combatManager.enemy2.GetEnemy().hp.ToString();
         enemy3Health.text = combatManager.enemy3.GetEnemy().hp.ToString();
         enemy4Health.text = combatManager.enemy4.GetEnemy().hp.ToString();
+
+        if (combatManager.GetTurnCombatant().isAlly)
+        {
+            characterSkill1.text = combatManager.GetTurnCombatant().attack1.attackName;
+            characterSkill2.text = combatManager.GetTurnCombatant().attack2.attackName;
+            characterSkill3.text = combatManager.GetTurnCombatant().attack3.attackName;
+            characterSkill4.text = combatManager.GetTurnCombatant().attack4.attackName;
+        }
     }
 
     public void UpdateAttackPanel(Combatant combatant)

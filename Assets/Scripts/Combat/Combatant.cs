@@ -59,29 +59,32 @@ public class Combatant : MonoBehaviour
     {
         float damage;
         didIMove = true;
-        if(attack.dmgInput == 0)
+        if (target.IsDead() == false)
         {
-            damage = physicalAttack * attack.dmgMod;
-            damage += Random.Range(-damage*0.1f, damage*0.1f);
-            Debug.Log(combatantName + " used " + attack.attackName + ", pre-mitigation damage: " + damage);
+            if (attack.dmgInput == 0)
+            {
+                damage = physicalAttack * attack.dmgMod;
+                damage += Random.Range(-damage * 0.1f, damage * 0.1f);
+                Debug.Log(combatantName + " used " + attack.attackName + ", pre-mitigation damage: " + damage);
+            }
+            else
+            {
+                damage = magicalAttack * attack.dmgMod;
+                damage += Random.Range(-damage * 0.1f, damage * 0.1f);
+                Debug.Log(combatantName + " used " + attack.attackName + ", pre-mitigation damage: " + damage);
+            }
+            target.GetAttacked(damage, attack.dmgOutput, attack.statusEffect);
         }
-        else
-        {
-            damage = magicalAttack * attack.dmgMod;
-            damage += Random.Range(-damage * 0.1f, damage * 0.1f);
-            Debug.Log(combatantName + " used " + attack.attackName + ", pre-mitigation damage: " + damage);
-        }
-        target.GetAttacked(damage, attack.dmgOutput);
     }
 
-    public void GetAttacked(float damage, int dmgType)
+    public void GetAttacked(float damage, int dmgType, StatusEffect statusEffect)
     {
         Debug.Log(combatantName + " had " + hp + " pre damage hp");
         if (dmgType == 0)
         {
             damage -= physicalDefense / 2;
         }
-        else
+        else if (dmgType == 1)
         {
             damage -= magicalDefense / 2;
         }
@@ -91,8 +94,17 @@ public class Combatant : MonoBehaviour
             Debug.Log(combatantName + " died");
             dead = true;
         }
+        if(statusEffect != null)
+        {
+            GetStatused(statusEffect);
+        }
         Debug.Log(combatantName + " took " + damage + " post mitigation damage");
         Debug.Log("post damage hp: " + hp);
+    }
+
+    public void GetStatused(StatusEffect statusEffect)
+    {
+
     }
 
     public bool DidYouMove()
