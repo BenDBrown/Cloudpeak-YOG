@@ -9,16 +9,27 @@ public class RoomTemplate : MonoBehaviour
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
     //These will be the arrays for a of the rooms we make
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject closedRooms;
+
+    public List<GameObject> rooms;
+    public float WaitTime;
+    public GameObject Stairs;
+    private bool spawnedStairs;
+   
+
+    private void Update()
     {
-        
+        if (WaitTime <= 0 && spawnedStairs == false)
+        {
+            
+                Instantiate(Stairs, rooms[rooms.Count - 1].transform.position, Quaternion.identity);
+                spawnedStairs = true;
+            
+        }
+        else
+        {
+            WaitTime -= Time.deltaTime;
+        }
     }
 }

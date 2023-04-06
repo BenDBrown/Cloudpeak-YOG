@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 6297812960069976145}
   - component: {fileID: 6112118094519119429}
   - component: {fileID: 7823648220437674833}
+  - component: {fileID: 4905013041052633752}
   m_Layer: 0
   m_Name: Spawnpoint
   m_TagString: Spawnpoint
@@ -560,6 +561,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4905013041052633752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060614050186298613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a399048b64caa41b28de69ce8bba82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 0
 --- !u!1 &1283445472413880693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,6 +2312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8611336942303380584}
+  - component: {fileID: 8501981503733639535}
   m_Layer: 0
   m_Name: TB
   m_TagString: Untagged
@@ -2321,6 +2336,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8501981503733639535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6161193778466366841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248fda107e03e884682061a43f504991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6455968441792138292
 GameObject:
   m_ObjectHideFlags: 0

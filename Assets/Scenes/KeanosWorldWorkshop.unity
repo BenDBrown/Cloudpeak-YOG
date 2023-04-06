@@ -123,6 +123,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &108763382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7793871814823629077, guid: f743c44c374526c4ba84ead590dfeec1, type: 3}
+  m_PrefabInstance: {fileID: 7793871814617996532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &108763387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108763382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a399048b64caa41b28de69ce8bba82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 0
 --- !u!1 &1176869852
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +326,8 @@ MonoBehaviour:
   - {fileID: 6077531242623982017, guid: ba1f7d6a4923e5147bdd46df5972cbca, type: 3}
   - {fileID: 4943334467825720097, guid: c6e4e15d5dd7ad54098095ea8394dfbb, type: 3}
   - {fileID: 2938119368473108714, guid: 66cafc5282b29004fb97356fb2340447, type: 3}
+  closedRooms: {fileID: 4102826205209053528, guid: 8bb2b3e783dd9f4478c056487e997269, type: 3}
+  rooms: []
 --- !u!4 &1369651480
 Transform:
   m_ObjectHideFlags: 0
@@ -353,15 +373,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7793871815213079957, guid: f743c44c374526c4ba84ead590dfeec1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7793871815213079957, guid: f743c44c374526c4ba84ead590dfeec1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7793871815213079957, guid: f743c44c374526c4ba84ead590dfeec1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.058924995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7793871815213079957, guid: f743c44c374526c4ba84ead590dfeec1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -402,5 +422,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7793871814823629077, guid: f743c44c374526c4ba84ead590dfeec1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 108763387}
   m_SourcePrefab: {fileID: 100100000, guid: f743c44c374526c4ba84ead590dfeec1, type: 3}

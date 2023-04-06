@@ -19,7 +19,7 @@ public class roomspawner : MonoBehaviour
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
  
-        Invoke("Spawn", 3.0f);
+        Invoke("Spawn", 0.2f);
         //this is to prevent rooms spawning in eachother by not having collition yet due to spawning to fast
     }
 
@@ -61,7 +61,13 @@ public class roomspawner : MonoBehaviour
         //this is to prevent rooms spawning in eachother
         if (collision.CompareTag("Spawnpoint"))
         {
-            Destroy(gameObject);
+            if(collision.GetComponent<roomspawner>().spawned == false && spawned == false)
+            {
+                Instantiate(templates.closedRooms, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+                //spawn a wall 
+            }
+            spawned = true;
         }
     }
 }
