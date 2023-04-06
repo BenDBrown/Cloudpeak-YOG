@@ -11,6 +11,7 @@ public class roomspawner : MonoBehaviour
     //4 --> need right door
 
     private RoomTemplate templates;
+    private int rand;
     private bool spawned = false;
 
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class roomspawner : MonoBehaviour
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
  
-        Invoke("Spawn", 0.1f);
+        Invoke("Spawn", 3.0f);
         //this is to prevent rooms spawning in eachother by not having collition yet due to spawning to fast
     }
 
@@ -29,32 +30,36 @@ public class roomspawner : MonoBehaviour
         {
             if (openingDirection == 1)
             {
+                rand = Random.Range(0, templates.bottomRooms.Length);
                 //Need to spawn room with bottom door
-                Instantiate(templates.bottomRooms[Random.Range(0, templates.bottomRooms.Length)], transform.position, Quaternion.identity);
+                Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
             }
             else if (openingDirection == 2)
             {
+                rand = Random.Range(0, templates.topRooms.Length);
                 //Need to spawn room with top door
-                Instantiate(templates.topRooms[Random.Range(0, templates.topRooms.Length)], transform.position, Quaternion.identity);
+                Instantiate(templates.topRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
             }
             else if (openingDirection == 3)
             {
+                rand = Random.Range(0, templates.leftRooms.Length);
                 // Need to spawn room with Left door
-                Instantiate(templates.leftRooms[Random.Range(0, templates.leftRooms.Length)], transform.position, Quaternion.identity);
+                Instantiate(templates.leftRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
             }
             else if (openingDirection == 4)
             {
+                rand = Random.Range(0, templates.rightRooms.Length);
                 // Need to spawn room with right door
-                Instantiate(templates.rightRooms[Random.Range(0, templates.rightRooms.Length)], transform.position, Quaternion.identity);
+                Instantiate(templates.rightRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
             }
             spawned = true;
         }
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+     void OnTriggerEnter2D(Collider2D collision)
     {
         //this is to prevent rooms spawning in eachother
-        if (collision.CompareTag("SpawnPoint") && collision.GetComponent<roomspawner>().spawned == true)
+        if (collision.CompareTag("Spawnpoint"))
         {
             Destroy(gameObject);
         }
