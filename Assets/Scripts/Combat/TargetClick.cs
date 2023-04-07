@@ -6,21 +6,33 @@ public class TargetClick : MonoBehaviour
 {
     private CombatManager combatManager;
     private CombatUI combatUI;
-    public int targetnr;
+    private Combatant combatant;
+    private bool isActive = false;
 
     void Awake()
     {
         combatManager = FindFirstObjectByType<CombatManager>();
         combatUI = FindFirstObjectByType<CombatUI>();
+        combatant = GetComponent<Combatant>();
     }
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && isActive == true)
         {
-            Debug.Log("u have ifed");
-            combatManager.PlayerAttack(targetnr);
+            combatManager.PlayerAttack(combatant);
+            combatUI.UpdateCursors();
         }
         
     }
+
+    public void SetActivity(bool Active)
+    {
+        if(combatant.IsDead() == false)
+        {
+            isActive = Active;
+        }
+ 
+    }
+
 }

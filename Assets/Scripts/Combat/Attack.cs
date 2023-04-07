@@ -25,6 +25,6 @@ public class Attack : MonoBehaviour
     // 2 = slot 2 etc
     public List<int> Targets;
 
-    public bool aoe;
+    public bool aoe = false;
 
 }

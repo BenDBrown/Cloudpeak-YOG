@@ -321,7 +321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e36fac9c90d1034291dd731e35d6558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetnr: 3
 --- !u!61 &45034319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -401,6 +400,10 @@ PrefabInstance:
       propertyPath: targetnr
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1223522002096569909, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr.Array.data[0]
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5053754514901237267, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -455,6 +458,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5957336200579438463, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: targetnr
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957336200579438463, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr.Array.data[0]
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
@@ -540,7 +547,7 @@ MonoBehaviour:
   statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
-  Targets: 
+  Targets: 04000000050000000600000007000000
   aoe: 0
 --- !u!114 &110349334 stripped
 MonoBehaviour:
@@ -722,7 +729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e36fac9c90d1034291dd731e35d6558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetnr: 1
 --- !u!61 &325415462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2174,6 +2180,10 @@ PrefabInstance:
       propertyPath: targetnr
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1223522002096569909, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5053754514901237267, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2228,6 +2238,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5957336200579438463, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: targetnr
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957336200579438463, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr.Array.data[0]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
@@ -2299,15 +2313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdb41e1d6b3a6c4c969dd3b161a9093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerParty: {fileID: 1196119705}
-  enemyParty: {fileID: 1108193362}
   enemy1: {fileID: 1880489822}
   enemy2: {fileID: 212825771}
   enemy3: {fileID: 1397251012}
   enemy4: {fileID: 2018958444}
-  combatUI: {fileID: 1263851640}
   percentEncounterChance: 100
-  toMoveList: []
 --- !u!4 &863845851
 Transform:
   m_ObjectHideFlags: 0
@@ -2540,7 +2550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e36fac9c90d1034291dd731e35d6558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetnr: 0
 --- !u!61 &1019600690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2630,12 +2639,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Broad slash
+  attackName: Heal
   dmgMod: 1
   statusEffect: {fileID: 0}
-  dmgInput: 0
-  dmgOutput: 0
-  Targets: 
+  dmgInput: 1
+  dmgOutput: 2
+  Targets: 00000000010000000200000003000000
   aoe: 0
 --- !u!114 &1104936797 stripped
 MonoBehaviour:
@@ -2838,7 +2847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e36fac9c90d1034291dd731e35d6558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetnr: 2
 --- !u!61 &1128774690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2939,13 +2947,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Heal
-  dmgMod: 0.5
+  attackName: Broad Slash
+  dmgMod: 0.7
   statusEffect: {fileID: 0}
-  dmgInput: 1
-  dmgOutput: 2
-  Targets: 
-  aoe: 0
+  dmgInput: 0
+  dmgOutput: 0
+  Targets: 0400000005000000
+  aoe: 1
 --- !u!1 &1176210662
 GameObject:
   m_ObjectHideFlags: 0
@@ -3083,7 +3091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ee24da5ac03884fbfbf21b52bf9f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatManager: {fileID: 863845850}
   AttackPanel: {fileID: 2063074476}
   EnemyHealthDisplay: {fileID: 1560993414}
   DialogBox: {fileID: 1984888404}
@@ -3210,6 +3217,10 @@ PrefabInstance:
       propertyPath: targetnr
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1223522002096569909, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr.Array.data[0]
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5053754514901237267, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3264,6 +3275,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5957336200579438463, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: targetnr
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957336200579438463, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr.Array.data[0]
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
@@ -3947,7 +3962,7 @@ MonoBehaviour:
   statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
-  Targets: 
+  Targets: 04000000050000000600000007000000
   aoe: 0
 --- !u!1 &2063074476 stripped
 GameObject:
@@ -4003,7 +4018,7 @@ MonoBehaviour:
   statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
-  Targets: 
+  Targets: 04000000050000000600000007000000
   aoe: 0
 --- !u!114 &2125952510 stripped
 MonoBehaviour:

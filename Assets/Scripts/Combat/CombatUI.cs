@@ -6,7 +6,7 @@ using TMPro;
 
 public class CombatUI : MonoBehaviour
 {
-    public CombatManager combatManager;
+    private CombatManager combatManager;
 
     public GameObject AttackPanel;
     public GameObject EnemyHealthDisplay;
@@ -52,12 +52,12 @@ public class CombatUI : MonoBehaviour
     public GameObject enemyCursor3;
     public GameObject enemyCursor4;
 
-    private int selectedAttack;
-
-    void Start()
+    void Awake()
     {
+        combatManager = FindFirstObjectByType<CombatManager>();
         if (combatManager.AreWeFighting())
         {
+            AttackPanel.SetActive(true);
             EnemyHealthDisplay.SetActive(true);
             DialogBox.SetActive(true);
         }
@@ -65,20 +65,20 @@ public class CombatUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        PC1Name.text = combatManager.playerParty.Icarus.combatantName;
-        PC2Name.text = combatManager.playerParty.Magnus.combatantName;
-        PC3Name.text = combatManager.playerParty.Kena.combatantName;
-        PC4Name.text = combatManager.playerParty.Lysithea.combatantName;
+        PC1Name.text = combatManager.GetPlayerParty().Icarus.combatantName;
+        PC2Name.text = combatManager.GetPlayerParty().Magnus.combatantName;
+        PC3Name.text = combatManager.GetPlayerParty().Kena.combatantName;
+        PC4Name.text = combatManager.GetPlayerParty().Lysithea.combatantName;
 
         enemy1Name.text = combatManager.enemy1.GetEnemy().combatantName;
         enemy2Name.text = combatManager.enemy2.GetEnemy().combatantName;
         enemy3Name.text = combatManager.enemy3.GetEnemy().combatantName;
         enemy4Name.text = combatManager.enemy4.GetEnemy().combatantName;
 
-        PC1Health.text = combatManager.playerParty.Icarus.hp.ToString();
-        PC2Health.text = combatManager.playerParty.Magnus.hp.ToString();
-        PC3Health.text = combatManager.playerParty.Kena.hp.ToString();
-        PC4Health.text = combatManager.playerParty.Lysithea.hp.ToString();
+        PC1Health.text = combatManager.GetPlayerParty().Icarus.hp.ToString();
+        PC2Health.text = combatManager.GetPlayerParty().Magnus.hp.ToString();
+        PC3Health.text = combatManager.GetPlayerParty().Kena.hp.ToString();
+        PC4Health.text = combatManager.GetPlayerParty().Lysithea.hp.ToString();
 
         enemy1Health.text = combatManager.enemy1.GetEnemy().hp.ToString();
         enemy2Health.text = combatManager.enemy2.GetEnemy().hp.ToString();
@@ -92,199 +92,93 @@ public class CombatUI : MonoBehaviour
             characterSkill3.text = combatManager.GetTurnCombatant().attack3.attackName;
             characterSkill4.text = combatManager.GetTurnCombatant().attack4.attackName;
         }
+        UpdateCursors();
     }
 
     public void UpdateCursors()
     {
-
-        if (selectedAttack == 1)
+        if(combatManager.GetSelectedAttack() != null)
         {
-            combatManager.SetSelectedAttack(combatManager.GetTurnCombatant().attack1);
-            foreach (int target in combatManager.GetTurnCombatant().attack1.Targets)
-            {
-                if (target == 0)
-                {
-                    allyCursor1.SetActive(true);
-                }
-                if (target == 1)
-                {
-                    allyCursor2.SetActive(true);
-                }
-                if (target == 2)
-                {
-                    allyCursor3.SetActive(true);
-                }
-                if (target == 3)
-                {
-                    allyCursor4.SetActive(true);
-                }
-                if (target == 4)
-                {
-                    Debug.Log("this should mean success");
-                    enemyCursor1.SetActive(true);
-                }
-                if (target == 5)
-                {
-                    enemyCursor2.SetActive(true);
-                }
-                if (target == 6)
-                {
-                    enemyCursor3.SetActive(true);
-                }
-                if (target == 7)
-                {
-                    enemyCursor4.SetActive(true);
-                }
-
-            }
-        }
-
-            else if (selectedAttack == 2)
-            {
-            combatManager.SetSelectedAttack(combatManager.GetTurnCombatant().attack2);
-            foreach (int target in combatManager.GetTurnCombatant().attack2.Targets)
-                {
-                    if (target == 0)
-                    {
-                        allyCursor1.SetActive(true);
-                    }
-                    if (target == 1)
-                    {
-                        allyCursor2.SetActive(true);
-                    }
-                    if (target == 2)
-                    {
-                        allyCursor3.SetActive(true);
-                    }
-                    if (target == 3)
-                    {
-                        allyCursor4.SetActive(true);
-                    }
-                    if (target == 4)
-                    {
-                        enemyCursor1.SetActive(true);
-                    }
-                    if (target == 5)
-                    {
-                        enemyCursor2.SetActive(true);
-                    }
-                    if (target == 6)
-                    {
-                        enemyCursor3.SetActive(true);
-                    }
-                    if (target == 7)
-                    {
-                        enemyCursor4.SetActive(true);
-                    }
-
-                }
-
-            }
-        else if (selectedAttack == 3)
+            AttackCursorSelect(combatManager.GetSelectedAttack());
+        }       
+        else
         {
-            combatManager.SetSelectedAttack(combatManager.GetTurnCombatant().attack3);
-            foreach (int target in combatManager.GetTurnCombatant().attack3.Targets)
-            {
-                if (target == 0)
-                {
-                    allyCursor1.SetActive(true);
-                }
-                if (target == 1)
-                {
-                    allyCursor2.SetActive(true);
-                }
-                if (target == 2)
-                {
-                    allyCursor3.SetActive(true);
-                }
-                if (target == 3)
-                {
-                    allyCursor4.SetActive(true);
-                }
-                if (target == 4)
-                {
-                    enemyCursor1.SetActive(true);
-                }
-                if (target == 5)
-                {
-                    enemyCursor2.SetActive(true);
-                }
-                if (target == 6)
-                {
-                    enemyCursor3.SetActive(true);
-                }
-                if (target == 7)
-                {
-                    enemyCursor4.SetActive(true);
-                }
-
-            }
+            allyCursor1.SetActive(false);
+            allyCursor2.SetActive(false);
+            allyCursor3.SetActive(false);
+            allyCursor4.SetActive(false);
+            enemyCursor1.SetActive(false);
+            enemyCursor2.SetActive(false);
+            enemyCursor3.SetActive(false);
+            enemyCursor4.SetActive(false);
+            combatManager.GetPlayerParty().Icarus.SetButton(false);
+            combatManager.GetPlayerParty().Magnus.SetButton(false);
+            combatManager.GetPlayerParty().Kena.SetButton(false);
+            combatManager.GetPlayerParty().Lysithea.SetButton(false);
         }
-        else if (selectedAttack == 4)
+    }
+
+    private void AttackCursorSelect(Attack attack)
+    {
+        combatManager.SetSelectedAttack(attack);
+        foreach (int target in attack.Targets)
         {
-            combatManager.SetSelectedAttack(combatManager.GetTurnCombatant().attack4);
-            foreach (int target in combatManager.GetTurnCombatant().attack4.Targets)
+            if (target == 0)
             {
-                if (target == 0)
-                {
-                    allyCursor1.SetActive(true);
-                }
-                if (target == 1)
-                {
-                    allyCursor2.SetActive(true);
-                }
-                if (target == 2)
-                {
-                    allyCursor3.SetActive(true);
-                }
-                if (target == 3)
-                {
-                    allyCursor4.SetActive(true);
-                }
-                if (target == 4)
-                {
-                    enemyCursor1.SetActive(true);
-                }
-                if (target == 5)
-                {
-                    enemyCursor2.SetActive(true);
-                }
-                if (target == 6)
-                {
-                    enemyCursor3.SetActive(true);
-                }
-                if (target == 7)
-                {
-                    enemyCursor4.SetActive(true);
-                }
-
+                allyCursor1.SetActive(true);
+                combatManager.GetPlayerParty().Icarus.SetButton(true);
             }
+            if (target == 1)
+            {
+                allyCursor2.SetActive(true);
+                combatManager.GetPlayerParty().Magnus.SetButton(true);
+            }
+            if (target == 2)
+            {
+                allyCursor3.SetActive(true);
+                combatManager.GetPlayerParty().Kena.SetButton(true);
+            }
+            if (target == 3)
+            {
+                allyCursor4.SetActive(true);
+                combatManager.GetPlayerParty().Lysithea.SetButton(true);
+            }
+            if (target == 4)
+            {
+                enemyCursor1.SetActive(true);
+                combatManager.enemy1.GetEnemy().SetButton(true);
+            }
+            if (target == 5)
+            {
+                enemyCursor2.SetActive(true);
+                combatManager.enemy2.GetEnemy().SetButton(true);
+            }
+            if (target == 6)
+            {
+                enemyCursor3.SetActive(true);
+                combatManager.enemy3.GetEnemy().SetButton(true);
+            }
+            if (target == 7)
+            {
+                enemyCursor4.SetActive(true);
+                combatManager.enemy4.GetEnemy().SetButton(true);
+            }
+
         }
-
-
     }
 
     public void SelectAttack(int selectedAttack)
     {
-        this.selectedAttack = selectedAttack;
-        Debug.Log(this.selectedAttack);
-        UpdateCursors();
-    }
-
-    public int GetSelectedAttack()
-    {
-        return selectedAttack;
-    }
-
-    public void UpdateAttackPanel(Combatant combatant)
-    {
-        if(combatant.isAlly)
+        combatManager.SetSelectedAttack(selectedAttack);
+        if (combatManager.GetSelectedAttack().aoe)
         {
-            AttackPanel.SetActive(true);
+            combatManager.PlayerAoeAttack();
+            UpdateCursors();
         }
         else
         {
-            AttackPanel.SetActive(false);
+            UpdateCursors();
         }
     }
+    
 }

@@ -111,8 +111,9 @@ public class Combatant : MonoBehaviour
         {
             Debug.Log(combatantName + " died");
             dead = true;
+            GetComponent<SpriteRenderer>().enabled = false;
         }
-        if(statusEffect != null)
+        if (statusEffect != null)
         {
             ApplyOneStatus(statusEffect);
             GetStatused(statusEffect);
@@ -187,6 +188,12 @@ public class Combatant : MonoBehaviour
     public bool IsDead()
     {
         return dead;
+    }
+
+    public void SetButton(bool buttonOn)
+    {
+        TargetClick button = GetComponent<TargetClick>();
+        button.SetActivity(buttonOn);
     }
 
     public Attack AIAttackSelect(int selectedAttack)
