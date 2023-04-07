@@ -128,6 +128,57 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5628084990227293044, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
   m_PrefabInstance: {fileID: 844676614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &26634770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 26634771}
+  - component: {fileID: 26634772}
+  m_Layer: 0
+  m_Name: Attack2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &26634771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26634770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1128774685}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &26634772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26634770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Wand Smash
+  dmgMod: 1.1
+  statusEffect: {fileID: 0}
+  dmgInput: 1
+  dmgOutput: 1
+  Targets: 
+  aoe: 0
 --- !u!1 &45034312
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,8 +189,9 @@ GameObject:
   m_Component:
   - component: {fileID: 45034313}
   - component: {fileID: 45034314}
-  - component: {fileID: 45034316}
   - component: {fileID: 45034317}
+  - component: {fileID: 45034318}
+  - component: {fileID: 45034319}
   m_Layer: 0
   m_Name: Lysithea
   m_TagString: Untagged
@@ -160,6 +212,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1598844522}
+  - {fileID: 2112725425}
+  - {fileID: 1910989150}
+  - {fileID: 763603638}
+  - {fileID: 1703182406}
   m_Father: {fileID: 1196119704}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -215,32 +271,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &45034316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45034312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackName: Wand Strike
-  dmgMod: 1
-  statusEffect: {fileID: 0}
-  dmgInput: 1
-  dmgOutput: 1
-  aoeTargets: 
-  canHitSlot1: 1
-  canHitSlot2: 1
-  canHitSlot3: 1
-  canHitSlot4: 1
-  canHitAllySlot1: 0
-  canHitAllySlot2: 0
-  canHitAllySlot3: 0
-  canHitAllySlot4: 0
 --- !u!114 &45034317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,10 +305,68 @@ MonoBehaviour:
   hp: 0
   combatantName: Lysithea
   isAlly: 1
-  attack1: {fileID: 45034316}
-  attack2: {fileID: 45034316}
-  attack3: {fileID: 45034316}
-  attack4: {fileID: 45034316}
+  attack1: {fileID: 2112725426}
+  attack2: {fileID: 1910989151}
+  attack3: {fileID: 763603639}
+  attack4: {fileID: 1703182407}
+--- !u!114 &45034318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45034312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e36fac9c90d1034291dd731e35d6558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetnr: 3
+--- !u!61 &45034319
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45034312}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0
 --- !u!114 &64427920 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789606089602948, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -309,6 +397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1108193361}
     m_Modifications:
+    - target: {fileID: 1223522002096569909, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5053754514901237267, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -361,6 +453,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyContainer (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5957336200579438463, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 863845850}
+    - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002909962825277631, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 863845850}
+    - target: {fileID: 9002909962825277631, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002909962825277631, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -371,6 +491,57 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5628084990227293044, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
   m_PrefabInstance: {fileID: 1673102698}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &94145847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94145848}
+  - component: {fileID: 94145849}
+  m_Layer: 0
+  m_Name: Attack1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94145848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94145847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 325415457}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &94145849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94145847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: sword smash
+  dmgMod: 1.1
+  statusEffect: {fileID: 0}
+  dmgInput: 0
+  dmgOutput: 0
+  Targets: 
+  aoe: 0
 --- !u!114 &110349334 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789605551792184, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -419,8 +590,9 @@ GameObject:
   m_Component:
   - component: {fileID: 325415457}
   - component: {fileID: 325415458}
-  - component: {fileID: 325415459}
   - component: {fileID: 325415460}
+  - component: {fileID: 325415461}
+  - component: {fileID: 325415462}
   m_Layer: 0
   m_Name: Magnus
   m_TagString: Untagged
@@ -441,6 +613,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 692542576}
+  - {fileID: 94145848}
+  - {fileID: 647745780}
+  - {fileID: 921376704}
+  - {fileID: 1972658475}
   m_Father: {fileID: 1196119704}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -496,32 +672,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &325415459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325415456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackName: sword smash
-  dmgMod: 1.1
-  statusEffect: {fileID: 0}
-  dmgInput: 0
-  dmgOutput: 0
-  aoeTargets: 
-  canHitSlot1: 1
-  canHitSlot2: 1
-  canHitSlot3: 1
-  canHitSlot4: 1
-  canHitAllySlot1: 0
-  canHitAllySlot2: 0
-  canHitAllySlot3: 0
-  canHitAllySlot4: 0
 --- !u!114 &325415460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,10 +706,68 @@ MonoBehaviour:
   hp: 0
   combatantName: Magnus
   isAlly: 1
-  attack1: {fileID: 325415459}
-  attack2: {fileID: 325415459}
-  attack3: {fileID: 325415459}
-  attack4: {fileID: 325415459}
+  attack1: {fileID: 94145849}
+  attack2: {fileID: 647745782}
+  attack3: {fileID: 921376706}
+  attack4: {fileID: 1972658477}
+--- !u!114 &325415461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325415456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e36fac9c90d1034291dd731e35d6558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetnr: 1
+--- !u!61 &325415462
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325415456}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0
 --- !u!114 &333075193 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789605739192264, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -745,6 +953,128 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &606013712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 606013713}
+  - component: {fileID: 606013715}
+  - component: {fileID: 606013714}
+  m_Layer: 0
+  m_Name: Attack1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &606013713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606013712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019600685}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &606013714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606013712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusName: TestEffect
+  turnDuration: 1
+  physicalAttackDelta: 0.5
+  magicalAttackDelta: 0.5
+  physicalDefenseDelta: 0.5
+  magicalDefenseDelta: 0.5
+  speedDelta: 0.5
+--- !u!114 &606013715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606013712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Sword Strike
+  dmgMod: 1
+  statusEffect: {fileID: 606013714}
+  dmgInput: 0
+  dmgOutput: 0
+  Targets: 04000000050000000600000007000000
+  aoe: 0
+--- !u!1 &647745779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647745780}
+  - component: {fileID: 647745782}
+  m_Layer: 0
+  m_Name: Attack2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647745780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647745779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 325415457}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &647745782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647745779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: sword smash
+  dmgMod: 1.1
+  statusEffect: {fileID: 0}
+  dmgInput: 0
+  dmgOutput: 0
+  Targets: 
+  aoe: 0
 --- !u!114 &672401237 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789606794154287, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -886,23 +1216,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 863845850}
+      objectReference: {fileID: 1263851640}
     - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerAttack4
+      value: SelectAttack
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CombatManager, Assembly-CSharp
+      value: CombatUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605236010619, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -990,23 +1324,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 863845850}
+      objectReference: {fileID: 1263851640}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerAttack1
+      value: SelectAttack
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CombatManager, Assembly-CSharp
+      value: CombatUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5863789605424184443, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -1382,23 +1720,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 863845850}
+      objectReference: {fileID: 1263851640}
     - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerAttack2
+      value: SelectAttack
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CombatManager, Assembly-CSharp
+      value: CombatUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606501724776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -1596,23 +1938,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 863845850}
+      objectReference: {fileID: 1263851640}
     - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerAttack3
+      value: SelectAttack
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CombatManager, Assembly-CSharp
+      value: CombatUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5863789606933362963, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -1714,6 +2060,108 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1263851640}
   m_SourcePrefab: {fileID: 100100000, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+--- !u!1 &763603637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 763603638}
+  - component: {fileID: 763603639}
+  m_Layer: 0
+  m_Name: Attack3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &763603638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763603637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 45034313}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &763603639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763603637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Wand Strike
+  dmgMod: 1
+  statusEffect: {fileID: 0}
+  dmgInput: 1
+  dmgOutput: 1
+  Targets: 
+  aoe: 0
+--- !u!1 &829470859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829470860}
+  - component: {fileID: 829470861}
+  m_Layer: 0
+  m_Name: Attack3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &829470860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829470859}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1128774685}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &829470861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829470859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Wand Smash
+  dmgMod: 1.1
+  statusEffect: {fileID: 0}
+  dmgInput: 1
+  dmgOutput: 1
+  Targets: 
+  aoe: 0
 --- !u!1001 &844676614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1722,6 +2170,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1108193361}
     m_Modifications:
+    - target: {fileID: 1223522002096569909, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5053754514901237267, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1773,6 +2225,34 @@ PrefabInstance:
     - target: {fileID: 5053754516189804630, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: m_Name
       value: EnemyContainer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957336200579438463, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 863845850}
+    - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002909962825277631, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 863845850}
+    - target: {fileID: 9002909962825277631, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002909962825277631, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1828,7 +2308,6 @@ MonoBehaviour:
   combatUI: {fileID: 1263851640}
   percentEncounterChance: 100
   toMoveList: []
-  hasMovedList: []
 --- !u!4 &863845851
 Transform:
   m_ObjectHideFlags: 0
@@ -1846,6 +2325,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &921376703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 921376704}
+  - component: {fileID: 921376706}
+  m_Layer: 0
+  m_Name: Attack3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &921376704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921376703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 325415457}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &921376706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921376703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: sword smash
+  dmgMod: 1.1
+  statusEffect: {fileID: 0}
+  dmgInput: 0
+  dmgOutput: 0
+  Targets: 
+  aoe: 0
 --- !u!114 &926462250 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789606053053363, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -1879,7 +2409,6 @@ GameObject:
   - component: {fileID: 1019600685}
   - component: {fileID: 1019600686}
   - component: {fileID: 1019600688}
-  - component: {fileID: 1019600687}
   - component: {fileID: 1019600689}
   - component: {fileID: 1019600690}
   m_Layer: 0
@@ -1902,6 +2431,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1729038945}
+  - {fileID: 606013713}
+  - {fileID: 1158398388}
+  - {fileID: 1030722214}
+  - {fileID: 1398219168}
   m_Father: {fileID: 1196119704}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1957,32 +2490,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1019600687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019600684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackName: Sword Strike
-  dmgMod: 1
-  statusEffect: {fileID: 0}
-  dmgInput: 0
-  dmgOutput: 0
-  aoeTargets: 
-  canHitSlot1: 1
-  canHitSlot2: 1
-  canHitSlot3: 1
-  canHitSlot4: 1
-  canHitAllySlot1: 0
-  canHitAllySlot2: 0
-  canHitAllySlot3: 0
-  canHitAllySlot4: 0
 --- !u!114 &1019600688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,10 +2524,10 @@ MonoBehaviour:
   hp: 0
   combatantName: Icarus
   isAlly: 1
-  attack1: {fileID: 1019600687}
-  attack2: {fileID: 1019600689}
-  attack3: {fileID: 1019600690}
-  attack4: {fileID: 1019600687}
+  attack1: {fileID: 606013715}
+  attack2: {fileID: 1158398389}
+  attack3: {fileID: 1030722215}
+  attack4: {fileID: 1398219169}
 --- !u!114 &1019600689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,30 +2537,94 @@ MonoBehaviour:
   m_GameObject: {fileID: 1019600684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e36fac9c90d1034291dd731e35d6558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Heal
-  dmgMod: 0.5
-  statusEffect: {fileID: 0}
-  dmgInput: 1
-  dmgOutput: 2
-  aoeTargets: 
-  canHitSlot1: 0
-  canHitSlot2: 0
-  canHitSlot3: 0
-  canHitSlot4: 0
-  canHitAllySlot1: 1
-  canHitAllySlot2: 1
-  canHitAllySlot3: 1
-  canHitAllySlot4: 1
---- !u!114 &1019600690
-MonoBehaviour:
+  targetnr: 0
+--- !u!61 &1019600690
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019600684}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.64, y: 0.64}
+  m_EdgeRadius: 0
+--- !u!1 &1030722213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030722214}
+  - component: {fileID: 1030722215}
+  m_Layer: 0
+  m_Name: Attack3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1030722214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030722213}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019600685}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1030722215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030722213}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
@@ -2064,15 +2635,8 @@ MonoBehaviour:
   statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
-  aoeTargets: 
-  canHitSlot1: 1
-  canHitSlot2: 1
-  canHitSlot3: 1
-  canHitSlot4: 1
-  canHitAllySlot1: 0
-  canHitAllySlot2: 0
-  canHitAllySlot3: 0
-  canHitAllySlot4: 0
+  Targets: 
+  aoe: 0
 --- !u!114 &1104936797 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789606120061545, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -2142,8 +2706,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1128774685}
   - component: {fileID: 1128774686}
-  - component: {fileID: 1128774687}
   - component: {fileID: 1128774688}
+  - component: {fileID: 1128774689}
+  - component: {fileID: 1128774690}
   m_Layer: 0
   m_Name: Kena
   m_TagString: Untagged
@@ -2164,6 +2729,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1956817986}
+  - {fileID: 2051751419}
+  - {fileID: 26634771}
+  - {fileID: 829470860}
+  - {fileID: 1891080305}
   m_Father: {fileID: 1196119704}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2219,32 +2788,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1128774687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128774684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackName: Wand Smash
-  dmgMod: 1.1
-  statusEffect: {fileID: 0}
-  dmgInput: 1
-  dmgOutput: 1
-  aoeTargets: 
-  canHitSlot1: 1
-  canHitSlot2: 1
-  canHitSlot3: 1
-  canHitSlot4: 1
-  canHitAllySlot1: 0
-  canHitAllySlot2: 0
-  canHitAllySlot3: 0
-  canHitAllySlot4: 0
 --- !u!114 &1128774688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2279,10 +2822,68 @@ MonoBehaviour:
   hp: 0
   combatantName: Kena
   isAlly: 1
-  attack1: {fileID: 1128774687}
-  attack2: {fileID: 1128774687}
-  attack3: {fileID: 1128774687}
-  attack4: {fileID: 1128774687}
+  attack1: {fileID: 2051751420}
+  attack2: {fileID: 26634772}
+  attack3: {fileID: 829470861}
+  attack4: {fileID: 1891080306}
+--- !u!114 &1128774689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128774684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e36fac9c90d1034291dd731e35d6558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetnr: 2
+--- !u!61 &1128774690
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128774684}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0
 --- !u!114 &1132554274 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789606880661490, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -2294,6 +2895,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1158398387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1158398388}
+  - component: {fileID: 1158398389}
+  m_Layer: 0
+  m_Name: Attack2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1158398388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158398387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019600685}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1158398389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158398387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Heal
+  dmgMod: 0.5
+  statusEffect: {fileID: 0}
+  dmgInput: 1
+  dmgOutput: 2
+  Targets: 
+  aoe: 0
 --- !u!1 &1176210662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,6 +3142,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0f6a2d37fa69446a82fc072321b15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1398219167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1398219168}
+  - component: {fileID: 1398219169}
+  m_Layer: 0
+  m_Name: Attack4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1398219168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398219167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019600685}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1398219169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398219167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Sword stab
+  dmgMod: 1
+  statusEffect: {fileID: 0}
+  dmgInput: 0
+  dmgOutput: 0
+  Targets: 
+  aoe: 0
 --- !u!1 &1560993414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5863789605401313719, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -2503,6 +3206,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1108193361}
     m_Modifications:
+    - target: {fileID: 1223522002096569909, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5053754514901237267, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2554,6 +3261,34 @@ PrefabInstance:
     - target: {fileID: 5053754516189804630, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
       propertyPath: m_Name
       value: EnemyContainer (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957336200579438463, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: targetnr
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 863845850}
+    - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837243049307373161, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002909962825277631, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 863845850}
+    - target: {fileID: 9002909962825277631, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002909962825277631, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2727,6 +3462,57 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
+--- !u!1 &1703182405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1703182406}
+  - component: {fileID: 1703182407}
+  m_Layer: 0
+  m_Name: Attack4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1703182406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703182405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 45034313}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1703182407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703182405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Wand Strike
+  dmgMod: 1
+  statusEffect: {fileID: 0}
+  dmgInput: 1
+  dmgOutput: 1
+  Targets: 
+  aoe: 0
 --- !u!1 &1729038944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,6 +3629,108 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0f6a2d37fa69446a82fc072321b15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1891080304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891080305}
+  - component: {fileID: 1891080306}
+  m_Layer: 0
+  m_Name: Attack4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891080305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891080304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1128774685}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891080306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891080304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Wand Smash
+  dmgMod: 1.1
+  statusEffect: {fileID: 0}
+  dmgInput: 1
+  dmgOutput: 1
+  Targets: 
+  aoe: 0
+--- !u!1 &1910989149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910989150}
+  - component: {fileID: 1910989151}
+  m_Layer: 0
+  m_Name: Attack2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1910989150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910989149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 45034313}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1910989151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910989149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Wand Strike
+  dmgMod: 1
+  statusEffect: {fileID: 0}
+  dmgInput: 1
+  dmgOutput: 1
+  Targets: 
+  aoe: 0
 --- !u!1 &1956817985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +3815,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1972658474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1972658475}
+  - component: {fileID: 1972658477}
+  m_Layer: 0
+  m_Name: Attack4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1972658475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972658474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 325415457}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1972658477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972658474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: sword smash
+  dmgMod: 1.1
+  statusEffect: {fileID: 0}
+  dmgInput: 0
+  dmgOutput: 0
+  Targets: 
+  aoe: 0
 --- !u!114 &1974027733 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789606449199992, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -2959,11 +3898,113 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0f6a2d37fa69446a82fc072321b15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2051751418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051751419}
+  - component: {fileID: 2051751420}
+  m_Layer: 0
+  m_Name: Attack1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2051751419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051751418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1128774685}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2051751420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051751418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Wand Smash
+  dmgMod: 1.1
+  statusEffect: {fileID: 0}
+  dmgInput: 1
+  dmgOutput: 1
+  Targets: 
+  aoe: 0
 --- !u!1 &2063074476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5863789606273369843, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
   m_PrefabInstance: {fileID: 720799113}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2112725424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112725425}
+  - component: {fileID: 2112725426}
+  m_Layer: 0
+  m_Name: Attack1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2112725425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112725424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 45034313}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112725426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112725424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Wand Strike
+  dmgMod: 1
+  statusEffect: {fileID: 0}
+  dmgInput: 1
+  dmgOutput: 1
+  Targets: 
+  aoe: 0
 --- !u!114 &2125952510 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5863789605271278077, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}

@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class StatusEffect : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string statusName;
+
+    // amount of turns that a status lasts
+    public int turnDuration;
+
+    // modifiers that multiply a combatant stats ie: 2 would double attack and 0.5 would halve attack
+    public float physicalAttackDelta;
+    public float magicalAttackDelta;
+    public float physicalDefenseDelta;
+    public float magicalDefenseDelta;
+    public float speedDelta;
+
+    public void TickStatus()
     {
-        
+        turnDuration -= 1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -30,6 +30,13 @@ public class Combatant : MonoBehaviour
     public float speed;
     public float hp;
 
+    // in combat clones of stats used to revert stat changes
+    private float physicalAttackClone;
+    private float magicalAttackClone;
+    private float physicalDefenseClone;
+    private float magicalDefenseClone;
+    private float speedClone;
+
     // character/enemy name
     public string combatantName;
     // specifies weather combatant is an enemy or player character (ai or player controlled)
@@ -44,6 +51,8 @@ public class Combatant : MonoBehaviour
     private bool didIMove = false;
     private bool dead = false;
 
+    private List<StatusEffect> statusEffects;
+
     void Awake()
     {
         vitality = vitalityBase + vitalityGrowth * level;
@@ -53,6 +62,14 @@ public class Combatant : MonoBehaviour
         magicalDefense = magicalDefenseBase + magicalDefenseGrowth * level;
         speed = speedBase + speedGrowth * level;
         hp = vitality;
+
+        physicalAttackClone = physicalAttack;
+        magicalAttackClone = magicalAttack;
+        physicalDefenseClone = physicalDefense;
+        magicalDefenseClone = magicalDefense;
+        speedClone = speed;
+
+        statusEffects = new List<StatusEffect>();
     }
 
     public void Attack(Attack attack, Combatant target)
@@ -75,6 +92,7 @@ public class Combatant : MonoBehaviour
             }
             target.GetAttacked(damage, attack.dmgOutput, attack.statusEffect);
         }
+        FullStatUpdate();
     }
 
     public void GetAttacked(float damage, int dmgType, StatusEffect statusEffect)
@@ -96,15 +114,70 @@ public class Combatant : MonoBehaviour
         }
         if(statusEffect != null)
         {
+            ApplyOneStatus(statusEffect);
             GetStatused(statusEffect);
         }
         Debug.Log(combatantName + " took " + damage + " post mitigation damage");
         Debug.Log("post damage hp: " + hp);
     }
 
-    public void GetStatused(StatusEffect statusEffect)
+    void GetStatused(StatusEffect statusEffect)
     {
+        statusEffects.Add(statusEffect);
+    }
 
+    void FullStatUpdate()
+    {
+        ApplyStatChanges();
+        RestoreStats();
+        
+    }
+
+    void ApplyOneStatus(StatusEffect statusEffect)
+    {
+        physicalAttack = physicalAttack * statusEffect.physicalAttackDelta;
+        magicalAttack = magicalAttack * statusEffect.magicalAttackDelta;
+        physicalDefense = physicalDefense * statusEffect.physicalDefenseDelta;
+        magicalDefense = magicalDefense * statusEffect.magicalDefenseDelta;
+        speed = speed * statusEffect.speedDelta;
+    }
+
+    void ApplyStatChanges()
+    {
+        bool breakcheck = false;
+        for (int i = 0; i < statusEffects.Count; i++)
+        {
+            physicalAttack = physicalAttack * statusEffects[i].physicalAttackDelta;
+            magicalAttack = magicalAttack * statusEffects[i].magicalAttackDelta;
+            physicalDefense = physicalDefense * statusEffects[i].physicalDefenseDelta;
+            magicalDefense = magicalDefense * statusEffects[i].magicalDefenseDelta;
+            speed = speed * statusEffects[i].speedDelta;
+
+            statusEffects[i].TickStatus();
+
+            if (statusEffects[i].turnDuration < 0)
+            {
+                Debug.Log(statusEffects[i].statusName + " has successfully been removed");
+                statusEffects.RemoveAt(i);
+                RestoreStats();
+                breakcheck = true;
+                break;
+            }
+        }
+        if(breakcheck)
+        {
+            FullStatUpdate();
+        }
+
+    }
+
+    void RestoreStats()
+    {
+        physicalAttack = physicalAttackClone;
+        magicalAttack = magicalAttackClone;
+        physicalDefense = physicalDefenseClone;
+        magicalDefense = magicalDefenseClone;
+        speed = speedClone;
     }
 
     public bool DidYouMove()

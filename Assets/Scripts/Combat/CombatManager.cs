@@ -22,8 +22,8 @@ public class CombatManager : MonoBehaviour
 
     // lists for determining turn order
     public List<Combatant> toMoveList = new List<Combatant>();
-    public List<Combatant> hasMovedList = new List<Combatant>();
     private Combatant turnCombatant;
+    private Attack selectedAttack;
 
 
 
@@ -54,25 +54,6 @@ public class CombatManager : MonoBehaviour
         }
         
     }
-
-    //public void EndTurn()
-    //{
-        
-    //     foreach(Combatant c in toMoveList)
-    //     {
-    //         if(c.DidYouMove())
-    //         {
-    //             toMoveList.Remove(c);
-    //             hasMovedList.Add(c);
-    //         }
-    //         else if(c.IsDead())
-    //         {
-    //             toMoveList.Remove(c);
-    //         }
-    //     }
-        
-        
-    //}
 
     void GiveTurn()
     {
@@ -132,42 +113,48 @@ public class CombatManager : MonoBehaviour
         toMoveList.Add(enemy3.GetEnemy());
         toMoveList.Add(enemy4.GetEnemy());
 
-        GiveTurn();
-        //Debug.Log(turnCombatant.combatantName);
-        
-        //Debug.Log(toMoveList[0]);
-        //Debug.Log(toMoveList[1]);
-        //Debug.Log(toMoveList[2]);
-        //Debug.Log(toMoveList[3]);
-        //Debug.Log(toMoveList[4]);
-        //Debug.Log(toMoveList[5]);
-        //Debug.Log(toMoveList[6]);
-        //Debug.Log(toMoveList[7]);
-        
+        GiveTurn();       
     }
 
     // functions called when a player selects an attack
-    // need to add targeting functionality still
-    public void PlayerAttack1()
+    public void PlayerAttack(int targetnr)
     {
-        turnCombatant.Attack(turnCombatant.attack1, enemy1.GetEnemy());
+        Debug.Log("the button works");
+        if (targetnr == 0)
+        {
+            turnCombatant.Attack(selectedAttack, playerParty.Icarus);
+        }
+        else if (targetnr == 1)
+        {
+            turnCombatant.Attack(selectedAttack, playerParty.Magnus);
+        }
+        else if (targetnr == 2)
+        {
+            turnCombatant.Attack(selectedAttack, playerParty.Kena);
+        }
+        else if (targetnr == 3)
+        {
+            turnCombatant.Attack(selectedAttack, playerParty.Lysithea);
+        }
+        else if (targetnr == 4)
+        {
+            turnCombatant.Attack(selectedAttack, enemy1.GetEnemy());
+        }
+        else if (targetnr == 5)
+        {
+            turnCombatant.Attack(selectedAttack, enemy2.GetEnemy());
+        }
+        else if (targetnr == 6)
+        {
+            turnCombatant.Attack(selectedAttack, enemy3.GetEnemy());
+        }
+        else if (targetnr == 7)
+        {
+            turnCombatant.Attack(selectedAttack, enemy4.GetEnemy());
+        }
         GiveTurn();
     }
-    public void PlayerAttack2()
-    {
-        turnCombatant.Attack(turnCombatant.attack2, enemy1.GetEnemy());
-        GiveTurn();
-    }
-    public void PlayerAttack3()
-    {
-        turnCombatant.Attack(turnCombatant.attack3, enemy1.GetEnemy());
-        GiveTurn();
-    }
-    public void PlayerAttack4()
-    {
-        turnCombatant.Attack(turnCombatant.attack4, enemy1.GetEnemy());
-        GiveTurn();
-    }
+    
 
     void SpawnEnemies()
     {
@@ -189,6 +176,11 @@ public class CombatManager : MonoBehaviour
     public Combatant GetTurnCombatant()
     {
         return turnCombatant;
+    }
+
+    public void SetSelectedAttack(Attack attack)
+    {
+        selectedAttack = attack;
     }
 
 }

@@ -23,31 +23,8 @@ public class Attack : MonoBehaviour
     // List of the slots targeted by an attack
     // 1 = slot 1
     // 2 = slot 2 etc
-    public List<int> aoeTargets;
+    public List<int> Targets;
 
-    private void Awake()
-    {
-        if(aoeTargets.Count == 0)
-        {
-            aoe = false;
-        }
-        else
-        {
-            aoe = true;
-        }    
-    }
-
-    private bool aoe;
-
-    public bool canHitSlot1;
-    public bool canHitSlot2;
-    public bool canHitSlot3;
-    public bool canHitSlot4;
-
-    public bool canHitAllySlot1;
-    public bool canHitAllySlot2;
-    public bool canHitAllySlot3;
-    public bool canHitAllySlot4;
-
+    public bool aoe;
 
 }

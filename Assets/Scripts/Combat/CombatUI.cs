@@ -52,6 +52,8 @@ public class CombatUI : MonoBehaviour
     public GameObject enemyCursor3;
     public GameObject enemyCursor4;
 
+    private int selectedAttack;
+
     void Start()
     {
         if (combatManager.AreWeFighting())
@@ -90,6 +92,188 @@ public class CombatUI : MonoBehaviour
             characterSkill3.text = combatManager.GetTurnCombatant().attack3.attackName;
             characterSkill4.text = combatManager.GetTurnCombatant().attack4.attackName;
         }
+    }
+
+    public void UpdateCursors()
+    {
+
+        if (selectedAttack == 1)
+        {
+            combatManager.SetSelectedAttack(combatManager.GetTurnCombatant().attack1);
+            foreach (int target in combatManager.GetTurnCombatant().attack1.Targets)
+            {
+                if (target == 0)
+                {
+                    allyCursor1.SetActive(true);
+                }
+                if (target == 1)
+                {
+                    allyCursor2.SetActive(true);
+                }
+                if (target == 2)
+                {
+                    allyCursor3.SetActive(true);
+                }
+                if (target == 3)
+                {
+                    allyCursor4.SetActive(true);
+                }
+                if (target == 4)
+                {
+                    Debug.Log("this should mean success");
+                    enemyCursor1.SetActive(true);
+                }
+                if (target == 5)
+                {
+                    enemyCursor2.SetActive(true);
+                }
+                if (target == 6)
+                {
+                    enemyCursor3.SetActive(true);
+                }
+                if (target == 7)
+                {
+                    enemyCursor4.SetActive(true);
+                }
+
+            }
+        }
+
+            else if (selectedAttack == 2)
+            {
+            combatManager.SetSelectedAttack(combatManager.GetTurnCombatant().attack2);
+            foreach (int target in combatManager.GetTurnCombatant().attack2.Targets)
+                {
+                    if (target == 0)
+                    {
+                        allyCursor1.SetActive(true);
+                    }
+                    if (target == 1)
+                    {
+                        allyCursor2.SetActive(true);
+                    }
+                    if (target == 2)
+                    {
+                        allyCursor3.SetActive(true);
+                    }
+                    if (target == 3)
+                    {
+                        allyCursor4.SetActive(true);
+                    }
+                    if (target == 4)
+                    {
+                        enemyCursor1.SetActive(true);
+                    }
+                    if (target == 5)
+                    {
+                        enemyCursor2.SetActive(true);
+                    }
+                    if (target == 6)
+                    {
+                        enemyCursor3.SetActive(true);
+                    }
+                    if (target == 7)
+                    {
+                        enemyCursor4.SetActive(true);
+                    }
+
+                }
+
+            }
+        else if (selectedAttack == 3)
+        {
+            combatManager.SetSelectedAttack(combatManager.GetTurnCombatant().attack3);
+            foreach (int target in combatManager.GetTurnCombatant().attack3.Targets)
+            {
+                if (target == 0)
+                {
+                    allyCursor1.SetActive(true);
+                }
+                if (target == 1)
+                {
+                    allyCursor2.SetActive(true);
+                }
+                if (target == 2)
+                {
+                    allyCursor3.SetActive(true);
+                }
+                if (target == 3)
+                {
+                    allyCursor4.SetActive(true);
+                }
+                if (target == 4)
+                {
+                    enemyCursor1.SetActive(true);
+                }
+                if (target == 5)
+                {
+                    enemyCursor2.SetActive(true);
+                }
+                if (target == 6)
+                {
+                    enemyCursor3.SetActive(true);
+                }
+                if (target == 7)
+                {
+                    enemyCursor4.SetActive(true);
+                }
+
+            }
+        }
+        else if (selectedAttack == 4)
+        {
+            combatManager.SetSelectedAttack(combatManager.GetTurnCombatant().attack4);
+            foreach (int target in combatManager.GetTurnCombatant().attack4.Targets)
+            {
+                if (target == 0)
+                {
+                    allyCursor1.SetActive(true);
+                }
+                if (target == 1)
+                {
+                    allyCursor2.SetActive(true);
+                }
+                if (target == 2)
+                {
+                    allyCursor3.SetActive(true);
+                }
+                if (target == 3)
+                {
+                    allyCursor4.SetActive(true);
+                }
+                if (target == 4)
+                {
+                    enemyCursor1.SetActive(true);
+                }
+                if (target == 5)
+                {
+                    enemyCursor2.SetActive(true);
+                }
+                if (target == 6)
+                {
+                    enemyCursor3.SetActive(true);
+                }
+                if (target == 7)
+                {
+                    enemyCursor4.SetActive(true);
+                }
+
+            }
+        }
+
+
+    }
+
+    public void SelectAttack(int selectedAttack)
+    {
+        this.selectedAttack = selectedAttack;
+        Debug.Log(this.selectedAttack);
+        UpdateCursors();
+    }
+
+    public int GetSelectedAttack()
+    {
+        return selectedAttack;
     }
 
     public void UpdateAttackPanel(Combatant combatant)
