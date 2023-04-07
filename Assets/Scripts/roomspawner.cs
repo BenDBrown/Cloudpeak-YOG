@@ -26,7 +26,7 @@ public class roomspawner : MonoBehaviour
     // Update is called once per frame
     void Spawn()
     {
-        if(spawned == false)
+        if (spawned == false)
         {
             if (openingDirection == 1)
             {
@@ -54,7 +54,7 @@ public class roomspawner : MonoBehaviour
             }
             spawned = true;
         }
-        
+
     }
      void OnTriggerEnter2D(Collider2D collision)
     {
@@ -64,10 +64,16 @@ public class roomspawner : MonoBehaviour
             if(collision.GetComponent<roomspawner>().spawned == false && spawned == false)
             {
                 Instantiate(templates.closedRooms, transform.position, Quaternion.identity);
+                Destroy(collision.gameObject);
                 Destroy(gameObject);
                 //spawn a wall 
             }
             spawned = true;
         }
+        else if (collision.CompareTag("Interior") || collision.CompareTag("Spawn"))
+        {
+            spawned = true;
+        }
+        
     }
 }
