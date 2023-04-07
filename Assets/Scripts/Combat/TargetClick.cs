@@ -18,7 +18,7 @@ public class TargetClick : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && isActive == true)
+        if (Input.GetMouseButtonDown(0) && isActive == true && combatant.IsDead() == false)
         {
             combatManager.PlayerAttack(combatant);
             combatUI.UpdateCursors();

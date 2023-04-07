@@ -112,6 +112,7 @@ public class Combatant : MonoBehaviour
             Debug.Log(combatantName + " died");
             dead = true;
             GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<TargetClick>().enabled = false;
         }
         if (statusEffect != null)
         {
@@ -129,9 +130,7 @@ public class Combatant : MonoBehaviour
 
     void FullStatUpdate()
     {
-        ApplyStatChanges();
-        RestoreStats();
-        
+        ApplyStatChanges();       
     }
 
     void ApplyOneStatus(StatusEffect statusEffect)
@@ -145,6 +144,7 @@ public class Combatant : MonoBehaviour
 
     void ApplyStatChanges()
     {
+        RestoreStats();
         bool breakcheck = false;
         for (int i = 0; i < statusEffects.Count; i++)
         {
@@ -187,7 +187,7 @@ public class Combatant : MonoBehaviour
     }
     public bool IsDead()
     {
-        return dead;
+        return this.dead;
     }
 
     public void SetButton(bool buttonOn)
