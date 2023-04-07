@@ -32,6 +32,10 @@ public class TargetClick : MonoBehaviour
         {
             isActive = Active;
         }
+        else
+        {
+            isActive = false;
+        }
  
     }
 

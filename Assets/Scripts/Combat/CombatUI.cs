@@ -123,42 +123,42 @@ public class CombatUI : MonoBehaviour
         combatManager.SetSelectedAttack(attack);
         foreach (int target in attack.Targets)
         {
-            if (target == 0)
+            if (target == 0 && combatManager.GetPlayerParty().Icarus.IsDead() == false)
             {
                 allyCursor1.SetActive(true);
                 combatManager.GetPlayerParty().Icarus.SetButton(true);
             }
-            if (target == 1)
+            if (target == 1 && combatManager.GetPlayerParty().Magnus.IsDead() == false)
             {
                 allyCursor2.SetActive(true);
                 combatManager.GetPlayerParty().Magnus.SetButton(true);
             }
-            if (target == 2)
+            if (target == 2 && combatManager.GetPlayerParty().Kena.IsDead() == false)
             {
                 allyCursor3.SetActive(true);
                 combatManager.GetPlayerParty().Kena.SetButton(true);
             }
-            if (target == 3)
+            if (target == 3 && combatManager.GetPlayerParty().Lysithea.IsDead() == false)
             {
                 allyCursor4.SetActive(true);
                 combatManager.GetPlayerParty().Lysithea.SetButton(true);
             }
-            if (target == 4)
+            if (target == 4 && combatManager.enemy1.GetEnemy().IsDead() == false)
             {
                 enemyCursor1.SetActive(true);
                 combatManager.enemy1.GetEnemy().SetButton(true);
             }
-            if (target == 5)
+            if (target == 5 && combatManager.enemy2.GetEnemy().IsDead() == false)
             {
                 enemyCursor2.SetActive(true);
                 combatManager.enemy2.GetEnemy().SetButton(true);
             }
-            if (target == 6)
+            if (target == 6 && combatManager.enemy3.GetEnemy().IsDead() == false)
             {
                 enemyCursor3.SetActive(true);
                 combatManager.enemy3.GetEnemy().SetButton(true);
             }
-            if (target == 7)
+            if (target == 7 && combatManager.enemy4.GetEnemy().IsDead() == false)
             {
                 enemyCursor4.SetActive(true);
                 combatManager.enemy4.GetEnemy().SetButton(true);
