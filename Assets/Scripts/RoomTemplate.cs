@@ -27,7 +27,7 @@ public class RoomTemplate : MonoBehaviour
                 spawnedStairs = true;
             
         }
-        else
+        else if (spawnedStairs == false)
         {
             WaitTime -= Time.deltaTime;
         }

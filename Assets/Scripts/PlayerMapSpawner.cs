@@ -22,7 +22,7 @@ public class PlayerMapSpawner : MonoBehaviour
             Instantiate(player, Spawnroom.transform.position, Quaternion.identity);
             Playerspawned = true;
         }
-        else
+        else if (Playerspawned == false)
         {
             waitTime -= Time.deltaTime;
         }
