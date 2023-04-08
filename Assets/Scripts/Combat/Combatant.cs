@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Combatant : MonoBehaviour
 {
+    // the position of the combatant from 0-7
+    public int position;
+
     // the base stats before floor modifiers
     public float vitalityBase = 10;
     public float physicalAttackBase = 10;
@@ -185,6 +188,11 @@ public class Combatant : MonoBehaviour
     {
         return didIMove;
     }
+
+    public void GiveMove()
+    {
+        didIMove = false;
+    }
     public bool IsDead()
     {
         return this.dead;
@@ -196,17 +204,17 @@ public class Combatant : MonoBehaviour
         button.SetActivity(buttonOn);
     }
 
-    public Attack AIAttackSelect(int selectedAttack)
+    public Attack GetAttack(int attack)
     {
-        if(selectedAttack == 1)
+        if (attack == 0)
         {
             return attack1;
         }
-        else if(selectedAttack == 2)
+        else if (attack == 1)
         {
             return attack2;
         }
-        else if (selectedAttack == 3)
+        else if (attack == 2)
         {
             return attack3;
         }
@@ -215,5 +223,18 @@ public class Combatant : MonoBehaviour
             return attack4;
         }
     }
+
+    public void SetCursorActive(bool active)
+    {
+        if(dead)
+        {
+            GetComponentInChildren<Cursor>(true).gameObject.SetActive(false);
+        }
+        else
+        {
+            GetComponentInChildren<Cursor>(true).gameObject.SetActive(active);
+        }
+        
+    }    
 
 }

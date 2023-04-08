@@ -7,18 +7,8 @@ public class CombatManager : MonoBehaviour
     // for checking if combat is enabled
     private bool isFighting = false;
 
-    // Assignables
-
-    public ContainerManager enemy1;
-    public ContainerManager enemy2;
-    public ContainerManager enemy3;
-    public ContainerManager enemy4;
-
-
-    private CombatUI combatUI;
-    private PlayerPartyManager playerParty;
-    private EnemyPartyManager enemyParty;
-
+    // The UI used for combat
+    public CombatUI combatUI;
 
     // chance of a combat encounter
     public int percentEncounterChance = 100;
@@ -28,93 +18,124 @@ public class CombatManager : MonoBehaviour
     private Combatant turnCombatant;
     private Attack selectedAttack;
 
-
-
     void Awake()
     {
         int r = Random.Range(1, 101);
-        combatUI = FindFirstObjectByType<CombatUI>();
-        playerParty = FindFirstObjectByType<PlayerPartyManager>();
-        enemyParty = FindFirstObjectByType<EnemyPartyManager>();
 
         if(r <= percentEncounterChance)
         {
             SpawnEnemies();
+            foreach (Combatant c in FindObjectsOfType<Combatant>(false))
+            {
+                Debug.Log(c.combatantName + " added to list with position: " + c.position);
+                toMoveList.Add(c);
+            }
             isFighting = true;
-            Debug.Log("LEEEEEEROY JEEENKINS");
         }
         else
         {
-            Debug.Log("common gacha L");
             Debug.Log(r);
         }
-
     }
 
     private void Start()
     {
-        if (isFighting == true)
-        {
-            CombatSetup();
-        }
-        
+        GiveTurn();
     }
 
     void GiveTurn()
     {
-        float highestSpeed = 0;
-        foreach(Combatant c in toMoveList)
+        if (CombatResolved() == false)
         {
+            bool resetRound = true;
+            float highestSpeed = 0;
+            foreach (Combatant c in toMoveList)
+            {
+                if (c.speed > highestSpeed && c.DidYouMove() == false && c.IsDead() == false)
+                {
+                    highestSpeed = c.speed;
+                    turnCombatant = c;
+                    resetRound = false;
+                }
 
-            if (c.speed > highestSpeed && c.DidYouMove() == false && c.IsDead() == false)
-            {
-                highestSpeed = c.speed;
-                turnCombatant = c;
             }
-        }
-        combatUI.UpdateUI();
-        Debug.Log(turnCombatant.combatantName + " is attacking");
-        selectedAttack = null;
-        if (turnCombatant.isAlly == false)
-        {
-            int enemyAttackSelect = Random.Range(1, 5);
-            int enemyTargetSelect = Random.Range(1, 5);
-            if(enemyTargetSelect == 1)
+            if (resetRound)
             {
-                turnCombatant.Attack(turnCombatant.AIAttackSelect(enemyAttackSelect), playerParty.Icarus);
-                GiveTurn();
-            }
-            else if (enemyTargetSelect == 2)
-            {
-                turnCombatant.Attack(turnCombatant.AIAttackSelect(enemyAttackSelect), playerParty.Magnus);
-                GiveTurn();
-            }
-            else if (enemyTargetSelect == 3)
-            {
-                turnCombatant.Attack(turnCombatant.AIAttackSelect(enemyAttackSelect), playerParty.Kena);
-                GiveTurn();
+                Debug.Log("resetting round");
+                RoundReset();
             }
             else
             {
-                turnCombatant.Attack(turnCombatant.AIAttackSelect(enemyAttackSelect), playerParty.Lysithea);
-                GiveTurn();
-            }
+                combatUI.UpdateUI();
+                Debug.Log(turnCombatant.combatantName + " is attacking");
+                selectedAttack = null;
+                if (turnCombatant.isAlly == false)
+                {
+                    Attack attack;
+                    int enemyAttackSelect = Random.Range(1, 5);
+                    attack = turnCombatant.GetAttack(enemyAttackSelect);
+                    int enemyTargetSelect = 8;
+                    while (attack.Targets.Contains(enemyTargetSelect) == false)
+                    {
+                        enemyTargetSelect = Random.Range(0, 8);
+                    }
+                    turnCombatant.Attack(turnCombatant.GetAttack(enemyAttackSelect), GetCombatant(enemyTargetSelect));
+                    GiveTurn();
 
+                }
+            }
         }
     }
 
-    void CombatSetup()
+    void RoundReset()
     {
-        toMoveList.Add(playerParty.Icarus);
-        toMoveList.Add(playerParty.Magnus);
-        toMoveList.Add(playerParty.Kena);
-        toMoveList.Add(playerParty.Lysithea);
-        toMoveList.Add(enemy1.GetEnemy());
-        toMoveList.Add(enemy2.GetEnemy());
-        toMoveList.Add(enemy3.GetEnemy());
-        toMoveList.Add(enemy4.GetEnemy());
+        foreach(Combatant c in toMoveList)
+        {
+            if (c.IsDead() == false)
+            {
+                c.GiveMove();
+            }
+        }
+        GiveTurn();
+    }
 
-        GiveTurn();       
+    bool CombatResolved()
+    {
+        bool defeat = true;
+        bool victory = true;
+        foreach (Combatant c in toMoveList)
+        {
+            if (c.IsDead() == false && c.isAlly)
+            {
+                defeat = false;
+            }
+            if (c.IsDead() == false && c.isAlly == false)
+            {
+                victory = false;
+            }
+        }
+        if(victory && defeat)
+        {
+            // put result of a draw here
+            Debug.Log("draw");
+            return true;
+        }
+        else if(victory)
+        {
+            // put result of victory here
+            Debug.Log("W");
+            return true;
+        }
+        else if(defeat)
+        {
+            // put result of a defeat here
+            Debug.Log("L");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void PlayerAttack(Combatant target)
@@ -128,38 +149,7 @@ public class CombatManager : MonoBehaviour
     {
         foreach (int target in selectedAttack.Targets)
         {
-            if (target == 0)
-            {
-                turnCombatant.Attack(selectedAttack, playerParty.Icarus);
-            }
-            else if (target == 1)
-            {
-                turnCombatant.Attack(selectedAttack, playerParty.Magnus);
-            }
-            else if (target == 2)
-            {
-                turnCombatant.Attack(selectedAttack, playerParty.Kena);
-            }
-            else if (target == 3)
-            {
-                turnCombatant.Attack(selectedAttack, playerParty.Lysithea);
-            }
-            else if (target == 4)
-            {
-                turnCombatant.Attack(selectedAttack, enemy1.GetEnemy());
-            }
-            else if (target == 5)
-            {
-                turnCombatant.Attack(selectedAttack, enemy2.GetEnemy());
-            }
-            else if (target == 6)
-            {
-                turnCombatant.Attack(selectedAttack, enemy3.GetEnemy());
-            }
-            else if (target == 7)
-            {
-                turnCombatant.Attack(selectedAttack, enemy4.GetEnemy());
-            }
+            turnCombatant.Attack(selectedAttack, GetCombatant(target));           
         }
 
         GiveTurn();
@@ -168,7 +158,10 @@ public class CombatManager : MonoBehaviour
 
     void SpawnEnemies()
     {
-        enemyParty.gameObject.SetActive(true);
+        foreach(ContainerManager cm in FindObjectsOfType<ContainerManager>(true))
+        {
+            cm.gameObject.SetActive(true);
+        }
         
     }
 
@@ -218,9 +211,22 @@ public class CombatManager : MonoBehaviour
         return selectedAttack;
     }
 
-    public PlayerPartyManager GetPlayerParty()
+    public Combatant GetCombatant(int position)
     {
-        return playerParty;
+        foreach (Combatant combatant in toMoveList)
+        {
+            if (combatant.position == position)
+            {
+                return combatant;
+            }
+        }
+        Debug.Log("combatant with postion: " + position + ", could not be found");
+        return null;
+    }
+
+    public List<Combatant> GetCombatants()
+    {
+        return toMoveList;
     }
 
 }
