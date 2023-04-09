@@ -49,6 +49,7 @@ public class CombatManager : MonoBehaviour
         {
             bool resetRound = true;
             float highestSpeed = 0;
+            selectedAttack = null;
             foreach (Combatant c in toMoveList)
             {
                 if (c.speed > highestSpeed && c.DidYouMove() == false && c.IsDead() == false)
