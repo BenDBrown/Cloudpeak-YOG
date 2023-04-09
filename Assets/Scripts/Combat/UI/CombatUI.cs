@@ -78,7 +78,7 @@ public class CombatUI : MonoBehaviour
         combatManager.SetSelectedAttack(selectedAttack);
         if (combatManager.GetSelectedAttack().aoe)
         {
-            combatManager.PlayerAoeAttack();
+            combatManager.AoeAttack();
             UpdateCursors();
         }
         else

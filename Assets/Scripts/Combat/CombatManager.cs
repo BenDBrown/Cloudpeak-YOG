@@ -71,17 +71,7 @@ public class CombatManager : MonoBehaviour
                 selectedAttack = null;
                 if (turnCombatant.isAlly == false)
                 {
-                    Attack attack;
-                    int enemyAttackSelect = Random.Range(1, 5);
-                    attack = turnCombatant.GetAttack(enemyAttackSelect);
-                    int enemyTargetSelect = 8;
-                    while (attack.Targets.Contains(enemyTargetSelect) == false)
-                    {
-                        enemyTargetSelect = Random.Range(0, 8);
-                    }
-                    turnCombatant.Attack(turnCombatant.GetAttack(enemyAttackSelect), GetCombatant(enemyTargetSelect));
-                    GiveTurn();
-
+                    AIAttack();
                 }
             }
         }
@@ -145,7 +135,7 @@ public class CombatManager : MonoBehaviour
     }
 
     // functions called when a player selects an attack
-    public void PlayerAoeAttack()
+    public void AoeAttack()
     {
         foreach (int target in selectedAttack.Targets)
         {
@@ -153,6 +143,32 @@ public class CombatManager : MonoBehaviour
         }
 
         GiveTurn();
+    }
+
+    void AIAttack()
+    {
+        int enemyAttackSelect = Random.Range(1, 5);
+        selectedAttack = turnCombatant.GetAttack(enemyAttackSelect);
+        if (selectedAttack.aoe == false)
+        {
+            int enemyTargetSelect = 8;
+            int breakCounter = 0;
+            while (selectedAttack.Targets.Contains(enemyTargetSelect) == false)
+            {
+                enemyTargetSelect = Random.Range(0, 8);
+                breakCounter++;
+                if(breakCounter > 10000)
+                {
+                    Debug.Log("either the Attack: '" + selectedAttack.attackName + "' did not contain a valid target or you won the lottery but got nothing");
+                }
+            }
+            turnCombatant.Attack(turnCombatant.GetAttack(enemyAttackSelect), GetCombatant(enemyTargetSelect));
+            GiveTurn();
+        }
+        else
+        {
+            AoeAttack();
+        }
     }
     
 

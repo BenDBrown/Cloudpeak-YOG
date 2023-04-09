@@ -53,6 +53,7 @@ public class Combatant : MonoBehaviour
 
     private bool didIMove = false;
     private bool dead = false;
+    private bool stunned = false;
 
     private List<StatusEffect> statusEffects;
 
@@ -95,7 +96,7 @@ public class Combatant : MonoBehaviour
             }
             target.GetAttacked(damage, attack.dmgOutput, attack.statusEffect);
         }
-        FullStatUpdate();
+        ApplyStatChanges(true);
     }
 
     public void GetAttacked(float damage, int dmgType, StatusEffect statusEffect)
@@ -104,10 +105,18 @@ public class Combatant : MonoBehaviour
         if (dmgType == 0)
         {
             damage -= physicalDefense / 2;
+            if(damage <= 0)
+            {
+                damage = 0;
+            }
         }
         else if (dmgType == 1)
         {
             damage -= magicalDefense / 2;
+            if (damage <= 0)
+            {
+                damage = 0;
+            }
         }
         hp -= damage;
         if(hp <= 0)
@@ -116,11 +125,25 @@ public class Combatant : MonoBehaviour
             dead = true;
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<TargetClick>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+        else if(hp > vitality)
+        {
+            hp = vitality;
         }
         if (statusEffect != null)
         {
-            ApplyOneStatus(statusEffect);
-            GetStatused(statusEffect);
+            if (statusEffect.RollForStun() == true && didIMove == false)
+            {
+                didIMove = true;
+            }
+            else if (statusEffect.RollForStun() == true && didIMove == true)
+            {
+                stunned = true;
+            }
+            StatusEffect statusClone = gameObject.AddComponent<StatusEffect>();
+            statusClone.Clone(statusEffect);
+            GetStatused(statusClone);
         }
         Debug.Log(combatantName + " took " + damage + " post mitigation damage");
         Debug.Log("post damage hp: " + hp);
@@ -129,23 +152,10 @@ public class Combatant : MonoBehaviour
     void GetStatused(StatusEffect statusEffect)
     {
         statusEffects.Add(statusEffect);
+        ApplyStatChanges(false);
     }
 
-    void FullStatUpdate()
-    {
-        ApplyStatChanges();       
-    }
-
-    void ApplyOneStatus(StatusEffect statusEffect)
-    {
-        physicalAttack = physicalAttack * statusEffect.physicalAttackDelta;
-        magicalAttack = magicalAttack * statusEffect.magicalAttackDelta;
-        physicalDefense = physicalDefense * statusEffect.physicalDefenseDelta;
-        magicalDefense = magicalDefense * statusEffect.magicalDefenseDelta;
-        speed = speed * statusEffect.speedDelta;
-    }
-
-    void ApplyStatChanges()
+    void ApplyStatChanges(bool tick)
     {
         RestoreStats();
         bool breakcheck = false;
@@ -157,9 +167,13 @@ public class Combatant : MonoBehaviour
             magicalDefense = magicalDefense * statusEffects[i].magicalDefenseDelta;
             speed = speed * statusEffects[i].speedDelta;
 
-            statusEffects[i].TickStatus();
+            if(tick)
+            {
+                hp += statusEffects[i].hpDelta * hp / 100;
+                statusEffects[i].TickStatus();
+            }    
 
-            if (statusEffects[i].turnDuration < 0)
+            if (statusEffects[i].turnDuration < 1)
             {
                 Debug.Log(statusEffects[i].statusName + " has successfully been removed");
                 statusEffects.RemoveAt(i);
@@ -170,7 +184,7 @@ public class Combatant : MonoBehaviour
         }
         if(breakcheck)
         {
-            FullStatUpdate();
+            ApplyStatChanges(false);
         }
 
     }
@@ -191,7 +205,15 @@ public class Combatant : MonoBehaviour
 
     public void GiveMove()
     {
-        didIMove = false;
+        if(stunned)
+        {
+            stunned = false;
+        }
+        else
+        {
+            didIMove = false;
+        }
+        
     }
     public bool IsDead()
     {

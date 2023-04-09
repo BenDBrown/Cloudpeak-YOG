@@ -972,6 +972,8 @@ MonoBehaviour:
   physicalDefenseDelta: 0.5
   magicalDefenseDelta: 0.5
   speedDelta: 0.5
+  hpDelta: 0
+  stunChance: 0
 --- !u!114 &606013715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,8 +1097,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692542575}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.10915001, z: 0}
-  m_LocalScale: {x: 0.0248675, y: -0.0363075, z: 1}
+  m_LocalPosition: {x: 0.022, y: 0.295, z: 0}
+  m_LocalScale: {x: 0.07598575, y: -0.112075694, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 325415457}
@@ -2902,7 +2904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackName: Heal
-  dmgMod: 1
+  dmgMod: -1
   statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 2
@@ -3391,6 +3393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1398219168}
   - component: {fileID: 1398219169}
+  - component: {fileID: 1398219170}
   m_Layer: 0
   m_Name: Attack4
   m_TagString: Untagged
@@ -3425,13 +3428,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Sword stab
-  dmgMod: 1
-  statusEffect: {fileID: 0}
+  attackName: Kick
+  dmgMod: 0.4
+  statusEffect: {fileID: 1398219170}
   dmgInput: 0
   dmgOutput: 0
-  Targets: 
+  Targets: 0400000005000000
   aoe: 0
+--- !u!114 &1398219170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398219167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusName: Winded
+  turnDuration: 1
+  physicalAttackDelta: 1
+  magicalAttackDelta: 1
+  physicalDefenseDelta: 0.7
+  magicalDefenseDelta: 1
+  speedDelta: 1
+  hpDelta: 0
+  stunChance: 60
 --- !u!1 &1560993414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5863789605401313719, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -3603,8 +3627,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598844521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 0.10915001, z: 0}
-  m_LocalScale: {x: 0.0248675, y: -0.0363075, z: 1}
+  m_LocalPosition: {x: -0.005, y: 0.4317, z: 0}
+  m_LocalScale: {x: 0.1521804, y: -0.21551006, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 45034313}
