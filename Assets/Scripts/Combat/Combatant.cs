@@ -106,6 +106,7 @@ public class Combatant : MonoBehaviour
     public void GetAttacked(float damage, int dmgType, StatusEffect statusEffect)
     {
         Debug.Log(combatantName + " had " + hp + " pre damage hp");
+        bool logStun = false;
         if (dmgType == 0)
         {
             damage = damage * (physicalDefense / (physicalDefense + damage));
@@ -141,16 +142,18 @@ public class Combatant : MonoBehaviour
             if (statusEffect.RollForStun() == true && didIMove == false)
             {
                 didIMove = true;
+                logStun = true;
             }
             else if (statusEffect.RollForStun() == true && didIMove == true)
             {
                 stunned = true;
+                logStun = true;
             }
             StatusEffect statusClone = gameObject.AddComponent<StatusEffect>();
             statusClone.Clone(statusEffect);
             GetStatused(statusClone);
         }
-        AddDefenseToLog(this, damage, statusEffect);
+        AddDefenseToLog(this, damage, statusEffect, logStun);
     }
 
     void GetStatused(StatusEffect statusEffect)
@@ -263,9 +266,9 @@ public class Combatant : MonoBehaviour
         
     }    
 
-    void AddDefenseToLog(Combatant defender, float damageTaken, StatusEffect status)
+    void AddDefenseToLog(Combatant defender, float damageTaken, StatusEffect status, bool stunned)
     {
-        GetComponentInParent<CombatManager>().combatUI.AddDefenseToLog(defender, damageTaken, status);
+        GetComponentInParent<CombatManager>().combatUI.AddDefenseToLog(defender, damageTaken, status, stunned);
     }
 
     void AddAttackToLog(Combatant attacker, Attack usedAttack, Combatant defender)

@@ -26,5 +26,21 @@ public class Attack : MonoBehaviour
     public List<int> Targets;
 
     public bool aoe = false;
+    public bool includeSelf = false;
+    public bool excludeSelf = false;
+
+    private void Start()
+    {
+        if(includeSelf)
+        {
+            Targets.Add(GetComponentInParent<Combatant>().position);
+            Debug.Log("set target for: " + attackName + " to " + Targets[0]);
+        }
+        else if (excludeSelf)
+        {
+            Targets.Remove(GetComponentInParent<Combatant>().position);
+            Debug.Log("Removed self from " + attackName + " target pool");
+        }
+    }
 
 }

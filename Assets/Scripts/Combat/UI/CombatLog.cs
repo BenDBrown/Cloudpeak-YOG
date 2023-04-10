@@ -10,28 +10,24 @@ public class CombatLog : MonoBehaviour
     public ScrollRect scrollRect;
 
     private string log;
-    private int aoeIgnored = 8;
 
     public void AddAttackersStory(Combatant attacker, Attack usedAttack, Combatant defender)
     {
-        if (aoeIgnored != attacker.position)
+
+        if (usedAttack.aoe)
         {
-            if (usedAttack.aoe)
-            {
-                aoeIgnored = attacker.position;
-                log = attacker.combatantName + " used " + usedAttack.attackName;
-                PublishLog();
-            }
-            else
-            {
-                log = attacker.combatantName + " used " + usedAttack.attackName + " on " + defender.combatantName;
-                PublishLog();
-            }
-            aoeIgnored = 8;
+            log = attacker.combatantName + " used " + usedAttack.attackName;
+            PublishLog();
         }
+        else
+        {
+            log = attacker.combatantName + " used " + usedAttack.attackName + " on " + defender.combatantName;
+            PublishLog();
+        }
+
     }
 
-    public void AddDefendersStory(Combatant defender, int damageTaken, StatusEffect status)
+    public void AddDefendersStory(Combatant defender, int damageTaken, StatusEffect status, bool stunned)
     {
         if(damageTaken == 0 && status != null)
         {
@@ -58,6 +54,11 @@ public class CombatLog : MonoBehaviour
             log = defender.combatantName + " was unaffected";
         }
         PublishLog();
+        if(stunned)
+        {
+            log = defender.combatantName + " was stunned";
+            PublishLog();
+        }
         if(defender.IsDead() && defender.isAlly)
         {
             log = defender.combatantName + " was teleported back to town";

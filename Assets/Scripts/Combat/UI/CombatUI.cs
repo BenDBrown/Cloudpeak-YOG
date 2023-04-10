@@ -91,10 +91,10 @@ public class CombatUI : MonoBehaviour
         combatLog.AddAttackersStory(attacker, usedAttack, defender);   
     }
 
-    public void AddDefenseToLog(Combatant defender, float damageTaken, StatusEffect status)
+    public void AddDefenseToLog(Combatant defender, float damageTaken, StatusEffect status, bool stunned)
     {
         int roundedDamage = Mathf.RoundToInt(damageTaken);
-        combatLog.AddDefendersStory(defender, roundedDamage, status);
+        combatLog.AddDefendersStory(defender, roundedDamage, status, stunned);
     }
     
 }
