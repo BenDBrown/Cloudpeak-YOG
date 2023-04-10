@@ -85,5 +85,16 @@ public class CombatUI : MonoBehaviour
             UpdateCursors();
         }
     }
+
+    public void AddAttackToLog(Combatant attacker, Attack usedAttack, Combatant defender)
+    {
+        combatLog.AddAttackersStory(attacker, usedAttack, defender);   
+    }
+
+    public void AddDefenseToLog(Combatant defender, float damageTaken, StatusEffect status)
+    {
+        int roundedDamage = Mathf.RoundToInt(damageTaken);
+        combatLog.AddDefendersStory(defender, roundedDamage, status);
+    }
     
 }

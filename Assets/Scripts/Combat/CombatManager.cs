@@ -161,13 +161,14 @@ public class CombatManager : MonoBehaviour
         {
             int enemyTargetSelect = 8;
             int breakCounter = 0;
-            while (selectedAttack.Targets.Contains(enemyTargetSelect) == false)
+            while (selectedAttack.Targets.Contains(enemyTargetSelect) == false || GetCombatant(enemyTargetSelect).IsDead())
             {
                 enemyTargetSelect = Random.Range(0, 8);
                 breakCounter++;
-                if(breakCounter > 100000)
+                if(breakCounter > 10000000)
                 {
                     Debug.Log("either the Attack: '" + selectedAttack.attackName + "' did not contain a valid target or you won the lottery but got nothing");
+                    break;
                 }
             }
             turnCombatant.Attack(selectedAttack, GetCombatant(enemyTargetSelect));

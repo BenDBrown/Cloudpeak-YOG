@@ -42,6 +42,7 @@ public class Combatant : MonoBehaviour
 
     // character/enemy name
     public string combatantName;
+
     // specifies weather combatant is an enemy or player character (ai or player controlled)
     public bool isAlly;
 
@@ -51,10 +52,12 @@ public class Combatant : MonoBehaviour
     public Attack attack3;
     public Attack attack4;
 
+    // state checks for moving
     private bool didIMove = false;
     private bool dead = false;
     private bool stunned = false;
 
+    // List of status effects on the character
     private List<StatusEffect> statusEffects;
 
     void Awake()
@@ -94,6 +97,7 @@ public class Combatant : MonoBehaviour
                 damage += Random.Range(-damage * 0.1f, damage * 0.1f);
                 Debug.Log(combatantName + " used " + attack.attackName + ", pre-mitigation damage: " + damage);
             }
+            AddAttackToLog(this, attack, target);
             target.GetAttacked(damage, attack.dmgOutput, attack.statusEffect);
         }
         ApplyStatChanges(true);
@@ -121,6 +125,7 @@ public class Combatant : MonoBehaviour
         hp -= damage;
         if(hp <= 0)
         {
+            hp = 0;
             Debug.Log(combatantName + " died");
             dead = true;
             GetComponent<SpriteRenderer>().enabled = false;
@@ -145,8 +150,7 @@ public class Combatant : MonoBehaviour
             statusClone.Clone(statusEffect);
             GetStatused(statusClone);
         }
-        Debug.Log(combatantName + " took " + damage + " post mitigation damage");
-        Debug.Log("post damage hp: " + hp);
+        AddDefenseToLog(this, damage, statusEffect);
     }
 
     void GetStatused(StatusEffect statusEffect)
@@ -258,5 +262,15 @@ public class Combatant : MonoBehaviour
         }
         
     }    
+
+    void AddDefenseToLog(Combatant defender, float damageTaken, StatusEffect status)
+    {
+        GetComponentInParent<CombatManager>().combatUI.AddDefenseToLog(defender, damageTaken, status);
+    }
+
+    void AddAttackToLog(Combatant attacker, Attack usedAttack, Combatant defender)
+    {
+        GetComponentInParent<CombatManager>().combatUI.AddAttackToLog(attacker, usedAttack, defender);
+    }
 
 }
