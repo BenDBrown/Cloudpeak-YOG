@@ -104,7 +104,7 @@ public class Combatant : MonoBehaviour
         Debug.Log(combatantName + " had " + hp + " pre damage hp");
         if (dmgType == 0)
         {
-            damage -= physicalDefense / 2;
+            damage = damage * (physicalDefense / (physicalDefense + damage));
             if(damage <= 0)
             {
                 damage = 0;
@@ -112,7 +112,7 @@ public class Combatant : MonoBehaviour
         }
         else if (dmgType == 1)
         {
-            damage -= magicalDefense / 2;
+            damage = damage * (magicalDefense / (magicalDefense + damage));
             if (damage <= 0)
             {
                 damage = 0;
@@ -228,15 +228,15 @@ public class Combatant : MonoBehaviour
 
     public Attack GetAttack(int attack)
     {
-        if (attack == 0)
+        if (attack == 1)
         {
             return attack1;
         }
-        else if (attack == 1)
+        else if (attack == 2)
         {
             return attack2;
         }
-        else if (attack == 2)
+        else if (attack == 3)
         {
             return attack3;
         }

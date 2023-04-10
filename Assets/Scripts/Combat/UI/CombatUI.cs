@@ -8,7 +8,7 @@ public class CombatUI : MonoBehaviour
 {
     public GameObject AttackPanel;
     public GameObject EnemyHealthDisplay;
-    public GameObject DialogBox;
+    public CombatLog combatLog;
 
     public CombatManager combatManager;
 
@@ -26,7 +26,6 @@ public class CombatUI : MonoBehaviour
         {
             AttackPanel.SetActive(true);
             EnemyHealthDisplay.SetActive(true);
-            DialogBox.SetActive(true);
         }
     }
 

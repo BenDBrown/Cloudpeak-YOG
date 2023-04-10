@@ -148,8 +148,15 @@ public class CombatManager : MonoBehaviour
 
     void AIAttack()
     {
-        int enemyAttackSelect = Random.Range(1, 5);
-        selectedAttack = turnCombatant.GetAttack(enemyAttackSelect);
+        bool valid = false;
+        int enemyAttackSelect;
+        while (valid == false)
+        {
+            enemyAttackSelect = Random.Range(1, 5);
+            selectedAttack = turnCombatant.GetAttack(enemyAttackSelect);
+            valid = ValidateTargets();
+        }
+
         if (selectedAttack.aoe == false)
         {
             int enemyTargetSelect = 8;
@@ -158,12 +165,12 @@ public class CombatManager : MonoBehaviour
             {
                 enemyTargetSelect = Random.Range(0, 8);
                 breakCounter++;
-                if(breakCounter > 10000)
+                if(breakCounter > 100000)
                 {
                     Debug.Log("either the Attack: '" + selectedAttack.attackName + "' did not contain a valid target or you won the lottery but got nothing");
                 }
             }
-            turnCombatant.Attack(turnCombatant.GetAttack(enemyAttackSelect), GetCombatant(enemyTargetSelect));
+            turnCombatant.Attack(selectedAttack, GetCombatant(enemyTargetSelect));
             GiveTurn();
         }
         else
@@ -171,7 +178,18 @@ public class CombatManager : MonoBehaviour
             AoeAttack();
         }
     }
-    
+
+    bool ValidateTargets()
+    {
+        foreach (int target in selectedAttack.Targets)
+        {
+            if (GetCombatant(target).IsDead() == false)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     void SpawnEnemies()
     {
