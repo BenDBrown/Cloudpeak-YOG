@@ -98,7 +98,7 @@ public class Combatant : MonoBehaviour
                 Debug.Log(combatantName + " used " + attack.attackName + ", pre-mitigation damage: " + damage);
             }
             AddAttackToLog(this, attack, target);
-            target.GetAttacked(damage, attack.dmgOutput, attack.statusEffect);
+            target.GetAttacked(damage, attack.dmgOutput, attack.GetStatusEffect());
         }
         ApplyStatChanges(true);
     }

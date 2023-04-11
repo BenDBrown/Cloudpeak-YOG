@@ -18,10 +18,11 @@ public class TargetClick : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && isActive == true && combatant.IsDead() == false)
+        if (Input.GetMouseButtonDown(0) && isActive == true && combatant.IsDead() == false && combatUI.IsWaiting() == false)
         {
             combatManager.PlayerAttack(combatant);
             combatUI.UpdateCursors();
+            combatUI.ToggleWait(true);
         }
         
     }

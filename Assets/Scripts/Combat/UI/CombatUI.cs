@@ -20,6 +20,8 @@ public class CombatUI : MonoBehaviour
     public TextMeshProUGUI characterSkill3;
     public TextMeshProUGUI characterSkill4;
 
+    private bool waiting = false;
+
     void Start()
     {
         if (combatManager.AreWeFighting())
@@ -97,4 +99,14 @@ public class CombatUI : MonoBehaviour
         combatLog.AddDefendersStory(defender, roundedDamage, status, stunned);
     }
     
+    public bool IsWaiting()
+    {
+        return waiting;
+    }
+
+    public void ToggleWait(bool wait)
+    {
+        waiting = wait;
+    }
+
 }

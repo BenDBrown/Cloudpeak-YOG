@@ -169,7 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wand Smash
   dmgMod: 1.1
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
   Targets: 
@@ -281,18 +280,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 3
-  vitalityBase: 10
-  physicalAttackBase: 10
-  magicalAttackBase: 10
-  physicalDefenseBase: 10
-  magicalDefenseBase: 10
-  speedBase: 11
-  vitalityGrowth: 1
-  physicalAttackGrowth: 1
-  magicalAttackGrowth: 1
-  physicalDefenseGrowth: 1
-  magicalDefenseGrowth: 1
-  speedGrowth: 1
+  vitalityBase: 12
+  physicalAttackBase: 9
+  magicalAttackBase: 14
+  physicalDefenseBase: 11
+  magicalDefenseBase: 12
+  speedBase: 12
+  vitalityGrowth: 1.3
+  physicalAttackGrowth: 0.9
+  magicalAttackGrowth: 1.4
+  physicalDefenseGrowth: 1.1
+  magicalDefenseGrowth: 1.3
+  speedGrowth: 1.1
   level: 10
   vitality: 0
   physicalAttack: 0
@@ -532,12 +531,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: sword smash
+  attackName: Maul
   dmgMod: 1.1
-  statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
-  Targets: 04000000050000000600000007000000
+  Targets: 0400000005000000
   aoe: 0
   includeSelf: 0
   excludeSelf: 0
@@ -705,18 +703,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 1
-  vitalityBase: 10
-  physicalAttackBase: 10
-  magicalAttackBase: 10
-  physicalDefenseBase: 10
-  magicalDefenseBase: 10
-  speedBase: 10
-  vitalityGrowth: 1
-  physicalAttackGrowth: 1
-  magicalAttackGrowth: 1
-  physicalDefenseGrowth: 1
+  vitalityBase: 13
+  physicalAttackBase: 15
+  magicalAttackBase: 0
+  physicalDefenseBase: 11
+  magicalDefenseBase: 11
+  speedBase: 15
+  vitalityGrowth: 1.4
+  physicalAttackGrowth: 1.5
+  magicalAttackGrowth: 0
+  physicalDefenseGrowth: 1.1
   magicalDefenseGrowth: 1
-  speedGrowth: 1
+  speedGrowth: 1.5
   level: 10
   vitality: 0
   physicalAttack: 0
@@ -1003,7 +1001,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Sword Strike
   dmgMod: 1
-  statusEffect: {fileID: 606013714}
   dmgInput: 0
   dmgOutput: 0
   Targets: 04000000050000000600000007000000
@@ -1054,12 +1051,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: sword smash
-  dmgMod: 1.1
-  statusEffect: {fileID: 0}
+  attackName: Axe throw
+  dmgMod: 1
   dmgInput: 0
   dmgOutput: 0
-  Targets: 
+  Targets: 0600000007000000
   aoe: 0
   includeSelf: 0
   excludeSelf: 0
@@ -2478,7 +2474,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wand Strike
   dmgMod: 1
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
   Targets: 
@@ -2531,7 +2526,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wand Smash
   dmgMod: 1.1
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
   Targets: 
@@ -2720,6 +2714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 921376704}
   - component: {fileID: 921376706}
+  - component: {fileID: 921376707}
   m_Layer: 0
   m_Name: Attack3
   m_TagString: Untagged
@@ -2754,15 +2749,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: sword smash
-  dmgMod: 1.1
-  statusEffect: {fileID: 0}
+  attackName: Shield bash
+  dmgMod: 0.7
   dmgInput: 0
   dmgOutput: 0
-  Targets: 
+  Targets: 0400000005000000
   aoe: 0
   includeSelf: 0
   excludeSelf: 0
+--- !u!114 &921376707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921376703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusName: Stunned
+  turnDuration: 0
+  physicalAttackDelta: 1
+  magicalAttackDelta: 1
+  physicalDefenseDelta: 1
+  magicalDefenseDelta: 1
+  speedDelta: 1
+  hpDelta: 0
+  stunChance: 70
 --- !u!114 &969930813 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2999127572209579812, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
@@ -2895,18 +2910,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 0
-  vitalityBase: 10
-  physicalAttackBase: 10
-  magicalAttackBase: 10
-  physicalDefenseBase: 10
+  vitalityBase: 15
+  physicalAttackBase: 14
+  magicalAttackBase: 8
+  physicalDefenseBase: 13
   magicalDefenseBase: 10
-  speedBase: 12
-  vitalityGrowth: 1
-  physicalAttackGrowth: 1
+  speedBase: 10
+  vitalityGrowth: 1.5
+  physicalAttackGrowth: 1.4
   magicalAttackGrowth: 1
-  physicalDefenseGrowth: 1
+  physicalDefenseGrowth: 1.3
   magicalDefenseGrowth: 1
-  speedGrowth: 1
+  speedGrowth: 1.2
   level: 10
   vitality: 0
   physicalAttack: 0
@@ -3024,7 +3039,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Heal
   dmgMod: -1
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 2
   Targets: 00000000010000000200000003000000
@@ -3119,7 +3133,7 @@ Transform:
   m_GameObject: {fileID: 1128774684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.426, y: 0, z: 0.10769546}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1956817986}
@@ -3171,7 +3185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e394ba126ec47064fa92d83bacd8fd8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4a9d1203c2f13246b66b1c325d374d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3195,18 +3209,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 2
-  vitalityBase: 10
-  physicalAttackBase: 10
-  magicalAttackBase: 10
+  vitalityBase: 11
+  physicalAttackBase: 9
+  magicalAttackBase: 15
   physicalDefenseBase: 10
-  magicalDefenseBase: 10
-  speedBase: 10
-  vitalityGrowth: 1
+  magicalDefenseBase: 13
+  speedBase: 13
+  vitalityGrowth: 1.2
   physicalAttackGrowth: 1
-  magicalAttackGrowth: 1
+  magicalAttackGrowth: 1.5
   physicalDefenseGrowth: 1
-  magicalDefenseGrowth: 1
-  speedGrowth: 1
+  magicalDefenseGrowth: 1.4
+  speedGrowth: 1.2
   level: 10
   vitality: 0
   physicalAttack: 0
@@ -3265,18 +3279,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.089564204, y: -0.028660595}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.45854735, y: 0.5946852}
   m_EdgeRadius: 0
 --- !u!1 &1158398387
 GameObject:
@@ -3324,7 +3338,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Broad Slash
   dmgMod: 0.7
-  statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
   Targets: 0400000005000000
@@ -3683,7 +3696,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Kick
   dmgMod: 0.4
-  statusEffect: {fileID: 1398219170}
   dmgInput: 0
   dmgOutput: 0
   Targets: 0400000005000000
@@ -4090,7 +4102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wand Strike
   dmgMod: 1
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
   Targets: 
@@ -4245,7 +4256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wand Smash
   dmgMod: 1.1
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
   Targets: 
@@ -4298,7 +4308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wand Strike
   dmgMod: 1
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
   Targets: 
@@ -4412,6 +4421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1972658475}
   - component: {fileID: 1972658477}
+  - component: {fileID: 1972658478}
   m_Layer: 0
   m_Name: Attack4
   m_TagString: Untagged
@@ -4446,15 +4456,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: sword smash
-  dmgMod: 1.1
-  statusEffect: {fileID: 0}
+  attackName: Maim
+  dmgMod: 0.9
   dmgInput: 0
   dmgOutput: 0
-  Targets: 
+  Targets: 0400000005000000
   aoe: 0
   includeSelf: 0
   excludeSelf: 0
+--- !u!114 &1972658478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972658474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusName: Maimed
+  turnDuration: 2
+  physicalAttackDelta: 0.5
+  magicalAttackDelta: 1
+  physicalDefenseDelta: 1
+  magicalDefenseDelta: 1
+  speedDelta: 1
+  hpDelta: 0
+  stunChance: 0
 --- !u!4 &2018958443 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5053754516189804628, guid: 3da75e80419909a459c62f4aa51eae69, type: 3}
@@ -4506,7 +4536,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wand Smash
   dmgMod: 1.1
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
   Targets: 04000000050000000600000007000000
@@ -4564,7 +4593,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wand Strike
   dmgMod: 1
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
   Targets: 04000000050000000600000007000000

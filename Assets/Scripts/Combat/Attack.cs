@@ -6,7 +6,7 @@ public class Attack : MonoBehaviour
 {
     public string attackName;
     public float dmgMod;
-    public StatusEffect statusEffect;
+    private StatusEffect statusEffect;
 
     // dmgInput decides which stat is used from the attacker to calculate damage
     // might add damage based on other stats so not using boolean
@@ -41,6 +41,12 @@ public class Attack : MonoBehaviour
             Targets.Remove(GetComponentInParent<Combatant>().position);
             Debug.Log("Removed self from " + attackName + " target pool");
         }
+        statusEffect = gameObject.GetComponent<StatusEffect>();
+    }
+
+    public StatusEffect GetStatusEffect()
+    {
+        return statusEffect;
     }
 
 }

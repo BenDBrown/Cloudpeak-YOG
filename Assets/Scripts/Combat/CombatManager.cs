@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
@@ -43,8 +44,10 @@ public class CombatManager : MonoBehaviour
         GiveTurn();
     }
 
-    void GiveTurn()
+    async void GiveTurn()
     {
+        await Task.Delay(2000);
+        combatUI.ToggleWait(false);
         if (CombatResolved() == false)
         {
             bool resetRound = true;
