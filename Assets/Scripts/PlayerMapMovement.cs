@@ -10,6 +10,7 @@ public class PlayerMapMovement : MonoBehaviour
     private float startLocationX;
     private float startLocationMY;
     private float startLocationMX;
+    private bool Fighting;
 
     private Vector3 v3;
     // Start is called before the first frame update
@@ -21,14 +22,13 @@ public class PlayerMapMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       Fighting = GameObject.Find("Combat").GetComponent<CombatManager>().AreWeFighting();
         startLocationY = Player.transform.position.y + 1;
         startLocationX = Player.transform.position.x + 1;
         startLocationMY = Player.transform.position.y - 1;
         startLocationMX = Player.transform.position.x - 1;
 
-
-        Debug.DrawRay(Player.transform.position, Vector2.up * 11f, Color.red);
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && Fighting == false)
         {
 
             v3.Set(Player.transform.position.x, startLocationY, 0);
@@ -54,7 +54,7 @@ public class PlayerMapMovement : MonoBehaviour
           
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && Fighting == false)
         {
 
             v3.Set(startLocationMX, Player.transform.position.y, 0);
@@ -80,7 +80,7 @@ public class PlayerMapMovement : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && Fighting == false)
         {
 
             v3.Set(Player.transform.position.x, startLocationMY, 0);
@@ -104,7 +104,7 @@ public class PlayerMapMovement : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && Fighting == false)
         {
 
             v3.Set(startLocationX, Player.transform.position.y, 0);
