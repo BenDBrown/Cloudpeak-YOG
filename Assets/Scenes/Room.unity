@@ -1297,6 +1297,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2000629136234426131, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4331071519236906776, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2869,7 +2873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatUI: {fileID: 1263851640}
-  percentEncounterChance: 100
+  percentEncounterChance: 0
 --- !u!4 &863845851
 Transform:
   m_ObjectHideFlags: 0
