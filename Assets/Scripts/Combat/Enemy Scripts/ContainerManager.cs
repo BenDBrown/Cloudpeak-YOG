@@ -11,7 +11,7 @@ public class ContainerManager : MonoBehaviour
     private Combatant loadedEnemy;
 
     // Start is called before the first frame update
-    void Awake()
+    void OnEnable()
     {
         enemies = GetComponentsInChildren<Combatant>(true);
 

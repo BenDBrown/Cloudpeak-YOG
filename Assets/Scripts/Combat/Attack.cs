@@ -29,7 +29,7 @@ public class Attack : MonoBehaviour
     public bool includeSelf = false;
     public bool excludeSelf = false;
 
-    private void Start()
+    private void OnEnable()
     {
         if(includeSelf)
         {

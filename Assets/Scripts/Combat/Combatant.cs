@@ -24,14 +24,13 @@ public class Combatant : MonoBehaviour
     public float speedGrowth = 1f;
 
     // the in combat stats calculated using the above
-    public int level = 10;
     public float vitality;
     public float physicalAttack;
     public float magicalAttack;
     public float physicalDefense;
     public float magicalDefense;
     public float speed;
-    public float hp;
+    public float hp = 0;
 
     // in combat clones of stats used to revert stat changes
     private float physicalAttackClone;
@@ -57,10 +56,17 @@ public class Combatant : MonoBehaviour
     private bool dead = false;
     private bool stunned = false;
 
-    // List of status effects on the character
-    private List<StatusEffect> statusEffects;
+    // level stuff
+    private float xp = 0;
+    private int level = 1;
+    private float levelUpThreshold = 100;
+    private Item weapon;
+    private Item armour;
 
-    void Awake()
+    // List of status effects on the character
+    private List<StatusEffect> statusEffects = new List<StatusEffect>();
+
+    public void FightPrep()
     {
         vitality = vitalityBase + vitalityGrowth * level;
         physicalAttack = physicalAttackBase + physicalAttackGrowth * level;
@@ -68,15 +74,35 @@ public class Combatant : MonoBehaviour
         physicalDefense = physicalDefenseBase + physicalDefenseGrowth * level;
         magicalDefense = magicalDefenseBase + magicalDefenseGrowth * level;
         speed = speedBase + speedGrowth * level;
-        hp = vitality;
+        if(weapon != null)
+        {
+            vitality += weapon.vitality;
+            physicalAttack += weapon.physicalAttack;
+            magicalAttack += weapon.magicalAttack;
+            physicalDefense += weapon.physicalDefense;
+            magicalDefense += weapon.magicalDefense;
+            speed += weapon.speed;
+        }
+        if(armour != null)
+        {
+            vitality += armour.vitality;
+            physicalAttack += armour.physicalAttack;
+            magicalAttack += armour.magicalAttack;
+            physicalDefense += armour.physicalDefense;
+            magicalDefense += armour.magicalDefense;
+            speed += armour.speed;
+        }
+
+        if(hp == 0 && dead == false)
+        {
+            hp = vitality;
+        }
 
         physicalAttackClone = physicalAttack;
         magicalAttackClone = magicalAttack;
         physicalDefenseClone = physicalDefense;
         magicalDefenseClone = magicalDefense;
         speedClone = speed;
-
-        statusEffects = new List<StatusEffect>();
     }
 
     public void Attack(Attack attack, Combatant target)
@@ -149,7 +175,7 @@ public class Combatant : MonoBehaviour
                 stunned = true;
                 logStun = true;
             }
-            StatusEffect statusClone = gameObject.AddComponent<StatusEffect>();
+            StatusEffect statusClone = gameObject.AddComponent(typeof(StatusEffect)) as StatusEffect;
             statusClone.Clone(statusEffect);
             GetStatused(statusClone);
         }
@@ -158,6 +184,14 @@ public class Combatant : MonoBehaviour
 
     void GetStatused(StatusEffect statusEffect)
     {
+        for(int i = 0; i < statusEffects.Count; i++)
+        {
+            if(statusEffects[i].statusName == statusEffect.statusName)
+            {
+                statusEffects.RemoveAt(i);
+                i--;
+            }
+        }
         statusEffects.Add(statusEffect);
         ApplyStatChanges(false);
     }
@@ -274,6 +308,50 @@ public class Combatant : MonoBehaviour
     void AddAttackToLog(Combatant attacker, Attack usedAttack, Combatant defender)
     {
         GetComponentInParent<CombatManager>().combatUI.AddAttackToLog(attacker, usedAttack, defender);
+    }
+
+    public void levelUp(float recievedXp)
+    {
+        xp += recievedXp;
+        if(xp >= levelUpThreshold)
+        {
+            level++;
+            xp -= levelUpThreshold;
+            levelUpThreshold += 20;
+        }
+        foreach(StatusEffect se in statusEffects)
+        {
+            Destroy(se);
+        }
+        statusEffects.Clear();
+    }
+
+    private void OnDisable()
+    {
+        foreach (StatusEffect se in statusEffects)
+        {
+            Destroy(se);
+        }
+        statusEffects.Clear();
+    }
+
+    public void setXp(float xp, int level)
+    {
+        this.xp = xp;
+        this.level = level;
+        levelUpThreshold = 80 + 20 * level;
+    }
+
+    public void EquipItem(Item item)
+    {
+        if (item.weapon)
+        {
+            weapon = item;
+        }
+        else
+        {
+            armour = item;
+        }
     }
 
 }

@@ -19,19 +19,28 @@ public class CombatManager : MonoBehaviour
     private Combatant turnCombatant;
     private Attack selectedAttack;
 
-    void Awake()
+    private float xp;
+
+    void OnEnable()
     {
         int r = Random.Range(1, 101);
+        xp = 0;
 
         if(r <= percentEncounterChance)
         {
-            SpawnEnemies();
+            SpawnEnemies(true);
             foreach (Combatant c in FindObjectsOfType<Combatant>(false))
             {
                 Debug.Log(c.combatantName + " added to list with position: " + c.position);
+                c.FightPrep();
+                if(c.isAlly == false)
+                {
+                    xp += c.hp;
+                }
                 toMoveList.Add(c);
             }
             isFighting = true;
+            GiveTurn();
         }
         else
         {
@@ -39,14 +48,10 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        GiveTurn();
-    }
-
     async void GiveTurn()
     {
         await Task.Delay(2000);
+        combatUI.Setup();
         combatUI.ToggleWait(false);
         if (CombatResolved() == false)
         {
@@ -112,18 +117,30 @@ public class CombatManager : MonoBehaviour
         {
             // put result of a draw here
             Debug.Log("draw");
+            isFighting = false;
             return true;
         }
         else if(victory)
         {
             // put result of victory here
             Debug.Log("W");
+            foreach (Combatant c in toMoveList)
+            {
+                if(c.isAlly && c.IsDead() == false)
+                {
+                    c.levelUp(xp);
+                }
+            }
+            SpawnEnemies(false);
+            toMoveList.Clear();
+            isFighting = false;
             return true;
         }
         else if(defeat)
         {
             // put result of a defeat here
             Debug.Log("L");
+            isFighting = false;
             return true;
         }
         else
@@ -195,11 +212,11 @@ public class CombatManager : MonoBehaviour
         return false;
     }
 
-    void SpawnEnemies()
+    void SpawnEnemies(bool spawn)
     {
         foreach(ContainerManager cm in FindObjectsOfType<ContainerManager>(true))
         {
-            cm.gameObject.SetActive(true);
+            cm.gameObject.SetActive(spawn);
         }
         
     }

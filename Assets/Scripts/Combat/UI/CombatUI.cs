@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading.Tasks;
 
 public class CombatUI : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class CombatUI : MonoBehaviour
 
     private bool waiting = false;
 
-    void Start()
+    public void Setup()
     {
         if (combatManager.AreWeFighting())
         {
@@ -50,17 +51,14 @@ public class CombatUI : MonoBehaviour
 
     public void UpdateCursors()
     {
-        if(combatManager.GetSelectedAttack() != null)
+        foreach (Combatant combatant in combatManager.GetCombatants())
+        {
+            combatant.SetCursorActive(false);
+        }
+        if (combatManager.GetSelectedAttack() != null)
         {
             AttackCursorSelect(combatManager.GetSelectedAttack());
         }       
-        else
-        {
-            foreach(Combatant combatant in combatManager.GetCombatants())
-            {
-                combatant.SetCursorActive(false);
-            }
-        }
     }
 
     private void AttackCursorSelect(Attack attack)

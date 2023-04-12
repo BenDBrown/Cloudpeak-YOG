@@ -16,12 +16,26 @@ public class HealthBarManager : MonoBehaviour
         if(combatant == null)
         {
             nameSpace.text = containerManager.GetEnemy().combatantName;
-            hp.text = containerManager.GetEnemy().hp.ToString();
+            if(Mathf.RoundToInt(containerManager.GetEnemy().hp) != 0)
+            {
+                hp.text = Mathf.RoundToInt(containerManager.GetEnemy().hp).ToString();
+            }
+            else
+            {
+                hp.text = "1";
+            }
         }
         else
         {
             nameSpace.text = combatant.combatantName;
-            hp.text = combatant.hp.ToString();
+            if (Mathf.RoundToInt(combatant.hp) != 0)
+            {
+                hp.text = Mathf.RoundToInt(combatant.hp).ToString();
+            }
+            else
+            {
+                hp.text = "1";
+            }  
         } 
     }
 

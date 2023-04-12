@@ -117,7 +117,6 @@ MonoBehaviour:
   physicalDefenseGrowth: 1
   magicalDefenseGrowth: 1.2
   speedGrowth: 1.6
-  level: 10
   vitality: 0
   physicalAttack: 0
   magicalAttack: 0
@@ -234,7 +233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wolf Bite
   dmgMod: 1
-  statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
   Targets: 0000000001000000
@@ -287,7 +285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Wolf Bite
   dmgMod: 1
-  statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
   Targets: 0000000001000000
@@ -341,7 +338,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Poison Spray
   dmgMod: 0.5
-  statusEffect: {fileID: 0}
   dmgInput: 1
   dmgOutput: 1
   Targets: 0000000001000000
@@ -415,7 +411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Rabid bite
   dmgMod: 1.2
-  statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
   Targets: 0000000001000000020000000300000004000000050000000600000007000000
@@ -469,7 +464,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Shake off fleas
   dmgMod: 0
-  statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
   Targets: 0000000001000000020000000300000004000000050000000600000007000000
@@ -544,7 +538,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Howl
   dmgMod: 0
-  statusEffect: {fileID: 4436308127996953935}
   dmgInput: 0
   dmgOutput: 2
   Targets: 04000000050000000600000007000000
@@ -619,7 +612,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Howl
   dmgMod: 0
-  statusEffect: {fileID: 6018629911970522657}
   dmgInput: 0
   dmgOutput: 2
   Targets: 04000000050000000600000007000000
@@ -693,7 +685,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Rabid bite
   dmgMod: 1.2
-  statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
   Targets: 0000000001000000020000000300000004000000050000000600000007000000
@@ -747,7 +738,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Pounce
   dmgMod: 0.8
-  statusEffect: {fileID: 9039793630487841116}
   dmgInput: 0
   dmgOutput: 0
   Targets: 00000000010000000200000003000000
@@ -989,7 +979,6 @@ MonoBehaviour:
   physicalDefenseGrowth: 1.4
   magicalDefenseGrowth: 1
   speedGrowth: 1
-  level: 10
   vitality: 0
   physicalAttack: 0
   magicalAttack: 0
@@ -1177,7 +1166,6 @@ MonoBehaviour:
   physicalDefenseGrowth: 0.9
   magicalDefenseGrowth: 1.1
   speedGrowth: 1.4
-  level: 10
   vitality: 0
   physicalAttack: 0
   magicalAttack: 0
@@ -1282,7 +1270,7 @@ Transform:
   - {fileID: 1486801251666503479}
   - {fileID: 6965617220262932244}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1880489822
 MonoBehaviour:
@@ -1296,7 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0f6a2d37fa69446a82fc072321b15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 4
+  position: 6
 --- !u!1 &5159967692504514343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1332,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Bark
   dmgMod: 0
-  statusEffect: {fileID: 7959174529569331753}
   dmgInput: 0
   dmgOutput: 2
   Targets: 00000000010000000200000003000000
@@ -1516,7 +1503,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Bark
   dmgMod: 0
-  statusEffect: {fileID: 5937619656211952688}
   dmgInput: 0
   dmgOutput: 2
   Targets: 00000000010000000200000003000000
@@ -1591,7 +1577,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Pounce
   dmgMod: 0.8
-  statusEffect: {fileID: 2513712118443463818}
   dmgInput: 0
   dmgOutput: 0
   Targets: 00000000010000000200000003000000
@@ -1666,7 +1651,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Sting
   dmgMod: 0.5
-  statusEffect: {fileID: 2341312432661140082}
   dmgInput: 0
   dmgOutput: 0
   Targets: 00000000010000000200000003000000
@@ -1741,7 +1725,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Scurry
   dmgMod: 0
-  statusEffect: {fileID: 0}
   dmgInput: 0
   dmgOutput: 0
   Targets: 
@@ -1983,7 +1966,6 @@ MonoBehaviour:
   physicalDefenseGrowth: 1
   magicalDefenseGrowth: 1.2
   speedGrowth: 1.6
-  level: 10
   vitality: 0
   physicalAttack: 0
   magicalAttack: 0
@@ -2101,12 +2083,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Burrow
   dmgMod: 0
-  statusEffect: {fileID: 1768330265305201883}
   dmgInput: 0
   dmgOutput: 0
-  Targets: 00000000010000000200000003000000
+  Targets: 
   aoe: 0
-  includeSelf: 0
+  includeSelf: 1
   excludeSelf: 0
 --- !u!114 &1768330265305201883
 MonoBehaviour:
@@ -2176,7 +2157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Pincer
   dmgMod: 0.5
-  statusEffect: {fileID: 1858212108185799781}
   dmgInput: 0
   dmgOutput: 0
   Targets: 0000000001000000
