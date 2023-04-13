@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6348195306642898987}
   - component: {fileID: 6772273715264079638}
   - component: {fileID: 6997825277776737233}
+  - component: {fileID: 6526175928678134358}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -152,6 +153,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6526175928678134358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50546623728937202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841424785421bf94db3c87679490566e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 4088e222fbea240ceb318507c580aa2e, type: 3}
+  - {fileID: 21300000, guid: 4d106ce971166481faa32de0ba5145c0, type: 3}
+  - {fileID: 21300000, guid: 167f44201ce9c4632b387d0a0822f7f5, type: 3}
 --- !u!1 &210701811088550082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,6 +1983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 0
+  spawned: 0
 --- !u!1 &5573961355871320617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,6 +2115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 4
+  spawned: 0
 --- !u!61 &8461544856801331068
 BoxCollider2D:
   m_ObjectHideFlags: 0

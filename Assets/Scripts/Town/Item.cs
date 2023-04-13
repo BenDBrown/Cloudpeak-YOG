@@ -14,6 +14,8 @@ public class Item : MonoBehaviour
     public int physicalDefense;
     public int magicalDefense;
     public int speed;
+    public string itemType;
+    public int spritePosition;
 
     private Sprite sprite;
 
@@ -333,6 +335,8 @@ public class Item : MonoBehaviour
                 itemName = swordTypes[r];
                 r = Random.Range(0, swordSprites.Count);
                 sprite = swordSprites[r];
+                spritePosition = r;
+                itemType = "sword";
             }
             else
             {
@@ -340,6 +344,8 @@ public class Item : MonoBehaviour
                 itemName = axeTypes[r];
                 r = Random.Range(0, axeSprites.Count);
                 sprite = axeSprites[r];
+                spritePosition = r;
+                itemType = "axe";
             }
             r = Random.Range(0, physicalAdjectives.Count);
             itemName = physicalAdjectives[r] + " " + itemName; 
@@ -352,6 +358,8 @@ public class Item : MonoBehaviour
             itemName = magicalAdjectives[r] + " " + itemName;
             r = Random.Range(0, staffSprites.Count);
             sprite = staffSprites[r];
+            spritePosition = r;
+            itemType = "staff";
         }
         else if(weapon == false && IsHighestStat(physicalDefense) || IsHighestStat(vitality))
         {
@@ -361,6 +369,8 @@ public class Item : MonoBehaviour
             itemName = physicalAdjectives[r] + " " + itemName;
             r = Random.Range(0, armourSprites.Count);
             sprite = armourSprites[r];
+            spritePosition = r;
+            itemType = "armour";
         }
         else if (weapon == false && IsHighestStat(magicalDefense) || IsHighestStat(magicalAttack))
         {
@@ -370,6 +380,8 @@ public class Item : MonoBehaviour
             itemName = magicalAdjectives[r] + " " + itemName;
             r = Random.Range(0, magicalArmourSprites.Count);
             sprite = magicalArmourSprites[r];
+            spritePosition = r;
+            itemType = "marmour";
         }
         else
         {
@@ -379,6 +391,8 @@ public class Item : MonoBehaviour
             itemName = physicalAdjectives[r] + " " + itemName;
             r = Random.Range(0, speedArmourSprites.Count);
             sprite = speedArmourSprites[r];
+            spritePosition = r;
+            itemType = "sarmour";
         }
         Debug.Log(itemName);
     }
@@ -428,6 +442,41 @@ public class Item : MonoBehaviour
         quality += magicalDefense;
         quality += speed;
         return quality;
+    }
+    
+    public void SetSprite(Sprite sprite)
+    {
+
+        this.sprite = sprite;
+
+    }
+
+    public List<Sprite> GetSpriteList(string itemType)
+    {
+        if (itemType == "sword")
+        {
+            return swordSprites;
+        }
+        else if (itemType == "axe")
+        {
+            return axeSprites;
+        }
+        else if (itemType == "staff")
+        {
+            return staffSprites;
+        }
+        else if (itemType == "armour")
+        {
+            return armourSprites;
+        }
+        else if (itemType == "marmour")
+        {
+            return magicalArmourSprites;
+        }
+        else
+        {
+            return speedArmourSprites;
+        }
     }
 
 }

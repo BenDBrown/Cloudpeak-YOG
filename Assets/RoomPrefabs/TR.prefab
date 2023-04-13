@@ -754,6 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 1
+  spawned: 0
 --- !u!61 &6257941220954638808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1896,6 +1897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 3
+  spawned: 0
 --- !u!61 &4568975986569645218
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2339,6 +2341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 0
+  spawned: 0
 --- !u!1 &7112301813248973717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3115,6 +3118,7 @@ GameObject:
   - component: {fileID: 1979674926122544942}
   - component: {fileID: 9013931500044558162}
   - component: {fileID: 7932287163354601815}
+  - component: {fileID: 3228219481726218053}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -3253,6 +3257,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3228219481726218053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8146103802164279108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841424785421bf94db3c87679490566e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 4088e222fbea240ceb318507c580aa2e, type: 3}
+  - {fileID: 21300000, guid: 4d106ce971166481faa32de0ba5145c0, type: 3}
+  - {fileID: 21300000, guid: 167f44201ce9c4632b387d0a0822f7f5, type: 3}
 --- !u!1 &8575988164361773594
 GameObject:
   m_ObjectHideFlags: 0

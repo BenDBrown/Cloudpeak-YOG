@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b0052e6c842bb4e9750ec73a1e3ece, type: 3}
-  m_Name: Floors
+  m_Script: {fileID: 11500000, guid: 55b03183bba2d1448a92846a499dd07d, type: 3}
+  m_Name: New Inventory SO
   m_EditorClassIdentifier: 
-  FloorNumber: 6
-  boss1floor: 5
-  boss2floor: 10
-  checkpointfloor1: 7
-  checkpointfloor2: 11
+  inventory: {fileID: 0}
