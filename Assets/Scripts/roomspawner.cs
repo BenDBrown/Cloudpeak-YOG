@@ -12,20 +12,21 @@ public class roomspawner : MonoBehaviour
 
     private RoomTemplate templates;
     private int rand;
-    private bool spawned = false;
+    public bool spawned = false;
 
     // Start is called before the first frame update
     void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
  
-        Invoke("Spawn", 0.2f);
+        Invoke("Spawn", 0.1f);
         //this is to prevent rooms spawning in eachother by not having collition yet due to spawning to fast
     }
 
     // Update is called once per frame
     void Spawn()
     {
+        Debug.Log("I am Spawning shit");
         if (spawned == false)
         {
             if (openingDirection == 1)
@@ -52,16 +53,28 @@ public class roomspawner : MonoBehaviour
                 // Need to spawn room with right door
                 Instantiate(templates.rightRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
             }
+            else if (openingDirection == 0)
+            {
+                spawned = true;
+            }
             spawned = true;
         }
 
+    }
+
+    public void StartSpawn()
+    {
+        Debug.Log("STarting the spawn");
+        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
+
+        Invoke("Spawn", 0.1f);
     }
      void OnTriggerEnter2D(Collider2D collision)
     {
         //this is to prevent rooms spawning in eachother
         if (collision.CompareTag("Spawnpoint"))
         {
-            if(collision.GetComponent<roomspawner>().spawned == false && spawned == false)
+            if(collision.GetComponent<roomspawner>().spawned == false && spawned == false && collision.GetComponent<roomspawner>().openingDirection !=0)
             {
                 Instantiate(templates.closedRooms, transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);

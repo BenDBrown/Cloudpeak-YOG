@@ -15,7 +15,7 @@ public class RoomTemplate : MonoBehaviour
     public List<GameObject> rooms;
     public float WaitTime;
     public GameObject Stairs;
-    private bool spawnedStairs;
+    public bool spawnedStairs;
    
 
     private void Update()

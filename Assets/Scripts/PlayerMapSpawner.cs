@@ -8,7 +8,7 @@ public class PlayerMapSpawner : MonoBehaviour
     public GameObject Spawnroom;
     public float waitTime;
     public GameObject player;
-    private bool Playerspawned;
+    public bool Playerspawned;
     void Start()
     {
         
@@ -27,4 +27,6 @@ public class PlayerMapSpawner : MonoBehaviour
             waitTime -= Time.deltaTime;
         }
     }
+    
+    
 }
