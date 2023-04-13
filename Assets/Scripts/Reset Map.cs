@@ -9,15 +9,10 @@ public class ResetMap : MonoBehaviour
     private GameObject stairs;
     private GameObject player;
     private bool spawnbool = true;
-    public GameObject spawn;
-    public GameObject SpawnRoom;
-    private GameObject SpawnedRoom;
     private PlayerMapSpawner PS;
     private RoomTemplate TS;
     private GameObject[] closedwalls;
     public GameObject PSpawnerRoom;
-    private SpriteRenderer SR;
-    private roomspawner rs;
     // Start is called before the first frame update
     void Start()
     {

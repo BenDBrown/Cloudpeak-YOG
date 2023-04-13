@@ -9,6 +9,10 @@ TagManager:
   - Spawn
   - Interior
   - Wall
+  - spawnerspawn
+  - Stair
+  - ClosedWall
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - BehindUI
   - 
   - 
   - 
