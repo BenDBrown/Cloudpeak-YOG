@@ -62,12 +62,14 @@ public class Combatant : MonoBehaviour
     private float levelUpThreshold = 100;
     private Item weapon;
     private Item armour;
+    private Animator animator;
 
     // List of status effects on the character
     private List<StatusEffect> statusEffects = new List<StatusEffect>();
 
     public void FightPrep()
     {
+        animator = gameObject.GetComponent<Animator>();
         vitality = vitalityBase + vitalityGrowth * level;
         physicalAttack = physicalAttackBase + physicalAttackGrowth * level;
         magicalAttack = magicalAttackBase + magicalAttackGrowth * level;
@@ -125,6 +127,7 @@ public class Combatant : MonoBehaviour
             }
             AddAttackToLog(this, attack, target);
             target.GetAttacked(damage, attack.dmgOutput, attack.GetStatusEffect());
+            AttackAnimation(attack);
         }
         ApplyStatChanges(true);
     }
@@ -237,6 +240,22 @@ public class Combatant : MonoBehaviour
         physicalDefense = physicalDefenseClone;
         magicalDefense = magicalDefenseClone;
         speed = speedClone;
+    }
+
+    void AttackAnimation(Attack attack)
+    {
+        if (animator != null)
+        {
+            Debug.Log("script is working");
+            if (attack.dmgMod > 0)
+            {
+                animator.SetTrigger("Attack");
+            }
+            else
+            {
+                animator.SetTrigger("Status");
+            }
+        }
     }
 
     public bool DidYouMove()

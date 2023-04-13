@@ -17,30 +17,23 @@ public class ShopKeeper : MonoBehaviour
 
     public void SetupShop()
     {
-        int level = inventory.level;
         if (welcomeBack == false)
         {
             welcomeBack = true;
-            shopSlot1.gameObject.SetActive(true);
-            shopSlot2.gameObject.SetActive(true);
-            shopSlot3.gameObject.SetActive(true);
-            shopSlot4.gameObject.SetActive(true);
-            shopSlot5.gameObject.SetActive(true);
-            shopSlot6.gameObject.SetActive(true);
-            shopSlot1.Randomize(level);
-            shopSlot2.Randomize(level);
-            shopSlot3.Randomize(level);
-            shopSlot4.Randomize(level);
-            shopSlot5.Randomize(level);
-            shopSlot6.Randomize(level);
-
-            shopSlot1.gameObject.GetComponent<Image>().sprite = shopSlot1.GetSprite();
-            shopSlot2.gameObject.GetComponent<Image>().sprite = shopSlot2.GetSprite();
-            shopSlot3.gameObject.GetComponent<Image>().sprite = shopSlot3.GetSprite();
-            shopSlot4.gameObject.GetComponent<Image>().sprite = shopSlot4.GetSprite();
-            shopSlot5.gameObject.GetComponent<Image>().sprite = shopSlot5.GetSprite();
-            shopSlot6.gameObject.GetComponent<Image>().sprite = shopSlot6.GetSprite();
+            RandomizeShopSlot(shopSlot1);
+            RandomizeShopSlot(shopSlot2);
+            RandomizeShopSlot(shopSlot3);
+            RandomizeShopSlot(shopSlot4);
+            RandomizeShopSlot(shopSlot5);
+            RandomizeShopSlot(shopSlot6);
         }
+    }
+
+    void RandomizeShopSlot(Item shopSlot)
+    {
+        shopSlot.gameObject.SetActive(true);
+        shopSlot.Randomize(inventory.level);
+        shopSlot.gameObject.GetComponent<Image>().sprite = shopSlot.GetSprite();
     }
 
     public void BuyItem(int itemSlotOneToSix)
@@ -49,31 +42,37 @@ public class ShopKeeper : MonoBehaviour
         {
             int price = shopSlot1.GetQuality() * inventory.level;
             inventory.addItem(shopSlot1, price);
+            RandomizeShopSlot(shopSlot1);
         }
         else if (itemSlotOneToSix == 2)
         {
             int price = shopSlot2.GetQuality() * inventory.level;
             inventory.addItem(shopSlot2, price);
+            RandomizeShopSlot(shopSlot2);
         }
         else if (itemSlotOneToSix == 3)
         {
             int price = shopSlot3.GetQuality() * inventory.level;
             inventory.addItem(shopSlot3, price);
+            RandomizeShopSlot(shopSlot3);
         }
         else if (itemSlotOneToSix == 4)
         {
             int price = shopSlot4.GetQuality() * inventory.level;
             inventory.addItem(shopSlot4, price);
+            RandomizeShopSlot(shopSlot4);
         }
         else if (itemSlotOneToSix == 5)
         {
             int price = shopSlot5.GetQuality() * inventory.level;
             inventory.addItem(shopSlot5, price);
+            RandomizeShopSlot(shopSlot5);
         }
         else if (itemSlotOneToSix == 6)
         {
             int price = shopSlot6.GetQuality() * inventory.level;
             inventory.addItem(shopSlot6, price);
+            RandomizeShopSlot(shopSlot6);
         }
     }
 
