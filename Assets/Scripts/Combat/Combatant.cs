@@ -156,6 +156,10 @@ public class Combatant : MonoBehaviour
         if(hp <= 0)
         {
             hp = 0;
+            if(animator != null)
+            {
+                animator.SetTrigger("Death");
+            }    
             Debug.Log(combatantName + " died");
             dead = true;
             GetComponent<SpriteRenderer>().enabled = false;
@@ -165,6 +169,10 @@ public class Combatant : MonoBehaviour
         else if(hp > vitality)
         {
             hp = vitality;
+        }
+        if(damage > 0 && animator != null)
+        {
+            animator.SetTrigger("Damaged");
         }
         if (statusEffect != null)
         {
