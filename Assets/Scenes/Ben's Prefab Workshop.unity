@@ -1951,10 +1951,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Heal
-  dmgMod: -1
-  dmgInput: 1
-  dmgOutput: 2
+  attackName: Magic infused slash
+  dmgMod: 0.9
+  dmgInput: 0
+  dmgOutput: 1
   Targets: 00000000010000000200000003000000
   aoe: 0
   includeSelf: 0
@@ -3575,7 +3575,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1455130807}
   - component: {fileID: 1455130809}
-  - component: {fileID: 1455130808}
   m_Layer: 0
   m_Name: Attack1
   m_TagString: Untagged
@@ -3598,27 +3597,6 @@ Transform:
   m_Father: {fileID: 762998593}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1455130808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455130806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusName: TestEffect
-  turnDuration: 1
-  physicalAttackDelta: 0.5
-  magicalAttackDelta: 0.5
-  physicalDefenseDelta: 0.5
-  magicalDefenseDelta: 0.5
-  speedDelta: 0.5
-  hpDelta: 0
-  stunChance: 0
 --- !u!114 &1455130809
 MonoBehaviour:
   m_ObjectHideFlags: 0
