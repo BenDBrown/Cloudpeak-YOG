@@ -70,9 +70,10 @@ public class Item : MonoBehaviour
                 values.Sort();
                 values.Reverse();
                 physicalAttack = values[0];
+                Debug.Log(physicalAttack);
                 values.RemoveAt(0);
             }
-            else if(r == 1)
+            else
             {
                 values.Sort();
                 values.Reverse();
@@ -152,7 +153,7 @@ public class Item : MonoBehaviour
             }
             else if (r == 4 && magicalDefense == 0)
             {
-                magicalAttack = value;
+                magicalDefense = value;
                 break;
             }
             else if (r == 5 && speed == 0)
@@ -373,7 +374,6 @@ public class Item : MonoBehaviour
         else
         {
             int r = Random.Range(0, speedArmourTypes.Count);
-            Debug.Log(r);
             itemName = speedArmourTypes[r];
             r = Random.Range(0, physicalAdjectives.Count);
             itemName = physicalAdjectives[r] + " " + itemName;
