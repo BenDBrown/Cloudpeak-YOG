@@ -991,7 +991,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2898116610225373542}
   - component: {fileID: 6336665643124406865}
-  - component: {fileID: 9000875898682352621}
   m_Layer: 0
   m_Name: Attack2
   m_TagString: Untagged
@@ -1026,35 +1025,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Reckless Swing
+  attackName: Careless Swing
   dmgMod: 1.2
   dmgInput: 0
   dmgOutput: 0
-  Targets: 0000000001000000
+  Targets: 0000000001000000020000000300000004000000050000000600000007000000
   aoe: 0
   includeSelf: 0
-  excludeSelf: 0
---- !u!114 &9000875898682352621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826501925245173795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusName: Open
-  turnDuration: 2
-  physicalAttackDelta: 1
-  magicalAttackDelta: 1
-  physicalDefenseDelta: 0.5
-  magicalDefenseDelta: 1
-  speedDelta: 1
-  hpDelta: 0
-  stunChance: 0
+  excludeSelf: 1
 --- !u!1 &2827507498629679705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1095,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7505401759167098052}
   - component: {fileID: 7409664987312785536}
-  - component: {fileID: 6850775909523428303}
   m_Layer: 0
   m_Name: Attack3
   m_TagString: Untagged
@@ -1160,27 +1137,6 @@ MonoBehaviour:
   aoe: 0
   includeSelf: 0
   excludeSelf: 0
---- !u!114 &6850775909523428303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2839189214389819831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusName: Flea Ridden
-  turnDuration: 0
-  physicalAttackDelta: 1
-  magicalAttackDelta: 1
-  physicalDefenseDelta: 1
-  magicalDefenseDelta: 1
-  speedDelta: 1
-  hpDelta: 0
-  stunChance: 20
 --- !u!1 &2919800000799089941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,10 +1361,10 @@ MonoBehaviour:
   hp: 0
   combatantName: Fire Mage
   isAlly: 0
-  attack1: {fileID: 7483832016910767716}
-  attack2: {fileID: 7331237079899886950}
-  attack3: {fileID: 4486459144746434478}
-  attack4: {fileID: 2265296764471537004}
+  attack1: {fileID: 3557754743031022577}
+  attack2: {fileID: 7369108405408780631}
+  attack3: {fileID: 5872770487812690156}
+  attack4: {fileID: 8682485690419399337}
 --- !u!114 &7018373645615538084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1570,7 +1526,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7862435345354161628}
   - component: {fileID: 2648136439603959222}
-  - component: {fileID: 4436308127996953935}
   m_Layer: 0
   m_Name: Attack2
   m_TagString: Untagged
@@ -1613,27 +1568,6 @@ MonoBehaviour:
   aoe: 1
   includeSelf: 1
   excludeSelf: 0
---- !u!114 &4436308127996953935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3883964486803977277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusName: Bloodlust
-  turnDuration: 1
-  physicalAttackDelta: 1.5
-  magicalAttackDelta: 1.5
-  physicalDefenseDelta: 1
-  magicalDefenseDelta: 1
-  speedDelta: 1
-  hpDelta: 0
-  stunChance: 0
 --- !u!1 &3910841011008010310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,7 +2363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0f6a2d37fa69446a82fc072321b15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 6
+  position: 5
 --- !u!1 &5159967692504514343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,14 +2429,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusName: Intimidated
-  turnDuration: 1
-  physicalAttackDelta: 0.5
-  magicalAttackDelta: 0.5
+  statusName: bleeding
+  turnDuration: 2
+  physicalAttackDelta: 1
+  magicalAttackDelta: 1
   physicalDefenseDelta: 1
   magicalDefenseDelta: 1
   speedDelta: 1
-  hpDelta: 0
+  hpDelta: -12
   stunChance: 0
 --- !u!1 &5213009940521713218
 GameObject:
@@ -3680,7 +3614,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2751181575548472540}
   - component: {fileID: 7324162955825556811}
-  - component: {fileID: 4712366248593862812}
   m_Layer: 0
   m_Name: Attack4
   m_TagString: Untagged
@@ -3715,35 +3648,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Reckless Swing
+  attackName: Careless Swing
   dmgMod: 1.2
   dmgInput: 0
   dmgOutput: 0
-  Targets: 0000000001000000
+  Targets: 0000000001000000020000000300000004000000050000000600000007000000
   aoe: 0
   includeSelf: 0
-  excludeSelf: 0
---- !u!114 &4712366248593862812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7903933981843235434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusName: Open
-  turnDuration: 2
-  physicalAttackDelta: 1
-  magicalAttackDelta: 1
-  physicalDefenseDelta: 0.5
-  magicalDefenseDelta: 1
-  speedDelta: 1
-  hpDelta: 0
-  stunChance: 0
+  excludeSelf: 1
 --- !u!1 &8103760027008730144
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,7 +3975,7 @@ MonoBehaviour:
   magicalDefense: 0
   speed: 0
   hp: 0
-  combatantName: Bloodsworn Knight
+  combatantName: Bloodsworn
   isAlly: 0
   attack1: {fileID: 5114374256882001973}
   attack2: {fileID: 2648136439603959222}

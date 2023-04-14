@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Combatant : MonoBehaviour
@@ -107,7 +108,7 @@ public class Combatant : MonoBehaviour
         speedClone = speed;
     }
 
-    public void Attack(Attack attack, Combatant target)
+    public async Task AttackAsync(Attack attack, Combatant target)
     {
         float damage;
         didIMove = true;
@@ -126,13 +127,14 @@ public class Combatant : MonoBehaviour
                 Debug.Log(combatantName + " used " + attack.attackName + ", pre-mitigation damage: " + damage);
             }
             AddAttackToLog(this, attack, target);
-            target.GetAttacked(damage, attack.dmgOutput, attack.GetStatusEffect());
             AttackAnimation(attack);
+            await Task.Delay(1200);
+            await target.GetAttackedAsync(damage, attack.dmgOutput, attack.GetStatusEffect());          
         }
         ApplyStatChanges(true);
     }
 
-    public void GetAttacked(float damage, int dmgType, StatusEffect statusEffect)
+    public async Task GetAttackedAsync(float damage, int dmgType, StatusEffect statusEffect)
     {
         Debug.Log(combatantName + " had " + hp + " pre damage hp");
         bool logStun = false;
@@ -159,6 +161,7 @@ public class Combatant : MonoBehaviour
             if(animator != null)
             {
                 animator.SetTrigger("Death");
+                await Task.Delay(700);
             }    
             Debug.Log(combatantName + " died");
             dead = true;
@@ -173,6 +176,7 @@ public class Combatant : MonoBehaviour
         if(damage > 0 && animator != null)
         {
             animator.SetTrigger("Damaged");
+            await Task.Delay(1000);
         }
         if (statusEffect != null)
         {
@@ -254,7 +258,7 @@ public class Combatant : MonoBehaviour
     {
         if (animator != null)
         {
-            Debug.Log("script is working");
+            Debug.Log("animation is working on " + combatantName);
             if (attack.dmgMod > 0)
             {
                 animator.SetTrigger("Attack");

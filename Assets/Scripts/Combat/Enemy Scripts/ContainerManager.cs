@@ -10,7 +10,14 @@ public class ContainerManager : MonoBehaviour
     private Combatant[] enemies;
     private Combatant loadedEnemy;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        foreach(Combatant c in GetComponentsInChildren<Combatant>(true))
+        {
+            c.position = position;
+        }
+    }
+
     void OnEnable()
     {
         enemies = GetComponentsInChildren<Combatant>(true);
@@ -18,7 +25,6 @@ public class ContainerManager : MonoBehaviour
         int r = Random.Range(0, enemies.Length);
         Debug.Log("enemy selected at postion: " + r);
         enemies[r].gameObject.SetActive(true);
-        enemies[r].position = position;
         loadedEnemy = enemies[r];
     }
 

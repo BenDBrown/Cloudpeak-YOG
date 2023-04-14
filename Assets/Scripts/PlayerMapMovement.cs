@@ -22,7 +22,7 @@ public class PlayerMapMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       Fighting = GameObject.Find("Combat").GetComponent<CombatManager>().AreWeFighting();
+        Fighting = GameObject.Find("Combat").GetComponent<CombatManager>().AreWeFighting();
         startLocationY = Player.transform.position.y + 1;
         startLocationX = Player.transform.position.x + 1;
         startLocationMY = Player.transform.position.y - 1;
@@ -47,7 +47,10 @@ public class PlayerMapMovement : MonoBehaviour
                     //hit something, print what you hit.
                     Debug.Log("Hitting: " + hit.collider.name);
                     Debug.Log(hit.transform.position.y + "  Y positon");
+                    CombatManager cm = GameObject.Find("Combat").GetComponent<CombatManager>();
+                    cm.gameObject.SetActive(false);
                     Player.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y);
+                    cm.gameObject.SetActive(true);
                 }
 
             }

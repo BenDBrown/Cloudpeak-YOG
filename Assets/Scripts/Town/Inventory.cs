@@ -7,25 +7,16 @@ public class Inventory : MonoBehaviour
     public int gold = 10;
     private List<Item> items = new List<Item>();
     public int level = 1;
+    public int xp;
     public InventorySO inventorySO;
 
     public Item sample;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(transform.gameObject);
-    }
-
-    //private void Start()
-    //{
-    //    IntoInventory();
-    //}
     public void addItem(Item item, int price)
     {
         if(gold >= price)
         {
             gold -= price;
-            //inventorySO.gold = gold;
             Item newItem = gameObject.AddComponent(typeof(Item)) as Item;
             newItem.vitality = item.vitality;
             newItem.physicalAttack = item.physicalAttack;
@@ -39,29 +30,6 @@ public class Inventory : MonoBehaviour
             items.Add(newItem);
         }
     }
-
-    //public void LevelIntoSo()
-    //{
-
-    //    inventorySO.level = level;
-
-    //}
-
-    //public void IntoInventory()
-    //{
-    //    this.gold = inventorySO.gold;
-    //    this.level = inventorySO.level;
-    //    foreach(Item I in inventorySO.items)
-    //    {
-    //        addItem(I, 0);
-    //    }
-    //    Debug.Log("Into Inventory");
-    //}
-
-    //public void GoldIntoSo()
-    //{
-    //    inventorySO.gold = gold;
-    //}
 
     public void Saveitems(List<string> itemType, List<int> vitality, List<int> physicalAttack, List<int> magicalAttack, List<int> physicalDefense, List<int> magicalDefense, List<int> speed, List<bool> weapon, List<string> itemName, List<int> spritePosition)
     {

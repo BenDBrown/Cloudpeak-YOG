@@ -26,7 +26,6 @@ public class roomspawner : MonoBehaviour
     // Update is called once per frame
     void Spawn()
     {
-        Debug.Log("I am Spawning shit");
         if (spawned == false)
         {
             if (openingDirection == 1)
@@ -64,7 +63,6 @@ public class roomspawner : MonoBehaviour
 
     public void StartSpawn()
     {
-        Debug.Log("STarting the spawn");
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
 
         Invoke("Spawn", 0.1f);

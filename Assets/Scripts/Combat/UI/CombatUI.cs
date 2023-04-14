@@ -10,6 +10,7 @@ public class CombatUI : MonoBehaviour
     public GameObject AttackPanel;
     public GameObject EnemyHealthDisplay;
     public CombatLog combatLog;
+    public PostFightScreen postFightScreen;
 
     public CombatManager combatManager;
 
@@ -22,6 +23,8 @@ public class CombatUI : MonoBehaviour
     public TextMeshProUGUI characterSkill4;
 
     private bool waiting = false;
+    private bool asyncButtonDetect = false;
+    private int selectedButtonValue = 0;
 
     public void Setup()
     {
@@ -29,6 +32,15 @@ public class CombatUI : MonoBehaviour
         {
             AttackPanel.SetActive(true);
             EnemyHealthDisplay.SetActive(true);
+        }
+    }
+
+    private void Update()
+    {
+        if(asyncButtonDetect)
+        {
+            SelectAttackAsync(selectedButtonValue);
+            asyncButtonDetect = false;
         }
     }
 
@@ -67,17 +79,19 @@ public class CombatUI : MonoBehaviour
 
         foreach (int target in attack.Targets)
         {
+            Debug.Log(target);
             combatManager.GetCombatant(target).SetButton(true);
             combatManager.GetCombatant(target).SetCursorActive(true);
         }
     }
 
-    public void SelectAttack(int selectedAttack)
+    public async Task SelectAttackAsync(int selectedAttack)
     {
+        Debug.Log("?");
         combatManager.SetSelectedAttack(selectedAttack);
         if (combatManager.GetSelectedAttack().aoe)
         {
-            combatManager.AoeAttack();
+            await combatManager.AoeAttackAsync();
             UpdateCursors();
         }
         else
@@ -105,6 +119,17 @@ public class CombatUI : MonoBehaviour
     public void ToggleWait(bool wait)
     {
         waiting = wait;
+    }
+
+    public void PlayerAttackButton(int i)
+    {
+        asyncButtonDetect = true;
+        selectedButtonValue = i;
+    }
+
+    public void VictoryScreen()
+    {
+        postFightScreen.enabled = true;
     }
 
 }

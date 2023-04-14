@@ -20,11 +20,9 @@ public class TargetClick : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && isActive == true && combatant.IsDead() == false && combatUI.IsWaiting() == false)
         {
-            combatManager.PlayerAttack(combatant);
-            combatUI.UpdateCursors();
             combatUI.ToggleWait(true);
-        }
-        
+            combatManager.PlayerAttackAsync(combatant);        
+        }      
     }
 
     public void SetActivity(bool Active)

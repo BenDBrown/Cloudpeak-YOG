@@ -13,13 +13,20 @@ public class CombatManager : MonoBehaviour
 
     // chance of a combat encounter
     public int percentEncounterChance = 100;
+    public CheckingAndUpdatingTheFloorNumbers floorNr;
 
     // lists for determining turn order
     private List<Combatant> toMoveList = new List<Combatant>();
     private Combatant turnCombatant;
     private Attack selectedAttack;
+    private Inventory inventory;
 
     private float xp;
+
+    private void Awake()
+    {
+        inventory = gameObject.GetComponent<Inventory>();
+    }
 
     void OnEnable()
     {
@@ -40,7 +47,7 @@ public class CombatManager : MonoBehaviour
                 toMoveList.Add(c);
             }
             isFighting = true;
-            GiveTurn();
+            GiveTurnAsync();
         }
         else
         {
@@ -48,8 +55,9 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    async void GiveTurn()
+    async Task GiveTurnAsync()
     {
+        combatUI.UpdateCursors();
         await Task.Delay(2000);
         combatUI.Setup();
         combatUI.ToggleWait(false);
@@ -71,7 +79,7 @@ public class CombatManager : MonoBehaviour
             if (resetRound)
             {
                 Debug.Log("resetting round");
-                RoundReset();
+                await RoundResetAsync();
             }
             else
             {
@@ -80,13 +88,13 @@ public class CombatManager : MonoBehaviour
                 selectedAttack = null;
                 if (turnCombatant.isAlly == false)
                 {
-                    AIAttack();
+                    await AIAttackAsync();
                 }
             }
         }
     }
 
-    void RoundReset()
+    async Task RoundResetAsync()
     {
         foreach(Combatant c in toMoveList)
         {
@@ -95,7 +103,7 @@ public class CombatManager : MonoBehaviour
                 c.GiveMove();
             }
         }
-        GiveTurn();
+        await GiveTurnAsync();
     }
 
     bool CombatResolved()
@@ -122,11 +130,10 @@ public class CombatManager : MonoBehaviour
         }
         else if(victory)
         {
-            // put result of victory here
             Debug.Log("W");
             foreach (Combatant c in toMoveList)
             {
-                if(c.isAlly && c.IsDead() == false)
+                if(c.isAlly)
                 {
                     c.levelUp(xp);
                 }
@@ -138,7 +145,6 @@ public class CombatManager : MonoBehaviour
         }
         else if(defeat)
         {
-            // put result of a defeat here
             Debug.Log("L");
             isFighting = false;
             return true;
@@ -149,24 +155,24 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    public void PlayerAttack(Combatant target)
+    public async Task PlayerAttackAsync(Combatant target)
     {
-        turnCombatant.Attack(selectedAttack, target);
-        GiveTurn();
+        await turnCombatant.AttackAsync(selectedAttack, target);
+        await GiveTurnAsync();
     }
 
     // functions called when a player selects an attack
-    public void AoeAttack()
+    public async Task AoeAttackAsync()
     {
         foreach (int target in selectedAttack.Targets)
         {
-            turnCombatant.Attack(selectedAttack, GetCombatant(target));           
+            await turnCombatant.AttackAsync(selectedAttack, GetCombatant(target));           
         }
 
-        GiveTurn();
+        await GiveTurnAsync();
     }
 
-    void AIAttack()
+    async Task AIAttackAsync()
     {
         bool valid = false;
         int enemyAttackSelect;
@@ -191,12 +197,12 @@ public class CombatManager : MonoBehaviour
                     break;
                 }
             }
-            turnCombatant.Attack(selectedAttack, GetCombatant(enemyTargetSelect));
-            GiveTurn();
+            await turnCombatant.AttackAsync(selectedAttack, GetCombatant(enemyTargetSelect));
+            await GiveTurnAsync();
         }
         else
         {
-            AoeAttack();
+            await AoeAttackAsync();
         }
     }
 
@@ -229,7 +235,7 @@ public class CombatManager : MonoBehaviour
     // will return the current floor number, right now returns a placeholder
     public int GetFloor()
     {
-        return 10;
+        return floorNr.CurrentFloor();
     }
 
     public Combatant GetTurnCombatant()
