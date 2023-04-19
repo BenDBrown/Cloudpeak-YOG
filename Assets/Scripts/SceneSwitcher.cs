@@ -7,6 +7,7 @@ public class SceneSwitcher : MonoBehaviour
 {
     SceneManager manager;
     Inventory Inventory;
+    
     void Start()
     {
         
@@ -21,7 +22,9 @@ public class SceneSwitcher : MonoBehaviour
     
     public void GoToCombat()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        
+            SceneManager.LoadScene(1, LoadSceneMode.Single);
+        
     }
 
     public void GoToShop()

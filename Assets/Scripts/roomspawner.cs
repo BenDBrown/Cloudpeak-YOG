@@ -38,19 +38,19 @@ public class roomspawner : MonoBehaviour
             {
                 rand = Random.Range(0, templates.topRooms.Length);
                 //Need to spawn room with top door
-                Instantiate(templates.topRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+                Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
             }
             else if (openingDirection == 3)
             {
                 rand = Random.Range(0, templates.leftRooms.Length);
                 // Need to spawn room with Left door
-                Instantiate(templates.leftRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+                Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
             }
             else if (openingDirection == 4)
             {
                 rand = Random.Range(0, templates.rightRooms.Length);
                 // Need to spawn room with right door
-                Instantiate(templates.rightRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+                Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
             }
             else if (openingDirection == 0)
             {
