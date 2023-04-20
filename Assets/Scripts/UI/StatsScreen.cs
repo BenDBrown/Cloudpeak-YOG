@@ -9,6 +9,7 @@ public class StatsScreen : MonoBehaviour
     public Combatant magnus;
     public Combatant kena;
     public Combatant lysithea;
+    public Combatant selectedCombatant;
     public Inventory inventory;
     public ItemSlot weaponSlot;
     public ItemSlot armourSlot;
@@ -25,6 +26,13 @@ public class StatsScreen : MonoBehaviour
     private void OnEnable()
     {
         ShowStats(1);
+        List<ItemSlot> slots = new List<ItemSlot>();
+        int count = 0;
+        foreach(Item i in inventory.GetItems())
+        {
+            slots[count].SetItem(i);
+            count++;
+        }
     }
 
     public void SelectItem(Item item)
@@ -36,52 +44,35 @@ public class StatsScreen : MonoBehaviour
     {
         if (i == 1)
         {
-            icarus.FightPrep();
-            vitality.text = icarus.vitality.ToString();
-            physicalA.text = icarus.physicalAttack.ToString();
-            magicalA.text = icarus.magicalAttack.ToString();
-            physicalD.text = icarus.physicalDefense.ToString();
-            magicalD.text = icarus.magicalDefense.ToString();
-            speed.text = icarus.speed.ToString();
-            weaponSlot.combatant = icarus;
-            armourSlot.combatant = icarus;
+            selectedCombatant = icarus;
+            refreshStats(icarus);
         }
         else if (i == 2)
         {
-            magnus.FightPrep();
-            vitality.text = magnus.vitality.ToString();
-            physicalA.text = magnus.physicalAttack.ToString();
-            magicalA.text = magnus.magicalAttack.ToString();
-            physicalD.text = magnus.physicalDefense.ToString();
-            magicalD.text = magnus.magicalDefense.ToString();
-            speed.text = magnus.speed.ToString();
-            weaponSlot.combatant = magnus;
-            armourSlot.combatant = magnus;
+            selectedCombatant = magnus;
+            refreshStats(magnus);
         }
         else if (i == 3)
         {
-            kena.FightPrep();
-            vitality.text = kena.vitality.ToString();
-            physicalA.text = kena.physicalAttack.ToString();
-            magicalA.text = kena.magicalAttack.ToString();
-            physicalD.text = kena.physicalDefense.ToString();
-            magicalD.text = kena.magicalDefense.ToString();
-            speed.text = kena.speed.ToString();
-            weaponSlot.combatant = kena;
-            armourSlot.combatant = kena;
+            selectedCombatant = kena;
+            refreshStats(kena);
         }
         else
         {
-            lysithea.FightPrep();
-            vitality.text = lysithea.vitality.ToString();
-            physicalA.text = lysithea.physicalAttack.ToString();
-            magicalA.text = lysithea.magicalAttack.ToString();
-            physicalD.text = lysithea.physicalDefense.ToString();
-            magicalD.text = lysithea.magicalDefense.ToString();
-            speed.text = lysithea.speed.ToString();
-            weaponSlot.combatant = lysithea;
-            armourSlot.combatant = lysithea;
+            selectedCombatant = lysithea;
+            refreshStats(lysithea);
         }
+    }
+
+    public void refreshStats(Combatant c)
+    {
+        c.FightPrep();
+        vitality.text = c.vitality.ToString();
+        physicalA.text = c.physicalAttack.ToString();
+        magicalA.text = c.magicalAttack.ToString();
+        physicalD.text = c.physicalDefense.ToString();
+        magicalD.text = c.magicalDefense.ToString();
+        speed.text = c.speed.ToString();
     }
 
 }

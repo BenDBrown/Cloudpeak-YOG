@@ -50,4 +50,9 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public List<Item> GetItems()
+    {
+        return items;
+    }
+
 }

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class ItemSlot : MonoBehaviour
 {
-    public Combatant combatant;
-    public bool weapon = false;
+    private StatsScreen statsScreen;
+    private Item item;
+
+    public void Awake()
+    {
+        statsScreen = GetComponentInParent<StatsScreen>(true);
+    }
 
     public void equipItem()
     {
-        Item item = GetComponentInParent<StatsScreen>().selectedItem;
-        if(combatant != null && item.weapon == weapon)
-        {
-            combatant.EquipItem(item);
-        }
+        statsScreen.selectedCombatant.EquipItem(item);
+    }
+
+    public void SetItem(Item i)
+    {
+        item = i;
     }
 }
