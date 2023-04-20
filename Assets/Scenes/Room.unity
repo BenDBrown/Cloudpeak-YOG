@@ -672,6 +672,314 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!1001 &394572650
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1108193361}
+    m_Modifications:
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: speedGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: vitalityBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: combatantName
+      value: Norleras The Sky Eater
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: vitalityGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: magicalAttackBase
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: magicalDefenseBase
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: physicalAttackBase
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: magicalAttackGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: physicalDefenseBase
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: magicalDefenseGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: physicalAttackGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 988391079308796847, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: physicalDefenseGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419203646571230774, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: aoe
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419203646571230774, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgMod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419203646571230774, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgInput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419203646571230774, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgOutput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419203646571230774, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: attackName
+      value: Thunder storm
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419203646571230774, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: Targets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419203646571230774, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: Targets.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419203646571230774, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: Targets.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697164845595967507, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: speedDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697164845595967507, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: statusName
+      value: Blinded by sky
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697164845595967507, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: stunChance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697164845595967507, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: turnDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697164845595967507, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: magicalAttackDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697164845595967507, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: magicalDefenseDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697164845595967507, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: physicalAttackDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697164845595967507, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: physicalDefenseDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321477578396864017, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: aoe
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321477578396864017, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgMod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321477578396864017, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgOutput
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321477578396864017, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: attackName
+      value: Sun's embrace
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321477578396864017, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: includeSelf
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321477578396864017, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: Targets.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356053168033979986, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_Name
+      value: Bosswrapper
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356053168033979986, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965613463112976779, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgMod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965613463112976779, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgInput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965613463112976779, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgOutput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965613463112976779, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: attackName
+      value: Collapsing sky
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965613463112976779, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: Targets.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965613463112976779, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: Targets.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965613463112976779, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: Targets.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965613463112976779, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: Targets.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.70728105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.731
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.060953032
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715677347925540738, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: statusName
+      value: Electrified
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715677347925540738, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: turnDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715677347925540738, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: magicalAttackDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715677347925540738, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: magicalDefenseDelta
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715677347925540738, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: physicalAttackDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715677347925540738, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: physicalDefenseDelta
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834721824101080688, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgMod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834721824101080688, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgInput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834721824101080688, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: dmgOutput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834721824101080688, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      propertyPath: attackName
+      value: Solar storm
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2214073172434429543, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1614066221617330592, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 394572653}
+  m_SourcePrefab: {fileID: 100100000, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+--- !u!4 &394572651 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4004304999878416930, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+  m_PrefabInstance: {fileID: 394572650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &394572652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1614066221617330592, guid: 192dec6ce76c3ee429762f834d6cf3c0, type: 3}
+  m_PrefabInstance: {fileID: 394572650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &394572653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394572652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusName: Embraced by the sun
+  turnDuration: 3
+  physicalAttackDelta: 0.5
+  magicalAttackDelta: 0.5
+  physicalDefenseDelta: 1.3
+  magicalDefenseDelta: 1.3
+  speedDelta: 1.3
+  hpDelta: 3
+  stunChance: 0
 --- !u!1 &400938378
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,8 +1130,52 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: speedGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: vitalityBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
       propertyPath: combatantName
       value: Bringer of Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: vitalityGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: magicalAttackBase
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: magicalDefenseBase
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: physicalAttackBase
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: magicalAttackGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: physicalDefenseBase
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: magicalDefenseGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: physicalAttackGrowth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206577250308364083, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: physicalDefenseGrowth
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2069758376132709728, guid: 003929571756720408000fd8ca51434b, type: 3}
       propertyPath: dmgMod
@@ -845,7 +1197,112 @@ PrefabInstance:
       propertyPath: Targets.Array.size
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2755155137272673113, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: dmgMod
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2755155137272673113, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: dmgInput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2755155137272673113, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: dmgOutput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2755155137272673113, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: attackName
+      value: Death's grip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425039711771670161, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: dmgMod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425039711771670161, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: dmgOutput
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425039711771670161, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: attackName
+      value: Soul Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929544313172203346, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: speedDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929544313172203346, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: statusName
+      value: Soul shocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929544313172203346, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: stunChance
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929544313172203346, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: magicalAttackDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929544313172203346, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: magicalDefenseDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929544313172203346, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: physicalAttackDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929544313172203346, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: physicalDefenseDelta
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129614226879023637, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: statusName
+      value: Soul reaped
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129614226879023637, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: magicalAttackDelta
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129614226879023637, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: magicalDefenseDelta
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129614226879023637, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: physicalAttackDelta
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129614226879023637, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: physicalDefenseDelta
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702689349952952583, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: dmgMod
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702689349952952583, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: dmgOutput
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702689349952952583, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: attackName
+      value: Scythe slam
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702689349952952583, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: Targets.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702689349952952583, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: Targets.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702689349952952583, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: Targets.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702689349952952583, guid: 003929571756720408000fd8ca51434b, type: 3}
+      propertyPath: Targets.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4418841215742178283, guid: 003929571756720408000fd8ca51434b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3113,6 +3570,7 @@ Transform:
   - {fileID: 1397251011}
   - {fileID: 2018958443}
   - {fileID: 403189438}
+  - {fileID: 394572651}
   m_Father: {fileID: 863845851}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
