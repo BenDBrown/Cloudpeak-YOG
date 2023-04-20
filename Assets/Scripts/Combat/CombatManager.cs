@@ -14,6 +14,7 @@ public class CombatManager : MonoBehaviour
     // chance of a combat encounter
     public int percentEncounterChance = 100;
     public CheckingAndUpdatingTheFloorNumbers floorNr;
+    public NextFloor nextFloor;
 
     // lists for determining turn order
     private List<Combatant> toMoveList = new List<Combatant>();
@@ -32,8 +33,46 @@ public class CombatManager : MonoBehaviour
     {
         int r = Random.Range(1, 101);
         xp = 0;
+        if (GetFloor() == 5)
+        {
+            foreach (ContainerManager cm in FindObjectsOfType<ContainerManager>(true))
+            {
+                if (cm.gameObject.name.Contains("Bosswrapper 1"))
+                {
+                    cm.gameObject.SetActive(true);
+                }
 
-        if(r <= percentEncounterChance)
+            }
+            Debug.Log("Spawn boss 1");
+          
+            foreach (Combatant c in FindObjectsOfType<Combatant>(false))
+            {
+                Debug.Log(c.combatantName + " added to list with position: " + c.position);
+                c.FightPrep();
+                if (c.isAlly == false)
+                {
+                    xp += c.hp;
+                }
+                toMoveList.Add(c);
+            }
+            isFighting = true;
+            GiveTurnAsync();
+
+
+        }
+        else if(GetFloor() == 10)
+        {
+            foreach (ContainerManager cm in FindObjectsOfType<ContainerManager>(true))
+            {
+                if (cm.gameObject.name.Contains("Bosswrapper"))
+                {
+                    cm.gameObject.SetActive(true);
+                }
+
+            }
+        }
+
+       else if(r <= percentEncounterChance)
         {
             SpawnEnemies(true);
             foreach (Combatant c in FindObjectsOfType<Combatant>(false))
@@ -220,12 +259,30 @@ public class CombatManager : MonoBehaviour
 
     void SpawnEnemies(bool spawn)
     {
-        foreach(ContainerManager cm in FindObjectsOfType<ContainerManager>(true))
+        if (spawn)
         {
-            cm.gameObject.SetActive(spawn);
+            foreach (ContainerManager cm in FindObjectsOfType<ContainerManager>(true))
+            {
+                if (cm.gameObject.name.Contains("Enemy"))
+                {
+                    cm.gameObject.SetActive(spawn);
+                }
+
+            }
+        }
+        else
+        {
+            foreach (ContainerManager cm in FindObjectsOfType<ContainerManager>(false))
+            {
+               
+                    cm.gameObject.SetActive(spawn);
+                
+
+            }
         }
         
     }
+
 
     public bool AreWeFighting()
     {

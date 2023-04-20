@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b0052e6c842bb4e9750ec73a1e3ece, type: 3}
   m_Name: Floors
   m_EditorClassIdentifier: 
-  FloorNumber: 1
+  FloorNumber: 4
   boss1floor: 5
   boss2floor: 10
-  checkpointfloor1: 7
+  checkpointfloor1: 6
   checkpointfloor2: 11

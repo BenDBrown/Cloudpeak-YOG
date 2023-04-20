@@ -11,7 +11,7 @@ public class CheckingAndUpdatingTheFloorNumbers : MonoBehaviour
     void Start()
     {
         UpdateFloor();
-        if (1 < currentFloor && currentFloor < nextFloor.checkpointfloor1)
+        if (0 <= currentFloor && currentFloor < nextFloor.checkpointfloor1)
         {
             currentFloor = 1;
         }
