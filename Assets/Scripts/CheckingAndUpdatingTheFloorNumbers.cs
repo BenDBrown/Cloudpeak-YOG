@@ -14,14 +14,17 @@ public class CheckingAndUpdatingTheFloorNumbers : MonoBehaviour
         if (0 <= currentFloor && currentFloor < nextFloor.checkpointfloor1)
         {
             currentFloor = 1;
+            FloorToSetCurrent();
         }
         else if (nextFloor.checkpointfloor1 < currentFloor && currentFloor < nextFloor.checkpointfloor2 )
         {
             currentFloor = nextFloor.checkpointfloor1;
+            FloorToSetCurrent();
         }
         else if (currentFloor >= nextFloor.checkpointfloor2)
         {
             currentFloor = nextFloor.checkpointfloor2;
+            FloorToSetCurrent();
         }
 
     }
