@@ -175,6 +175,7 @@ public class CombatManager : MonoBehaviour
         if(victory && defeat)
         {
             // put result of a draw here
+            combatUI.VictoryScreen();
             Debug.Log("draw");
             isFighting = false;
             return true;
@@ -182,6 +183,7 @@ public class CombatManager : MonoBehaviour
         else if(victory)
         {
             Debug.Log("W");
+            combatUI.VictoryScreen();
             foreach (Combatant c in toMoveList)
             {
                 if(c.isAlly)
