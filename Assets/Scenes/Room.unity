@@ -1787,6 +1787,10 @@ PrefabInstance:
       propertyPath: containerManager
       value: 
       objectReference: {fileID: 1594139472}
+    - target: {fileID: 1587304058, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 902
+      objectReference: {fileID: 0}
     - target: {fileID: 1587304059, guid: f0515dd564db6b64190127e89ead9bfb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

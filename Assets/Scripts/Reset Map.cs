@@ -33,19 +33,19 @@ public class ResetMap : MonoBehaviour
     
     public void RemoveRooms()
     {
-        if (nextFloor.boss1floor == nextFloor.FloorNumber) 
+        if (nextFloor.boss1floor == nextFloor.FloorNumber || nextFloor.boss2floor == nextFloor.FloorNumber) 
         {
             Bossroom = GameObject.Find("Bossroom(Clone)");
             Destroy(Bossroom);
 
         }
-        if (nextFloor.boss1floor != nextFloor.FloorNumber)
+        if (nextFloor.boss1floor != nextFloor.FloorNumber || nextFloor.boss2floor != nextFloor.FloorNumber)
         {
             closedwalls = GameObject.FindGameObjectsWithTag("ClosedWall");
             templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
             rooms = templates.rooms;
             player = GameObject.FindGameObjectWithTag("Player").gameObject;
-            if (GameObject.Find("Stair(Clone)").gameObject != null)
+            if (GameObject.Find("Stair(Clone)") != null)
             {
                 stairs = GameObject.Find("Stair(Clone)").gameObject;
             }
@@ -78,7 +78,7 @@ public class ResetMap : MonoBehaviour
     public void SpawnSpawnroom()
     {
         Debug.Log("CurrentFloor: " + nextFloor.FloorNumber + "\nBossFloor: " + nextFloor.boss1floor);
-        if (spawnbool == false && nextFloor.boss1floor != nextFloor.FloorNumber)
+        if (spawnbool == false && nextFloor.boss1floor != nextFloor.FloorNumber && nextFloor.boss2floor != nextFloor.FloorNumber)
         {
             if (PSpawnerRoom.active == false)
             {
@@ -103,7 +103,7 @@ public class ResetMap : MonoBehaviour
 
         }
 
-        if (nextFloor.boss1floor == nextFloor.FloorNumber)
+        if (nextFloor.boss1floor == nextFloor.FloorNumber || nextFloor.boss2floor == nextFloor.FloorNumber)
         {
             PSpawnerRoom.SetActive(false);
             Instantiate(bossroomPre, PSpawnerRoom.transform.position, Quaternion.identity);
