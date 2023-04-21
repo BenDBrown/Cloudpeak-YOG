@@ -57,19 +57,31 @@ public class CombatManager : MonoBehaviour
             }
             isFighting = true;
             GiveTurnAsync();
-
-
         }
         else if(GetFloor() == 10)
         {
             foreach (ContainerManager cm in FindObjectsOfType<ContainerManager>(true))
             {
-                if (cm.gameObject.name.Contains("Bosswrapper"))
+                if (cm.gameObject.name == "Bosswrapper")
                 {
                     cm.gameObject.SetActive(true);
                 }
 
             }
+            Debug.Log("Spawn boss 2");
+
+            foreach (Combatant c in FindObjectsOfType<Combatant>(false))
+            {
+                Debug.Log(c.combatantName + " added to list with position: " + c.position);
+                c.FightPrep();
+                if (c.isAlly == false)
+                {
+                    xp += c.hp;
+                }
+                toMoveList.Add(c);
+            }
+            isFighting = true;
+            GiveTurnAsync();
         }
 
        else if(r <= percentEncounterChance)
@@ -96,6 +108,7 @@ public class CombatManager : MonoBehaviour
 
     async Task GiveTurnAsync()
     {
+        selectedAttack = null;
         combatUI.UpdateCursors();
         await Task.Delay(2000);
         combatUI.Setup();
@@ -124,7 +137,6 @@ public class CombatManager : MonoBehaviour
             {
                 combatUI.UpdateUI();
                 Debug.Log(turnCombatant.combatantName + " is attacking");
-                selectedAttack = null;
                 if (turnCombatant.isAlly == false)
                 {
                     await AIAttackAsync();
@@ -205,7 +217,10 @@ public class CombatManager : MonoBehaviour
     {
         foreach (int target in selectedAttack.Targets)
         {
-            await turnCombatant.AttackAsync(selectedAttack, GetCombatant(target));           
+            if(GetCombatant(target) != null)
+            {
+                await turnCombatant.AttackAsync(selectedAttack, GetCombatant(target));
+            }                 
         }
 
         await GiveTurnAsync();

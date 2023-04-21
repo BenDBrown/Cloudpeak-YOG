@@ -13,8 +13,10 @@ public class HealthBarManager : MonoBehaviour
 
     public void UpdateText()
     {
-        if(combatant == null)
+        if(combatant == null && containerManager.GetEnemy() != null)
         {
+            Debug.Log("this should mean it works");
+            gameObject.SetActive(true);
             nameSpace.text = containerManager.GetEnemy().combatantName;
             if(Mathf.RoundToInt(containerManager.GetEnemy().hp) != 0)
             {
@@ -22,11 +24,17 @@ public class HealthBarManager : MonoBehaviour
             }
             else
             {
-                hp.text = "1";
+                hp.text = "0";
+                gameObject.SetActive(false);
             }
+        }
+        else if (combatant == null && containerManager.GetEnemy() == null)
+        {
+            gameObject.SetActive(false);
         }
         else
         {
+            gameObject.SetActive(true);
             nameSpace.text = combatant.combatantName;
             if (Mathf.RoundToInt(combatant.hp) != 0)
             {
@@ -34,7 +42,8 @@ public class HealthBarManager : MonoBehaviour
             }
             else
             {
-                hp.text = "1";
+                hp.text = "0";
+                gameObject.SetActive(false);
             }  
         } 
     }

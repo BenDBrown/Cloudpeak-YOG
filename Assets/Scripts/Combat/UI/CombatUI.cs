@@ -48,7 +48,9 @@ public class CombatUI : MonoBehaviour
     {
         foreach(HealthBarManager healthBarManager in HealthBarManagers)
         {
+            healthBarManager.gameObject.SetActive(true);
             healthBarManager.UpdateText();
+            Debug.Log(healthBarManager.gameObject.name);
         }
 
         if (combatManager.GetTurnCombatant().isAlly)
@@ -80,14 +82,17 @@ public class CombatUI : MonoBehaviour
         foreach (int target in attack.Targets)
         {
             Debug.Log(target);
-            combatManager.GetCombatant(target).SetButton(true);
-            combatManager.GetCombatant(target).SetCursorActive(true);
+            if(combatManager.GetCombatant(target) != null)
+            {
+                combatManager.GetCombatant(target).SetButton(true);
+                combatManager.GetCombatant(target).SetCursorActive(true);
+            }
+            
         }
     }
 
     public async Task SelectAttackAsync(int selectedAttack)
     {
-        Debug.Log("?");
         combatManager.SetSelectedAttack(selectedAttack);
         if (combatManager.GetSelectedAttack().aoe)
         {
