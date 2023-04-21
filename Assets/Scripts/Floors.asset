@@ -15,5 +15,5 @@ MonoBehaviour:
   FloorNumber: 1
   boss1floor: 5
   boss2floor: 10
-  checkpointfloor1: 7
+  checkpointfloor1: 6
   checkpointfloor2: 11

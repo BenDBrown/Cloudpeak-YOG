@@ -13,6 +13,9 @@ public class ResetMap : MonoBehaviour
     private RoomTemplate TS;
     private GameObject[] closedwalls;
     public GameObject PSpawnerRoom;
+    public NextFloor nextFloor;
+    public GameObject bossroomPre;
+    private GameObject Bossroom;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,37 +33,57 @@ public class ResetMap : MonoBehaviour
     
     public void RemoveRooms()
     {
-        closedwalls = GameObject.FindGameObjectsWithTag("ClosedWall");
-        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
-        rooms = templates.rooms;
-        player = GameObject.FindGameObjectWithTag("Player").gameObject;
-        stairs = GameObject.Find("Stair(Clone)").gameObject;
-        foreach (GameObject room in rooms)
+        if (nextFloor.boss1floor == nextFloor.FloorNumber) 
         {
-            
-                Destroy(room);
+            Bossroom = GameObject.Find("Bossroom(Clone)");
+            Destroy(Bossroom);
+
         }
-        if (closedwalls != null)
+        if (nextFloor.boss1floor != nextFloor.FloorNumber)
         {
-            foreach (GameObject CW in closedwalls)
+            closedwalls = GameObject.FindGameObjectsWithTag("ClosedWall");
+            templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
+            rooms = templates.rooms;
+            player = GameObject.FindGameObjectWithTag("Player").gameObject;
+            if (GameObject.Find("Stair(Clone)").gameObject != null)
             {
-                Destroy(CW);
+                stairs = GameObject.Find("Stair(Clone)").gameObject;
             }
+            if (rooms != null)
+            {
+                foreach (GameObject room in rooms)
+                {
+
+                    Destroy(room);
+                }
+            }
+            if (closedwalls != null)
+            {
+                foreach (GameObject CW in closedwalls)
+                {
+                    Destroy(CW);
+                }
+            }
+
+
+            Debug.Log("PLAYER DIE");
+            Destroy(player);
+            Destroy(stairs);
+            rooms.Clear();
+            
         }
-       
-        Debug.Log("PLAYER DIE");
-        Destroy(player);
-        Destroy(stairs);
-        rooms.Clear();
         spawnbool = false;
-        
     }
 
     public void SpawnSpawnroom()
     {
-        if (spawnbool == false)
+        Debug.Log("CurrentFloor: " + nextFloor.FloorNumber + "\nBossFloor: " + nextFloor.boss1floor);
+        if (spawnbool == false && nextFloor.boss1floor != nextFloor.FloorNumber)
         {
-
+            if (PSpawnerRoom.active == false)
+            {
+                PSpawnerRoom.SetActive(true);
+            }
             foreach (roomspawner roomspawner in PSpawnerRoom.GetComponentsInChildren<roomspawner>())
             {
                 if (roomspawner.openingDirection != 0)
@@ -78,6 +101,13 @@ public class ResetMap : MonoBehaviour
             TS.spawnedStairs = false;
            
 
+        }
+
+        if (nextFloor.boss1floor == nextFloor.FloorNumber)
+        {
+            PSpawnerRoom.SetActive(false);
+            Instantiate(bossroomPre, PSpawnerRoom.transform.position, Quaternion.identity);
+            
         }
     }
 }

@@ -12,10 +12,10 @@ public class GoingToTheNextFloor : MonoBehaviour
     {
         CAUTFN = GameObject.Find("FloorCounter").GetComponent<CheckingAndUpdatingTheFloorNumbers>();
         RM = GameObject.Find("FloorCounter").GetComponent<ResetMap>();
-        CAUTFN.GoingUpAFloor();
         RM.RemoveRooms();
+        CAUTFN.GoingUpAFloor();
         RM.SpawnSpawnroom();
-        
+
     }
    
 }
