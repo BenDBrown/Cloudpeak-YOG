@@ -14,7 +14,10 @@ public class ItemSlot : MonoBehaviour
 
     public void equipItem()
     {
-        statsScreen.selectedCombatant.EquipItem(item);
+        if(item != null)
+        {
+            statsScreen.selectedCombatant.EquipItem(item);
+        }       
     }
 
     public void SetItem(Item i)

@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 3658277920689209585}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1632228147705196099
 MonoBehaviour:
@@ -153,7 +153,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7162357773198720715}
   - component: {fileID: 5425039711771670161}
-  - component: {fileID: 4418841215742178283}
   m_Layer: 0
   m_Name: Attack3
   m_TagString: Untagged
@@ -188,35 +187,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Bark
-  dmgMod: 0
+  attackName: Soul Attack
+  dmgMod: 0.4
   dmgInput: 0
   dmgOutput: 2
   Targets: 00000000010000000200000003000000
   aoe: 0
   includeSelf: 0
   excludeSelf: 0
---- !u!114 &4418841215742178283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4876308146885795967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusName: Intimidated
-  turnDuration: 1
-  physicalAttackDelta: 0.5
-  magicalAttackDelta: 0.5
-  physicalDefenseDelta: 1
-  magicalDefenseDelta: 1
-  speedDelta: 1
-  hpDelta: 0
-  stunChance: 0
 --- !u!1 &5176861708640668387
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3207950240880814887}
   - component: {fileID: 2069758376132709728}
+  - component: {fileID: 1888410063}
   m_Layer: 0
   m_Name: Attack1
   m_TagString: Untagged
@@ -261,14 +240,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Wolf Bite
-  dmgMod: 1
+  attackName: Immortal's Armor
+  dmgMod: 0
   dmgInput: 0
-  dmgOutput: 0
-  Targets: 0000000001000000
+  dmgOutput: 2
+  Targets: 
   aoe: 0
-  includeSelf: 0
+  includeSelf: 1
   excludeSelf: 0
+--- !u!114 &1888410063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176861708640668387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusName: Fortified
+  turnDuration: 3
+  physicalAttackDelta: 1
+  magicalAttackDelta: 1
+  physicalDefenseDelta: 1.2
+  magicalDefenseDelta: 1.2
+  speedDelta: 1
+  hpDelta: 2
+  stunChance: 0
 --- !u!1 &6583138516258646695
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,18 +375,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 0
-  vitalityBase: 10
-  physicalAttackBase: 12
-  magicalAttackBase: 10
-  physicalDefenseBase: 6
-  magicalDefenseBase: 8
+  vitalityBase: 60
+  physicalAttackBase: 16.5
+  magicalAttackBase: 16.5
+  physicalDefenseBase: 20
+  magicalDefenseBase: 23
   speedBase: 12
-  vitalityGrowth: 1
-  physicalAttackGrowth: 1.5
-  magicalAttackGrowth: 1.3
-  physicalDefenseGrowth: 1
-  magicalDefenseGrowth: 1.2
-  speedGrowth: 1.6
+  vitalityGrowth: 0
+  physicalAttackGrowth: 0
+  magicalAttackGrowth: 0
+  physicalDefenseGrowth: 0
+  magicalDefenseGrowth: 0
+  speedGrowth: 0
   vitality: 0
   physicalAttack: 0
   magicalAttack: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
   magicalDefense: 0
   speed: 0
   hp: 0
-  combatantName: Wolf
+  combatantName: Bringer of Death
   isAlly: 0
   attack1: {fileID: 2069758376132709728}
   attack2: {fileID: 7702689349952952583}
@@ -522,11 +522,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Howl
-  dmgMod: 0
+  attackName: Scythe slam
+  dmgMod: 0.6
   dmgInput: 0
-  dmgOutput: 2
-  Targets: 04000000050000000600000007000000
+  dmgOutput: 0
+  Targets: 00000000010000000200000003000000
   aoe: 1
   includeSelf: 0
   excludeSelf: 0
@@ -542,15 +542,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusName: Bloodlust
+  statusName: Soul shocked
   turnDuration: 1
-  physicalAttackDelta: 1.5
-  magicalAttackDelta: 1.5
+  physicalAttackDelta: 1
+  magicalAttackDelta: 1
   physicalDefenseDelta: 1
   magicalDefenseDelta: 1
   speedDelta: 1
   hpDelta: 0
-  stunChance: 0
+  stunChance: 20
 --- !u!1 &8107102433676770058
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,10 +596,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Pounce
-  dmgMod: 0.8
-  dmgInput: 0
-  dmgOutput: 0
+  attackName: Death's grip
+  dmgMod: 1.2
+  dmgInput: 1
+  dmgOutput: 1
   Targets: 00000000010000000200000003000000
   aoe: 0
   includeSelf: 0
@@ -616,12 +616,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusName: Limp
+  statusName: Soul scarred
   turnDuration: 1
-  physicalAttackDelta: 1
-  magicalAttackDelta: 1
-  physicalDefenseDelta: 1
-  magicalDefenseDelta: 1
+  physicalAttackDelta: 0.8
+  magicalAttackDelta: 0.8
+  physicalDefenseDelta: 0.8
+  magicalDefenseDelta: 0.8
   speedDelta: 0.5
   hpDelta: 0
   stunChance: 0

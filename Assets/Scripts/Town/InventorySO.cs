@@ -18,7 +18,18 @@ public class InventorySO : ScriptableObject
 
     public void AddItemsToSO(List<Item> items)
     {
-        foreach(Item i in items)
+        itemType.Clear();
+        vitality.Clear();
+        physicalAttack.Clear();
+        magicalAttack.Clear();
+        physicalDefense.Clear();
+        magicalDefense.Clear();
+        speed.Clear();
+        weapon.Clear();
+        itemName.Clear();
+        spritePositon.Clear();
+
+        foreach (Item i in items)
         {
             vitality.Add(i.vitality);
             physicalAttack.Add(i.physicalAttack);

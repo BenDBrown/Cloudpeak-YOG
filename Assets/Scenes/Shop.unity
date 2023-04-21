@@ -3038,7 +3038,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14188affda0ab3429732ad578380cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 10
+  gold: 1000
+  items: []
   level: 1
   xp: 0
   inventorySO: {fileID: 11400000, guid: 9cd7fa13deb4520459f06650458e5db9, type: 2}
@@ -3070,6 +3071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3285a811a43f206499c8597538129592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Inventory: {fileID: 1962747264}
 --- !u!114 &1962747267
 MonoBehaviour:
   m_ObjectHideFlags: 0

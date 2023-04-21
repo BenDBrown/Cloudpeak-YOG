@@ -35,11 +35,6 @@ public class StatsScreen : MonoBehaviour
         }
     }
 
-    public void SelectItem(Item item)
-    {
-        selectedItem = item;
-    }
-
     public void ShowStats(int i)
     {
         if (i == 1)

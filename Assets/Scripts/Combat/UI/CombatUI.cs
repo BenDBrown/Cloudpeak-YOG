@@ -134,7 +134,10 @@ public class CombatUI : MonoBehaviour
 
     public void VictoryScreen()
     {
-        postFightScreen.enabled = true;
+        AttackPanel.SetActive(false);
+        EnemyHealthDisplay.SetActive(false);
+
+        // postFightScreen.enabled = true;
     }
 
 }

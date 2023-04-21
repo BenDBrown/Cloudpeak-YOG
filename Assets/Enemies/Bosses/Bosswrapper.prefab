@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Bark
-  dmgMod: 0
-  dmgInput: 0
-  dmgOutput: 2
+  attackName: Thunder strike
+  dmgMod: 1
+  dmgInput: 1
+  dmgOutput: 1
   Targets: 00000000010000000200000003000000
   aoe: 0
   includeSelf: 0
@@ -65,12 +65,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusName: Intimidated
-  turnDuration: 1
-  physicalAttackDelta: 0.5
-  magicalAttackDelta: 0.5
-  physicalDefenseDelta: 1
-  magicalDefenseDelta: 1
+  statusName: Electrified
+  turnDuration: 2
+  physicalAttackDelta: 1
+  magicalAttackDelta: 1
+  physicalDefenseDelta: 0.8
+  magicalDefenseDelta: 0.8
   speedDelta: 1
   hpDelta: 0
   stunChance: 0
@@ -84,6 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 275650668271779989}
   - component: {fileID: 2321477578396864017}
+  - component: {fileID: 394572653}
   m_Layer: 0
   m_Name: Attack1
   m_TagString: Untagged
@@ -118,14 +119,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Wolf Bite
-  dmgMod: 1
+  attackName: Sun's embrace
+  dmgMod: 0
   dmgInput: 0
-  dmgOutput: 0
-  Targets: 0000000001000000
+  dmgOutput: 2
+  Targets: 
   aoe: 0
-  includeSelf: 0
+  includeSelf: 1
   excludeSelf: 0
+--- !u!114 &394572653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614066221617330592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusName: Embraced by the sun
+  turnDuration: 3
+  physicalAttackDelta: 1
+  magicalAttackDelta: 1
+  physicalDefenseDelta: 1.3
+  magicalDefenseDelta: 1.3
+  speedDelta: 1.3
+  hpDelta: 3
+  stunChance: 0
 --- !u!1 &2356053168033979986
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +179,7 @@ Transform:
   m_Children:
   - {fileID: 1138290366975168746}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3539247830334196889
 MonoBehaviour:
@@ -182,7 +204,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8050982813051415916}
   - component: {fileID: 7834721824101080688}
-  - component: {fileID: 2214073172434429543}
   m_Layer: 0
   m_Name: Attack4
   m_TagString: Untagged
@@ -217,35 +238,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Pounce
-  dmgMod: 0.8
-  dmgInput: 0
-  dmgOutput: 0
+  attackName: Solar flare
+  dmgMod: 1.2
+  dmgInput: 1
+  dmgOutput: 1
   Targets: 00000000010000000200000003000000
   aoe: 0
   includeSelf: 0
   excludeSelf: 0
---- !u!114 &2214073172434429543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3311605775110884582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusName: Limp
-  turnDuration: 1
-  physicalAttackDelta: 1
-  magicalAttackDelta: 1
-  physicalDefenseDelta: 1
-  magicalDefenseDelta: 1
-  speedDelta: 0.5
-  hpDelta: 0
-  stunChance: 0
 --- !u!1 &5017491044069455065
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,18 +352,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 0
-  vitalityBase: 10
-  physicalAttackBase: 12
-  magicalAttackBase: 10
-  physicalDefenseBase: 6
-  magicalDefenseBase: 8
-  speedBase: 12
-  vitalityGrowth: 1
-  physicalAttackGrowth: 1.5
-  magicalAttackGrowth: 1.3
-  physicalDefenseGrowth: 1
-  magicalDefenseGrowth: 1.2
-  speedGrowth: 1.6
+  vitalityBase: 130
+  physicalAttackBase: 25
+  magicalAttackBase: 25
+  physicalDefenseBase: 20
+  magicalDefenseBase: 20
+  speedBase: 21
+  vitalityGrowth: 0
+  physicalAttackGrowth: 0
+  magicalAttackGrowth: 0
+  physicalDefenseGrowth: 0
+  magicalDefenseGrowth: 0
+  speedGrowth: 0
   vitality: 0
   physicalAttack: 0
   magicalAttack: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   magicalDefense: 0
   speed: 0
   hp: 0
-  combatantName: Wolf
+  combatantName: Norleras The Sky Eater
   isAlly: 0
   attack1: {fileID: 2321477578396864017}
   attack2: {fileID: 3965613463112976779}
@@ -499,11 +499,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc08e53b4c1bf64784e854900b0b761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Howl
-  dmgMod: 0
-  dmgInput: 0
-  dmgOutput: 2
-  Targets: 04000000050000000600000007000000
+  attackName: Collapsing sky
+  dmgMod: 1
+  dmgInput: 1
+  dmgOutput: 1
+  Targets: 00000000010000000200000003000000
   aoe: 1
   includeSelf: 0
   excludeSelf: 0
@@ -519,15 +519,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffa6506929f8b641a637823e329d229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusName: Bloodlust
+  statusName: Blinded by the sun
   turnDuration: 1
-  physicalAttackDelta: 1.5
-  magicalAttackDelta: 1.5
+  physicalAttackDelta: 1
+  magicalAttackDelta: 1
   physicalDefenseDelta: 1
   magicalDefenseDelta: 1
   speedDelta: 1
   hpDelta: 0
-  stunChance: 0
+  stunChance: 10
 --- !u!1 &7854493540397858700
 GameObject:
   m_ObjectHideFlags: 0

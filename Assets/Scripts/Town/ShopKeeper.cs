@@ -40,6 +40,7 @@ public class ShopKeeper : MonoBehaviour
     {
         if(itemSlotOneToSix == 1)
         {
+            Debug.Log("item buying");
             int price = shopSlot1.GetQuality() * inventory.level;
             inventory.addItem(shopSlot1, price);
             RandomizeShopSlot(shopSlot1);
